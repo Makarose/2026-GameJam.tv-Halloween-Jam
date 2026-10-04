@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c24flhkfq4msn"]
+
+[ext_resource type="Script" uid="uid://brix720y3n0ig" path="res://Scripts/crowd.gd" id="1_ufwdi"]
+[ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="2_ds8sv"]
+
+[node name="Crowd" type="Node3D" unique_id=384395682]
+script = ExtResource("1_ufwdi")
+count = 200
+area = Vector2(20, 10)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=929768269]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881922, 0, -0.25881922, 0.9659258, 0, 6.3, 15.400001)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1306274698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -30, 0)
+
+[node name="Scenery" type="Node3D" parent="." unique_id=1876543879]
+metadata/_edit_group_ = true
+
+[node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
+
+[node name="Characters" parent="EditorPreview" unique_id=894406257 instance=ExtResource("2_ds8sv")]

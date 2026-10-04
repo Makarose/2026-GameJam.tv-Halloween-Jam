@@ -2,6 +2,7 @@ class_name CharacterBuilder
 extends Node3D
 
 const CATEGORIES := ["hat_", "shoes_", "glasses_", "gloves_", "pants_", "top_", "socks_", "face_", "costume_"]
+const SKIP := [&"Body", &"Custom", &"Faces", &"Glasses", &"Gloves", &"Hats", &"Pants", &"Shoes", &"Socks", &"Top"]
 # Categories that are still allowed when a character wears a costume
 const COSTUME_KEEPS := ["costume_", "face_"]
 @export_range(0, 100, 1, "suffix:%") var costume_percent := 40
@@ -21,7 +22,7 @@ func randomize_look() -> void:
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
 	var groups := {}
 	for node in skeleton.get_children():
-		if not node is MeshInstance3D or node.name == &"Body":
+		if not node is MeshInstance3D or SKIP.has(node.name):
 			continue
 		var matched := false
 		for prefix in CATEGORIES:

@@ -12,6 +12,7 @@ var positions: Array[Vector3] = []
 
 
 func _ready() -> void:
+	$EditorPreview.queue_free()
 	for i in count:
 		var character := _make_unique_character()
 		character.position = _find_spot()
@@ -35,7 +36,7 @@ func _make_unique_character() -> CharacterBuilder:
 func _find_spot() -> Vector3:
 	var best := Vector3.ZERO
 	var best_dist := -1.0
-	for attempt in 30:
+	for attempt in 300:
 		var pos := Vector3(
 			randf_range(-area.x, area.x), 0.0, randf_range(-area.y, area.y))
 		var nearest := INF
@@ -47,5 +48,6 @@ func _find_spot() -> Vector3:
 		if nearest > best_dist:
 			best_dist = nearest
 			best = pos
+	push_warning("No free spot found. Raise Area or lower Min Spacing.")
 	positions.append(best)
 	return best

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnffieqpp247e"]
 
 [ext_resource type="PackedScene" uid="uid://bru25ckucprv2" path="res://Assets/CharacterMeshes.glb" id="1_uwqtg"]
-[ext_resource type="Script" uid="uid://ytw3eyx6skg1" path="res://Scripts/character.gd" id="2_xtbha"]
+[ext_resource type="Script" uid="uid://ytw3eyx6skg1" path="res://Scripts/characters.gd" id="2_xtbha"]
 [ext_resource type="Texture2D" uid="uid://ccbat0pdy655f" path="res://Assets/Textures/palette_material.tres" id="3_sxmeh"]
 [ext_resource type="Texture2D" uid="uid://ekkj66jsk4v" path="res://Assets/Textures/Color Palette.png" id="4_42xpr"]
 [ext_resource type="AnimationLibrary" uid="uid://drf8x3vqsfvbb" path="res://Assets/Animations.glb" id="5_sxmeh"]
@@ -219,7 +219,7 @@ albedo_texture = ExtResource("3_sxmeh")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4sc2j"]
 albedo_texture = ExtResource("3_sxmeh")
 
-[node name="CharacterMeshes" unique_id=894406257 instance=ExtResource("1_uwqtg")]
+[node name="Characters" unique_id=894406257 instance=ExtResource("1_uwqtg")]
 script = ExtResource("2_xtbha")
 costume_percent = 80
 
