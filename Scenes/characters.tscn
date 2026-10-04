@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnffieqpp247e"]
 
 [ext_resource type="PackedScene" uid="uid://bru25ckucprv2" path="res://Assets/CharacterMeshes.glb" id="1_uwqtg"]
-[ext_resource type="Script" uid="uid://ytw3eyx6skg1" path="res://Scripts/character_meshes.gd" id="2_xtbha"]
+[ext_resource type="Script" uid="uid://ytw3eyx6skg1" path="res://Scripts/character.gd" id="2_xtbha"]
 [ext_resource type="Texture2D" uid="uid://ccbat0pdy655f" path="res://Assets/Textures/palette_material.tres" id="3_sxmeh"]
 [ext_resource type="Texture2D" uid="uid://ekkj66jsk4v" path="res://Assets/Textures/Color Palette.png" id="4_42xpr"]
 [ext_resource type="AnimationLibrary" uid="uid://drf8x3vqsfvbb" path="res://Assets/Animations.glb" id="5_sxmeh"]
