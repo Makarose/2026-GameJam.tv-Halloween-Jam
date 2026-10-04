@@ -2,6 +2,8 @@ class_name CharacterBuilder
 extends Node3D
 
 const CATEGORIES := ["hat_", "shoes_", "glasses_", "gloves_", "pants_", "top_", "socks_", "face_", "costume_"]
+# Categories that are still allowed when a character wears a costume
+const COSTUME_KEEPS := ["costume_", "face_"]
 @export_range(0, 100, 1, "suffix:%") var costume_percent := 40
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
 
@@ -36,7 +38,7 @@ func randomize_look() -> void:
 		var keep: Node = options.pick_random()
 		if prefix == "costume_" and not costume:
 			keep = null
-		elif costume and (prefix == "top_" or prefix == "pants_"):
+		elif costume and not COSTUME_KEEPS.has(prefix):
 			keep = null
 		for piece in options:
 			if piece != keep:

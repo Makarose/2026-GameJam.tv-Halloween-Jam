@@ -1,13 +1,188 @@
 [gd_scene format=3 uid="uid://c24flhkfq4msn"]
 
 [ext_resource type="Script" uid="uid://brix720y3n0ig" path="res://Scripts/crowd.gd" id="1_y5fp1"]
+[ext_resource type="Script" uid="uid://dsafq7xofqeet" path="res://Scripts/scenery_scatter.gd" id="2_82v1a"]
+[ext_resource type="PackedScene" uid="uid://c3k0crrheayyj" path="res://Assets/Environments/KayKit Halloween Bits/arch.gltf" id="3_b85q6"]
+[ext_resource type="PackedScene" uid="uid://btavyqecm8wcc" path="res://Assets/Environments/KayKit Halloween Bits/arch_gate.gltf" id="4_e6jjm"]
+[ext_resource type="PackedScene" uid="uid://8b26bkvqkfuo" path="res://Assets/Environments/KayKit Halloween Bits/crypt.gltf" id="16_aeiqa"]
+[ext_resource type="PackedScene" uid="uid://bgwsm5j5j3ohm" path="res://Assets/Environments/KayKit Halloween Bits/fence.gltf" id="17_73ogv"]
+[ext_resource type="PackedScene" uid="uid://bsunf4184ns62" path="res://Assets/Environments/KayKit Halloween Bits/fence_broken.gltf" id="18_synk2"]
+[ext_resource type="PackedScene" uid="uid://f4lr6ti63yfj" path="res://Assets/Environments/KayKit Halloween Bits/fence_gate.gltf" id="19_b0fl2"]
+[ext_resource type="PackedScene" uid="uid://c3c0sefs2gw2j" path="res://Assets/Environments/KayKit Halloween Bits/fence_pillar.gltf" id="20_nkfw6"]
+[ext_resource type="PackedScene" uid="uid://bs3r531rh5bay" path="res://Assets/Environments/KayKit Halloween Bits/fence_pillar_broken.gltf" id="21_8oqkx"]
+[ext_resource type="PackedScene" uid="uid://isp0g8acbgvg" path="res://Assets/Environments/KayKit Halloween Bits/fence_seperate.gltf" id="22_45twf"]
+[ext_resource type="PackedScene" uid="uid://ngth1nbplq4o" path="res://Assets/Environments/KayKit Halloween Bits/fence_seperate_broken.gltf" id="23_njqd8"]
+[ext_resource type="PackedScene" uid="uid://dhibgi8j1hljb" path="res://Assets/Environments/KayKit Halloween Bits/floor_dirt.gltf" id="24_6jni4"]
+[ext_resource type="PackedScene" uid="uid://bt84vl0rgtnnu" path="res://Assets/Environments/KayKit Halloween Bits/floor_dirt_grave.gltf" id="25_ttox5"]
+[ext_resource type="PackedScene" uid="uid://5ga085hn6qjo" path="res://Assets/Environments/KayKit Halloween Bits/floor_dirt_small.gltf" id="26_qxdw5"]
+[ext_resource type="PackedScene" uid="uid://duwkhgj2gayk5" path="res://Assets/Environments/KayKit Halloween Bits/gravemarker_A.gltf" id="27_d3uva"]
+[ext_resource type="PackedScene" uid="uid://dsogtfq1u5gow" path="res://Assets/Environments/KayKit Halloween Bits/gravemarker_B.gltf" id="28_iuba0"]
+[ext_resource type="PackedScene" uid="uid://jb6e8af3wnj2" path="res://Assets/Environments/KayKit Halloween Bits/gravestone.gltf" id="29_o63cd"]
+[ext_resource type="PackedScene" uid="uid://cexiamn6n6nrx" path="res://Assets/Environments/KayKit Halloween Bits/grave_A.gltf" id="30_gd7wi"]
+[ext_resource type="PackedScene" uid="uid://wpfhderlltu1" path="res://Assets/Environments/KayKit Halloween Bits/grave_A_destroyed.gltf" id="31_dx6bs"]
+[ext_resource type="PackedScene" uid="uid://cmoy2jh7soct" path="res://Assets/Environments/KayKit Halloween Bits/grave_B.gltf" id="32_yub7n"]
+[ext_resource type="PackedScene" uid="uid://dw35bwksni873" path="res://Assets/Environments/KayKit Halloween Bits/path_A.gltf" id="35_0l2uj"]
+[ext_resource type="PackedScene" uid="uid://uvbxbcjjtkqo" path="res://Assets/Environments/KayKit Halloween Bits/path_B.gltf" id="36_xfmq0"]
+[ext_resource type="PackedScene" uid="uid://do0fp7id5sv65" path="res://Assets/Environments/KayKit Halloween Bits/path_C.gltf" id="37_xo3ux"]
+[ext_resource type="PackedScene" uid="uid://7venuag43nhr" path="res://Assets/Environments/KayKit Halloween Bits/path_D.gltf" id="38_302bw"]
+[ext_resource type="PackedScene" uid="uid://bx3ehfl7a1sx0" path="res://Assets/Environments/KayKit Halloween Bits/pillar.gltf" id="39_w0a65"]
+[ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="43_78igl"]
+[ext_resource type="PackedScene" uid="uid://td2g8pqalfeg" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_orange.gltf" id="45_0p8ji"]
+[ext_resource type="PackedScene" uid="uid://38bybga4vd5k" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_orange_jackolantern.gltf" id="46_x7xj5"]
+[ext_resource type="PackedScene" uid="uid://x64f8ybtmyfn" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_orange_small.gltf" id="47_ligas"]
+[ext_resource type="PackedScene" uid="uid://gj30n2brp81q" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_yellow.gltf" id="48_kpbkf"]
+[ext_resource type="PackedScene" uid="uid://c65oavroyvwpn" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_yellow_jackolantern.gltf" id="49_mtenl"]
+[ext_resource type="PackedScene" uid="uid://djo0468lv8x2n" path="res://Assets/Environments/KayKit Halloween Bits/pumpkin_yellow_small.gltf" id="50_7nqkj"]
+[ext_resource type="PackedScene" uid="uid://dlk7msbaun55d" path="res://Assets/Environments/KayKit Halloween Bits/tree_dead_large.gltf" id="56_law8u"]
+[ext_resource type="PackedScene" uid="uid://dfyyft5vu5dek" path="res://Assets/Environments/KayKit Halloween Bits/tree_dead_large_decorated.gltf" id="57_da7o0"]
+[ext_resource type="PackedScene" uid="uid://di4vbplke8hc3" path="res://Assets/Environments/KayKit Halloween Bits/tree_dead_medium.gltf" id="58_jfbfx"]
+[ext_resource type="PackedScene" uid="uid://doqa0h7pxg2r5" path="res://Assets/Environments/KayKit Halloween Bits/tree_dead_small.gltf" id="59_h4my2"]
+[ext_resource type="PackedScene" uid="uid://fs7djreyovy1" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_orange_large.gltf" id="60_5a8sa"]
+[ext_resource type="PackedScene" uid="uid://kxkxihevndpx" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_orange_medium.gltf" id="61_hmg1f"]
+[ext_resource type="PackedScene" uid="uid://73n1b0nfvi6e" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_orange_small.gltf" id="62_wgl67"]
+[ext_resource type="PackedScene" uid="uid://ciwlixe0ymdkg" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_yellow_large.gltf" id="63_egyy4"]
+[ext_resource type="PackedScene" uid="uid://bug1o75t8a51p" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_yellow_medium.gltf" id="64_bwsim"]
+[ext_resource type="PackedScene" uid="uid://dirwk86guo4n2" path="res://Assets/Environments/KayKit Halloween Bits/tree_pine_yellow_small.gltf" id="65_wbi2i"]
 
 [node name="Crowd" type="Node3D" unique_id=384395682]
 script = ExtResource("1_y5fp1")
-count = 100
+count = 75
+min_spacing = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=929768269]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 8, 16)
+transform = Transform3D(1, 0, 0, 0, 0.9063078, 0.42261833, 0, -0.42261833, 0.9063078, 0, 4.8, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1306274698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -30, 0)
+
+[node name="Scenery" type="Node3D" parent="." unique_id=1876543879]
+visible = false
+script = ExtResource("2_82v1a")
+items = Array[PackedScene]([ExtResource("3_b85q6"), ExtResource("4_e6jjm"), ExtResource("16_aeiqa"), ExtResource("17_73ogv"), ExtResource("18_synk2"), ExtResource("19_b0fl2"), ExtResource("20_nkfw6"), ExtResource("21_8oqkx"), ExtResource("22_45twf"), ExtResource("23_njqd8"), ExtResource("24_6jni4"), ExtResource("25_ttox5"), ExtResource("26_qxdw5"), ExtResource("27_d3uva"), ExtResource("28_iuba0"), ExtResource("29_o63cd"), ExtResource("30_gd7wi"), ExtResource("31_dx6bs"), ExtResource("32_yub7n"), ExtResource("35_0l2uj"), ExtResource("36_xfmq0"), ExtResource("37_xo3ux"), ExtResource("38_302bw"), ExtResource("39_w0a65"), ExtResource("45_0p8ji"), ExtResource("46_x7xj5"), ExtResource("47_ligas"), ExtResource("48_kpbkf"), ExtResource("49_mtenl"), ExtResource("50_7nqkj"), ExtResource("56_law8u"), ExtResource("57_da7o0"), ExtResource("58_jfbfx"), ExtResource("59_h4my2"), ExtResource("60_5a8sa"), ExtResource("61_hmg1f"), ExtResource("62_wgl67"), ExtResource("63_egyy4"), ExtResource("64_bwsim"), ExtResource("65_wbi2i")])
+count = 0
+area = Vector2(40, 20)
+metadata/_edit_group_ = true
+
+[node name="fence2" type="Node3D" parent="Scenery" unique_id=1949152884 instance=ExtResource("17_73ogv")]
+transform = Transform3D(-1.0702238, 0, 0.36286548, 0, 1.1300665, 0, -0.36286548, 0, -1.0702238, -8.770796, 0, 1.5964862)
+
+[node name="pumpkin_orange_small2" type="Node3D" parent="Scenery" unique_id=257213925 instance=ExtResource("47_ligas")]
+transform = Transform3D(-0.30779722, 0, -0.9784912, 0, 1.0257603, 0, 0.9784912, 0, -0.30779722, -11.665885, 0, -0.42186698)
+
+[node name="tree_pine_yellow_medium2" type="Node3D" parent="Scenery" unique_id=427482298 instance=ExtResource("64_bwsim")]
+transform = Transform3D(-0.78914154, 0, -0.4397849, 0, 0.90341306, 0, 0.4397849, 0, -0.78914154, -1.0761838, 0, -2.4392385)
+
+[node name="fence_seperate_broken2" type="Node3D" parent="Scenery" unique_id=1833547820 instance=ExtResource("23_njqd8")]
+transform = Transform3D(-0.99538326, 0, -0.19255552, 0, 1.013837, 0, 0.19255552, 0, -0.99538326, -1.2246778, 0, 5.165157)
+
+[node name="tree_dead_large_decorated2" type="Node3D" parent="Scenery" unique_id=140473871 instance=ExtResource("57_da7o0")]
+transform = Transform3D(0.8859349, 0, 0.527076, 0, 1.0308684, 0, -0.527076, 0, 0.8859349, -13.376476, 0, -3.8289661)
+
+[node name="path_B2" type="Node3D" parent="Scenery" unique_id=851782437 instance=ExtResource("36_xfmq0")]
+transform = Transform3D(1.1201644, 0, 0.2969197, 0, 1.1588484, 0, -0.2969197, 0, 1.1201644, -7.5962653, 0, -5.699566)
+
+[node name="grave_A_destroyed2" type="Node3D" parent="Scenery" unique_id=437119396 instance=ExtResource("31_dx6bs")]
+transform = Transform3D(-0.75535256, 0, 0.8561179, 0, 1.1417072, 0, -0.8561179, 0, -0.75535256, -10.620105, 0, 1.9032433)
+
+[node name="tree_pine_yellow_large2" type="Node3D" parent="Scenery" unique_id=1921174791 instance=ExtResource("63_egyy4")]
+transform = Transform3D(-0.13732164, 0, -0.95772403, 0, 0.96751875, 0, 0.95772403, 0, -0.13732164, 1.3811384, 0, 3.08504)
+
+[node name="pumpkin_yellow_jackolantern2" type="Node3D" parent="Scenery" unique_id=1481407731 instance=ExtResource("49_mtenl")]
+transform = Transform3D(-0.2697757, 0, -1.0762461, 0, 1.1095426, 0, 1.0762461, 0, -0.2697757, -6.5958166, 0, -1.6328934)
+
+[node name="grave_A2" type="Node3D" parent="Scenery" unique_id=733124603 instance=ExtResource("30_gd7wi")]
+transform = Transform3D(1.1142659, 0, 0.120211355, 0, 1.1207316, 0, -0.120211355, 0, 1.1142659, -8.498678, 0, -6.9053473)
+
+[node name="gravemarker_A2" type="Node3D" parent="Scenery" unique_id=1728783681 instance=ExtResource("27_d3uva")]
+transform = Transform3D(0.17014481, 0, -0.90466607, 0, 0.920527, 0, 0.90466607, 0, 0.17014481, 4.8962264, 0, 1.9913234)
+
+[node name="@Node3D@23096" type="Node3D" parent="Scenery" unique_id=406995829 instance=ExtResource("36_xfmq0")]
+transform = Transform3D(0.50417495, 0, 1.0803862, 0, 1.192236, 0, -1.0803862, 0, 0.50417495, 7.314403, 0, -7.4262986)
+
+[node name="grave_B2" type="Node3D" parent="Scenery" unique_id=1497577139 instance=ExtResource("32_yub7n")]
+transform = Transform3D(-1.0285096, 0, 0.22025464, 0, 1.051829, 0, -0.22025464, 0, -1.0285096, 10.453361, 0, 4.3893337)
+
+[node name="floor_dirt_small2" type="Node3D" parent="Scenery" unique_id=1767908427 instance=ExtResource("26_qxdw5")]
+transform = Transform3D(-0.16523916, 0, -0.94567245, 0, 0.96000016, 0, 0.94567245, 0, -0.16523916, -0.82130736, 0, 1.7570926)
+
+[node name="floor_dirt_grave2" type="Node3D" parent="Scenery" unique_id=2126952565 instance=ExtResource("25_ttox5")]
+transform = Transform3D(-1.0807935, 0, 0.34217355, 0, 1.1336654, 0, -0.34217355, 0, -1.0807935, 12.885111, 0, 8.783112)
+
+[node name="gravestone2" type="Node3D" parent="Scenery" unique_id=1254137221 instance=ExtResource("29_o63cd")]
+transform = Transform3D(0.3224258, 0, -1.0599132, 0, 1.1078693, 0, 1.0599132, 0, 0.3224258, 0.16801444, 0, -3.6844304)
+
+[node name="tree_dead_large2" type="Node3D" parent="Scenery" unique_id=92882022 instance=ExtResource("56_law8u")]
+transform = Transform3D(0.69024163, 0, 0.7296819, 0, 1.0044248, 0, -0.7296819, 0, 0.69024163, 4.5879254, 0, -3.19867)
+
+[node name="@Node3D@23097" type="Node3D" parent="Scenery" unique_id=421518195 instance=ExtResource("31_dx6bs")]
+transform = Transform3D(-1.098186, 0, -0.2531788, 0, 1.1269925, 0, 0.2531788, 0, -1.098186, -10.737397, 0, 6.9487014)
+
+[node name="path_C2" type="Node3D" parent="Scenery" unique_id=1133675429 instance=ExtResource("37_xo3ux")]
+transform = Transform3D(-0.8911607, 0, -0.5324239, 0, 1.0380957, 0, 0.5324239, 0, -0.8911607, -9.343307, 0, -4.4064407)
+
+[node name="fence_seperate2" type="Node3D" parent="Scenery" unique_id=1956659033 instance=ExtResource("22_45twf")]
+transform = Transform3D(-0.28818697, 0, -1.1419426, 0, 1.1777456, 0, 1.1419426, 0, -0.28818697, 5.4680505, 0, -6.9288383)
+
+[node name="pumpkin_orange_jackolantern2" type="Node3D" parent="Scenery" unique_id=2018897571 instance=ExtResource("46_x7xj5")]
+transform = Transform3D(0.9280641, 0, 0.17191465, 0, 0.94385254, 0, -0.17191465, 0, 0.9280641, -7.1994486, 0, -3.2582045)
+
+[node name="@Node3D@23098" type="Node3D" parent="Scenery" unique_id=32632859 instance=ExtResource("57_da7o0")]
+transform = Transform3D(0.44190988, 0, -0.89902043, 0, 1.0017595, 0, 0.89902043, 0, 0.44190988, -8.43098, 0, 7.542597)
+
+[node name="path_A2" type="Node3D" parent="Scenery" unique_id=1906482229 instance=ExtResource("35_0l2uj")]
+transform = Transform3D(0.98759204, 0, 0.21561861, 0, 1.0108558, 0, -0.21561861, 0, 0.98759204, -4.27527, 0, -4.966611)
+
+[node name="tree_dead_small2" type="Node3D" parent="Scenery" unique_id=1133042559 instance=ExtResource("59_h4my2")]
+transform = Transform3D(-1.1602577, 0, -0.06252927, 0, 1.1619414, 0, 0.06252927, 0, -1.1602577, -6.500436, 0, 7.9777684)
+
+[node name="pumpkin_orange2" type="Node3D" parent="Scenery" unique_id=204819010 instance=ExtResource("45_0p8ji")]
+transform = Transform3D(-0.9590022, 0, 0.37296104, 0, 1.0289729, 0, -0.37296104, 0, -0.9590022, 6.1999807, 0, 0.1383754)
+
+[node name="@Node3D@23099" type="Node3D" parent="Scenery" unique_id=1076831026 instance=ExtResource("23_njqd8")]
+transform = Transform3D(0.93731105, 0, 0.38213742, 0, 1.0122159, 0, -0.38213742, 0, 0.93731105, 12.714897, 0, 6.370962)
+
+[node name="tree_pine_orange_small2" type="Node3D" parent="Scenery" unique_id=1025087760 instance=ExtResource("62_wgl67")]
+transform = Transform3D(-0.36191773, 0, -1.0607425, 0, 1.1207851, 0, 1.0607425, 0, -0.36191773, 0.46526572, 0, -5.98334)
+
+[node name="@Node3D@23100" type="Node3D" parent="Scenery" unique_id=890607848 instance=ExtResource("62_wgl67")]
+transform = Transform3D(-0.8861148, 0, -0.7317438, 0, 1.1491947, 0, 0.7317438, 0, -0.8861148, -12.152993, 0, -6.3395567)
+
+[node name="@Node3D@23101" type="Node3D" parent="Scenery" unique_id=1338990069 instance=ExtResource("62_wgl67")]
+transform = Transform3D(0.7044074, 0, -0.72869503, 0, 1.013502, 0, 0.72869503, 0, 0.7044074, -12.603031, 0, 2.83455)
+
+[node name="gravemarker_B2" type="Node3D" parent="Scenery" unique_id=178748330 instance=ExtResource("28_iuba0")]
+transform = Transform3D(0.24217875, 0, -0.9485602, 0, 0.9789877, 0, 0.9485602, 0, 0.24217875, 3.022263, 0, 1.8473228)
+
+[node name="pumpkin_yellow2" type="Node3D" parent="Scenery" unique_id=1008629907 instance=ExtResource("48_kpbkf")]
+transform = Transform3D(1.0286846, 0, -0.12766221, 0, 1.0365759, 0, 0.12766221, 0, 1.0286846, 12.231354, 0, -5.275451)
+
+[node name="@Node3D@23102" type="Node3D" parent="Scenery" unique_id=1259612405 instance=ExtResource("56_law8u")]
+transform = Transform3D(0.38921484, 0, 0.96123034, 0, 1.03704, 0, -0.96123034, 0, 0.38921484, 9.333995, 0, 3.0041635)
+
+[node name="crypt2" type="Node3D" parent="Scenery" unique_id=83195852 instance=ExtResource("16_aeiqa")]
+transform = Transform3D(0.97114784, 0, -0.18964554, 0, 0.9894916, 0, 0.18964554, 0, 0.97114784, 13.508597, 0, 4.2436967)
+
+[node name="@Node3D@23103" type="Node3D" parent="Scenery" unique_id=400333901 instance=ExtResource("32_yub7n")]
+transform = Transform3D(-0.9404221, 0, 0.569314, 0, 1.0993235, 0, -0.569314, 0, -0.9404221, 11.646865, 0, 1.1883249)
+
+[node name="@Node3D@23104" type="Node3D" parent="Scenery" unique_id=1540529234 instance=ExtResource("62_wgl67")]
+transform = Transform3D(0.51845634, 0, 0.81418234, 0, 0.96524084, 0, -0.81418234, 0, 0.51845634, 9.27156, 0, -5.8796487)
+
+[node name="@Node3D@23105" type="Node3D" parent="Scenery" unique_id=1518472539 instance=ExtResource("62_wgl67")]
+transform = Transform3D(1.0399511, 0, -0.16784216, 0, 1.0534084, 0, 0.16784216, 0, 1.0399511, 3.2432659, 0, -3.9050248)
+
+[node name="pumpkin_yellow_small2" type="Node3D" parent="Scenery" unique_id=1312859464 instance=ExtResource("50_7nqkj")]
+transform = Transform3D(0.6221363, 0, -0.8047085, 0, 1.0171574, 0, 0.8047085, 0, 0.6221363, -2.6765172, 0, -5.9335704)
+
+[node name="@Node3D@23106" type="Node3D" parent="Scenery" unique_id=1400156989 instance=ExtResource("37_xo3ux")]
+transform = Transform3D(0.90507984, 0, 0.19989125, 0, 0.9268905, 0, -0.19989125, 0, 0.90507984, -4.2757816, 0, 7.637299)
+
+[node name="@Node3D@23107" type="Node3D" parent="Scenery" unique_id=1259092288 instance=ExtResource("30_gd7wi")]
+transform = Transform3D(0.3945613, 0, 0.93707997, 0, 1.0167583, 0, -0.93707997, 0, 0.3945613, -3.5428712, 0, 2.0347798)
+
+[node name="arch2" type="Node3D" parent="Scenery" unique_id=1877798933 instance=ExtResource("3_b85q6")]
+transform = Transform3D(-0.9561181, 0, -0.26481575, 0, 0.9921135, 0, 0.26481575, 0, -0.9561181, -6.606965, 0, -8.993624)
+
+[node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
+
+[node name="CharacterMeshes" parent="EditorPreview" unique_id=894406257 instance=ExtResource("43_78igl")]
