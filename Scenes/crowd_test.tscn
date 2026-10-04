@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c24flhkfq4msn"]
+
+[ext_resource type="Script" uid="uid://brix720y3n0ig" path="res://Scripts/crowd.gd" id="1_y5fp1"]
+
+[node name="Crowd" type="Node3D" unique_id=384395682]
+script = ExtResource("1_y5fp1")
+count = 100
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=929768269]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 8, 16)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1306274698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -30, 0)
