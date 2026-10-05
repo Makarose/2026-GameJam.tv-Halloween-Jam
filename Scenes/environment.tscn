@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsimdilj86c31"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bma48"]
+albedo_color = Color(0.101960786, 0.13333334, 0.1882353, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a2foq"]
+size = Vector2(200, 200)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iofc2"]
+sky_top_color = Color(0.043137256, 0.101960786, 0.22745098, 1)
+sky_horizon_color = Color(0.23921569, 0.41568628, 0.61960787, 1)
+ground_bottom_color = Color(0.047058824, 0.078431375, 0.1254902, 1)
+ground_horizon_color = Color(0.23921569, 0.41568628, 0.61960787, 1)
+
+[sub_resource type="Sky" id="Sky_coil2"]
+sky_material = SubResource("ProceduralSkyMaterial_iofc2")
+
+[sub_resource type="Environment" id="Environment_clhuh"]
+background_mode = 2
+sky = SubResource("Sky_coil2")
+ambient_light_source = 2
+ambient_light_color = Color(0.3529412, 0.47843137, 0.6901961, 1)
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.18039216, 0.2784314, 0.4, 1)
+
+[node name="Environment" type="Node3D" unique_id=993080148]
+
+[node name="Props" type="Node3D" parent="." unique_id=1216626742]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1037648282]
+material_override = SubResource("StandardMaterial3D_bma48")
+mesh = SubResource("PlaneMesh_a2foq")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1239498293]
+transform = Transform3D(0.76604444, 0.3213938, -0.55667037, 0, 0.8660254, 0.5, 0.6427876, -0.38302222, 0.66341394, 0, 0, 0)
+light_color = Color(0.6156863, 0.72156864, 0.9098039, 1)
+light_energy = 0.7
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1412640402]
+environment = SubResource("Environment_clhuh")
