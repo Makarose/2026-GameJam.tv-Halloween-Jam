@@ -542,3 +542,11 @@ material_override = SubResource("StandardMaterial3D_4sc2j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=729923748]
 libraries/Animations = ExtResource("5_sxmeh")
+
+[node name="UGLabel" type="Label3D" parent="." index="3" unique_id=1248645581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8073795, 0)
+visible = false
+billboard = 1
+modulate = Color(1, 0, 0, 1)
+text = "UG"
+font_size = 160

@@ -4,10 +4,43 @@
 [ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_biyew"]
+font_size = 48
+font_color = Color(0.94, 0.78333336, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Node3D" unique_id=1091627580]
 script = ExtResource("1_qxrlw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795353303]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2130655308]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1399453162]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.0
+offset_right = 178.0
+offset_bottom = 146.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=1833145209]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_biyew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15.4)

@@ -1,6 +1,8 @@
 extends RayCast3D
 
 
+signal guess_submitted(character)
+
 var character: CharacterBuilder
 
 @onready var label: Label = $"../../Control/MarginContainer/Label"
@@ -13,11 +15,15 @@ func _process(delta: float) -> void:
 	else:
 		character = null
 	
-	update_label()
+	if Input.is_action_just_pressed("select"):
+		if character:
+			guess_submitted.emit(character)
+	
+	#update_label()
 
 
 func update_label() -> void:
 	if character:
 		label.text = str(character.look)
 	else:
-		label.text = "None"
+		label.text = ""

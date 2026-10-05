@@ -23,7 +23,7 @@ current = true
 script = ExtResource("1_cvnsp")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraPivot" unique_id=1943552524]
-target_position = Vector3(0, 0, -10)
+target_position = Vector3(0, 0, -7)
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("3_vgqql")
@@ -43,13 +43,13 @@ script = ExtResource("1_v0iea")
 [node name="Control" type="Control" parent="." unique_id=1798550335]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 195.0
-offset_bottom = 90.0
+offset_right = 396.0
+offset_bottom = 187.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=922947509]
 layout_mode = 0
-offset_right = 195.0
-offset_bottom = 80.0
+offset_right = 512.0
+offset_bottom = 141.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -57,6 +57,5 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="Control/MarginContainer" unique_id=420906507]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Target Character"
+size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_vgqql")

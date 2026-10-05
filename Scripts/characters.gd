@@ -30,6 +30,9 @@ const COSTUME_KEEPS := ["costume_", "face_"]
 # NOTE: costumed characters only have "costume_" and "face_" in here, so check look.has("hat_") before reading look["hat_"] or it will crash.
 var look := {}
 
+# reference to debug label, can be deleted before publishing
+@onready var ug_label: Label3D = $UGLabel
+
 
 func _ready() -> void:
 	randomize_look() # dress the character
