@@ -11,6 +11,7 @@ var camera_zoom_speed: float = 20.0
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var smooth_camera: Camera3D = %SmoothCamera3D
 @onready var smooth_camera_fov := smooth_camera.fov
+@onready var ray_cast_3d: RayCast3D = $CameraPivot/RayCast3D
 
 
 func _ready() -> void:
@@ -41,9 +42,9 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		if Input.is_action_pressed("zoom"):
-			velocity.x *= zoom_multiplier
-			velocity.y *= zoom_multiplier
+		#if Input.is_action_pressed("zoom"):
+			#velocity.x *= zoom_multiplier
+			#velocity.y *= zoom_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)

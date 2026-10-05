@@ -1,19 +1,32 @@
 [gd_scene format=3 uid="uid://bxvspr23pjxd"]
 
 [ext_resource type="Script" uid="uid://dqj1ey0dcyc57" path="res://Scripts/player.gd" id="1_6t5aa"]
-[ext_resource type="Script" uid="uid://sw48kispycye" path="res://Scripts/smooth_camera_3d.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://sw48kispycye" path="res://Scripts/player_camera.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://3t3soxmo1es1" path="res://Scripts/crosshair.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://dr5su0u401h7c" path="res://Scripts/ray_cast_3d.gd" id="3_vgqql"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
+font_size = 40
+font_color = Color(0.9666667, 1, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1641026113]
 script = ExtResource("1_6t5aa")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=443411744]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
 
 [node name="SmoothCamera3D" type="Camera3D" parent="CameraPivot" unique_id=1700466596]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.25881922, 0, -0.25881922, 0.96592575, 0, 0, 0)
 current = true
 script = ExtResource("1_cvnsp")
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot" unique_id=1943552524]
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("3_vgqql")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=10053601]
 anchors_preset = 15
@@ -26,3 +39,24 @@ mouse_filter = 2
 [node name="Crosshair" type="Control" parent="CenterContainer" unique_id=51148273]
 layout_mode = 2
 script = ExtResource("1_v0iea")
+
+[node name="Control" type="Control" parent="." unique_id=1798550335]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 195.0
+offset_bottom = 90.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=922947509]
+layout_mode = 0
+offset_right = 195.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Control/MarginContainer" unique_id=420906507]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Target Character"
+label_settings = SubResource("LabelSettings_vgqql")

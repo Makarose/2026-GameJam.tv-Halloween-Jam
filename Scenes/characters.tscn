@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://pfvqnhe7yteq" path="res://Assets/Textures/White_texture.png" id="11_t8wt8"]
 [ext_resource type="Texture2D" uid="uid://blire5edjwfdu" path="res://Assets/Textures/Yellow_texture.png" id="12_6fgi3"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_biyew"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2foq"]
 albedo_texture = ExtResource("3_sxmeh")
 
@@ -234,6 +236,13 @@ script = ExtResource("2_xtbha")
 costume_percent = 75
 top_textures = Array[Texture2D]([ExtResource("3_1ixyc"), ExtResource("4_wwnb7"), ExtResource("5_5l00s"), ExtResource("5_42xpr"), ExtResource("7_2hl6l"), ExtResource("8_oqigk"), ExtResource("9_r3dss"), ExtResource("10_50663"), ExtResource("11_t8wt8"), ExtResource("12_6fgi3")])
 pants_textures = Array[Texture2D]([ExtResource("3_1ixyc"), ExtResource("4_wwnb7"), ExtResource("5_5l00s"), ExtResource("5_42xpr"), ExtResource("7_2hl6l"), ExtResource("8_oqigk"), ExtResource("9_r3dss"), ExtResource("10_50663"), ExtResource("11_t8wt8"), ExtResource("12_6fgi3")])
+
+[node name="Area3D" type="Area3D" parent="." index="0" unique_id=1239403549]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1483305429]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.5636322, 0)
+shape = SubResource("CapsuleShape3D_biyew")
 
 [node name="Skeleton3D" parent="character_grp/character_rig" parent_id_path=PackedInt32Array(884832059) index="9" unique_id=964958462]
 bones/0/position = Vector3(0.26526055, 1.2760705, 0.025183737)
@@ -531,5 +540,5 @@ material_override = SubResource("StandardMaterial3D_5ilyw")
 [node name="socks_white" parent="character_grp/character_rig/Skeleton3D" index="81" unique_id=2019994210]
 material_override = SubResource("StandardMaterial3D_4sc2j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=729923748]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=729923748]
 libraries/Animations = ExtResource("5_sxmeh")
