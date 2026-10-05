@@ -19,6 +19,10 @@ const COSTUME_KEEPS := ["costume_", "face_"]
 # exported var for animations available to population
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
 
+#textures randomlky assigned to the kept tops and pants
+@export var top_textures: Array[Texture2D] = []
+@export var pants_textures: Array[Texture2D] = []
+
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 # creates an empty dictionary of the character's generated outfit, fills when spawned, listing their accessories.
@@ -64,9 +68,23 @@ func randomize_look() -> void:
 			if piece != keep:
 				piece.queue_free()
 				
-		# remembers what was kept to use in other scripts		
+		# remembers what was kept to use in other scripts
 		if keep:
 			look[prefix] = String(keep.name)
+			if prefix == "top_":
+				_apply_texture(keep, top_textures, "top_texture")
+			elif prefix == "pants_":
+				_apply_texture(keep, pants_textures, "pants_texture")
+
+# gives a piece a random texture from the list and records which one in look
+func _apply_texture(piece: Node, textures: Array[Texture2D], key: String) -> void:
+	if textures.is_empty():
+		return
+	var index := randi() % textures.size()
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = textures[index]
+	(piece as MeshInstance3D).material_override = mat
+	look[key] = index
 
 # finds a random animation to play from the list
 func play_random() -> void:
