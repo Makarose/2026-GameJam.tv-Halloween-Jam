@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c58ewdy0kncax"]
+
+[ext_resource type="PackedScene" uid="uid://c24flhkfq4msn" path="res://Scenes/crowd.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
+
+[node name="Game" type="Node3D" unique_id=1091627580]
+script = ExtResource("1_qxrlw")
+
+[node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]

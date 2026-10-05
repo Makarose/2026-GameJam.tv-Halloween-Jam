@@ -19,6 +19,9 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 # every spawned character
 var crowd: Array[CharacterBuilder] = []
 
+# only the potential UG characters
+var guests: Array[CharacterBuilder] = []
+
 # what each character is wearing, in same order as crowd
 # looks[i] is crowd[i].look
 var looks: Array[Dictionary] = []
@@ -36,6 +39,10 @@ func _ready() -> void:
 		character.rotation.y = randf_range(0.0, TAU)
 		crowd.append(character)
 		looks.append(character.look)
+	# once all characters have been generated, sort potential UGs into separate array by weeding out costume characters
+	for guest in crowd:
+		if not guest.look.has("costume_"):
+			guests.append(guest)
 
 
 # makes one character. re-rolls up to 20 times to avoid characters sharing looks. 
