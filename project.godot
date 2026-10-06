@@ -29,7 +29,7 @@ folder_colors={
 "res://Assets/": "blue",
 "res://Scenes/": "green",
 "res://Scripts/": "purple",
-"res://Shaders/": "orange"
+"res://Shaders & Materials/": "orange"
 }
 
 [input]
