@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://81m6j0weql6x"
+path="res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-10 - Labyrinth.ogg-998fb3cef60f6e41d1b690713275693f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-10 - Labyrinth.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-10 - Labyrinth.ogg-998fb3cef60f6e41d1b690713275693f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

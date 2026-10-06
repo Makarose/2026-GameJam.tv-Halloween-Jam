@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ce8ymqdix1ig"
+path="res://.godot/imported/JDSherbert - Sci Fi UI SFX Pack - Glitching (Loop) - 1.ogg-f1a1ea43e8f58c7700889072c150e22c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/JDSherbert - Sci Fi UI SFX Pack - Glitching (Loop) - 1.ogg"
+dest_files=["res://.godot/imported/JDSherbert - Sci Fi UI SFX Pack - Glitching (Loop) - 1.ogg-f1a1ea43e8f58c7700889072c150e22c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

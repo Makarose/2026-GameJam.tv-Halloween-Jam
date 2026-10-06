@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwvoohypqsl10"
+path="res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-02 - Portal to the Unknown.ogg-005c5a94b8ec53a8f0170363b907986e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-02 - Portal to the Unknown.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-02 - Portal to the Unknown.ogg-005c5a94b8ec53a8f0170363b907986e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

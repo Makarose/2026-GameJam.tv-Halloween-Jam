@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b47bqacbjnmes"
+path="res://.godot/imported/JDSherbert - Sci Fi UI SFX Pack - Error - 1.ogg-de7a8c3ada5555a3ef04b2f88dcbe6bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/JDSherbert - Sci Fi UI SFX Pack - Error - 1.ogg"
+dest_files=["res://.godot/imported/JDSherbert - Sci Fi UI SFX Pack - Error - 1.ogg-de7a8c3ada5555a3ef04b2f88dcbe6bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

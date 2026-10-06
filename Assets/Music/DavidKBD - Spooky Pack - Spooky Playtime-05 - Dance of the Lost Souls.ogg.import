@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://do5xjvjtv2vm5"
+path="res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-05 - Dance of the Lost Souls.ogg-1f731143403163f8a39db1bb0ad274f1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-05 - Dance of the Lost Souls.ogg"
+dest_files=["res://.godot/imported/DavidKBD - Spooky Pack - Spooky Playtime-05 - Dance of the Lost Souls.ogg-1f731143403163f8a39db1bb0ad274f1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
