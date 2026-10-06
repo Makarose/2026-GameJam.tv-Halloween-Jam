@@ -11,3 +11,7 @@ func shuffle_play(volume: float = 0.0) -> void:
 	audio_stream_player.stream = current_track
 	audio_stream_player.volume_db = volume
 	audio_stream_player.play()
+
+
+func stop() -> void:
+	audio_stream_player.stop()

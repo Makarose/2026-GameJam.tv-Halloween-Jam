@@ -3,6 +3,8 @@ extends Node3D
 
 @export var witch_cackle: AudioStream
 @export var fire_spell: AudioStream
+@export var ticking_clock: AudioStream
+@export var death_clock: AudioStream
 
 
 func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
@@ -15,6 +17,10 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 			stream = witch_cackle
 		"fire_spell":
 			stream = fire_spell
+		"ticking_clock":
+			stream = ticking_clock
+		"death_clock":
+			stream = death_clock
 		_:
 			print("Invalid SFX name!")
 	

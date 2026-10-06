@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b66oyj0aa2dew" path="res://Scenes/priest_spell_fx.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_3dryh"]
+font_size = 40
+font_color = Color(0.94, 0.78333336, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_wrm1d"]
 font_size = 48
 font_color = Color(0.94, 0.78333336, 0, 1)
@@ -33,17 +39,30 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1399453162]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -178.0
-offset_right = 178.0
-offset_bottom = 146.0
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_right = 186.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=1833145209]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=383924078]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1106774022]
+layout_mode = 2
+text = "1:00"
+label_settings = SubResource("LabelSettings_3dryh")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1833145209]
 layout_mode = 2
 size_flags_vertical = 1
+text = "TIME'S UP!"
 label_settings = SubResource("LabelSettings_wrm1d")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -65,18 +84,21 @@ theme_override_constants/separation = 20
 [node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=26907836]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Clue #1"
 label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
 [node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Clue #2"
 label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
 [node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Clue #3"
 label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
@@ -84,3 +106,8 @@ autowrap_mode = 2
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15.4)
+
+[node name="LevelTimer" type="Timer" parent="." unique_id=999153068]
+one_shot = true
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

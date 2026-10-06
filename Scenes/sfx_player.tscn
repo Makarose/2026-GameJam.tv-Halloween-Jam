@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cgxbtyeu1yipd" path="res://Scripts/sfx_player.gd" id="1_g0cor"]
 [ext_resource type="AudioStream" uid="uid://fqwhhvhiuy4f" path="res://Assets/SFX/Halloween SFX Pack/Wicht Laughter 1.mp3" id="2_5bcp7"]
 [ext_resource type="AudioStream" uid="uid://c4y0lrkjpn3jk" path="res://Assets/SFX/Fire Spell/Dark Fantasy Studio- Fire spell 2.wav" id="3_1kq3q"]
+[ext_resource type="AudioStream" uid="uid://cl4wxcfn6c0ub" path="res://Assets/SFX/Halloween SFX Pack/Clock Loop.mp3" id="4_1kq3q"]
+[ext_resource type="AudioStream" uid="uid://cassnwd2sw4xq" path="res://Assets/SFX/Halloween SFX Pack/Clock 2.mp3" id="5_8id0n"]
 
 [node name="SFXPlayer" type="Node3D" unique_id=1101209887]
 script = ExtResource("1_g0cor")
 witch_cackle = ExtResource("2_5bcp7")
 fire_spell = ExtResource("3_1kq3q")
+ticking_clock = ExtResource("4_1kq3q")
+death_clock = ExtResource("5_8id0n")
