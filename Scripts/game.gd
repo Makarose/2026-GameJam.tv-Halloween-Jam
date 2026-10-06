@@ -21,8 +21,7 @@ func _ready() -> void:
 	set_uninvited_guest()
 	generate_clues()
 	show_clue()
-	MusicPlayer.shuffle_play()
-	MusicPlayer.set_volume(-10.0)
+	MusicPlayer.shuffle_play(-10.0)
 
 
 func set_uninvited_guest() -> void:
@@ -68,7 +67,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		character.queue_free()
 		
 		SfxPlayer.play_sfx("witch_cackle", 5.0)
-		SfxPlayer.play_sfx("fire_spell")
+		SfxPlayer.play_sfx("fire_spell", -1.0)
 	else:
 		label.text = "WRONG!"
 		num_guesses += 1

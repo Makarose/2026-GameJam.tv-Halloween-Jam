@@ -6,11 +6,8 @@ extends Node3D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
-func shuffle_play() -> void:
+func shuffle_play(volume: float = 0.0) -> void:
 	var current_track: AudioStream = music_playlist.pick_random()
 	audio_stream_player.stream = current_track
+	audio_stream_player.volume_db = volume
 	audio_stream_player.play()
-
-
-func set_volume(_db: float) -> void:
-	audio_stream_player.volume_db = _db
