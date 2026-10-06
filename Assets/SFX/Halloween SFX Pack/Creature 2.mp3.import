@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pnxp6nifaied"
+path="res://.godot/imported/Creature 2.mp3-e1799499cb4bb9f45097f1567fae9968.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Creature 2.mp3"
+dest_files=["res://.godot/imported/Creature 2.mp3-e1799499cb4bb9f45097f1567fae9968.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce4x8hfgcfcjg"
+path="res://.godot/imported/Vampire Bit.mp3-78f89a5e9f4bcb43e499eaed2cedb9c2.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Vampire Bit.mp3"
+dest_files=["res://.godot/imported/Vampire Bit.mp3-78f89a5e9f4bcb43e499eaed2cedb9c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

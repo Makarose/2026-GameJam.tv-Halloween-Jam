@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xck1i76h0d6e"
+path="res://.godot/imported/Church Bell 2 (loop).mp3-c7e30d3c47c1592e6f8db67d48142737.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Church Bell 2 (loop).mp3"
+dest_files=["res://.godot/imported/Church Bell 2 (loop).mp3-c7e30d3c47c1592e6f8db67d48142737.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

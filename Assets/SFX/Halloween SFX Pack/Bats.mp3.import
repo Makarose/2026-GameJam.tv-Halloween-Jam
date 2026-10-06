@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2foorn7ary4v"
+path="res://.godot/imported/Bats.mp3-5badfd3c229697c137d6d1bca0c9f651.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Bats.mp3"
+dest_files=["res://.godot/imported/Bats.mp3-5badfd3c229697c137d6d1bca0c9f651.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

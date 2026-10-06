@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnhgx1uf8d53m"
+path="res://.godot/imported/Wolf 2.mp3-22269563441b847a3ff818f3d998d131.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Wolf 2.mp3"
+dest_files=["res://.godot/imported/Wolf 2.mp3-22269563441b847a3ff818f3d998d131.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

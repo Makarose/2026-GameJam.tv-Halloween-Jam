@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o033on1fjarm"
+path="res://.godot/imported/Vampire 2.mp3-8afd88d876188a6ad52ef49f1629742f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Vampire 2.mp3"
+dest_files=["res://.godot/imported/Vampire 2.mp3-8afd88d876188a6ad52ef49f1629742f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

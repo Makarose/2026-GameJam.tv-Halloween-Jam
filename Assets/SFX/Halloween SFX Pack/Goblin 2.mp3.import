@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci4oi1itcem2l"
+path="res://.godot/imported/Goblin 2.mp3-c6a321b1795ac6dd8b2ca7044e570498.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Goblin 2.mp3"
+dest_files=["res://.godot/imported/Goblin 2.mp3-c6a321b1795ac6dd8b2ca7044e570498.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

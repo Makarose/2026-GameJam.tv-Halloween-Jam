@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csp1wpp75yf3w"
+path="res://.godot/imported/Knock Door 1.mp3-17cab5eea13b802abc3752d7e2781611.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Knock Door 1.mp3"
+dest_files=["res://.godot/imported/Knock Door 1.mp3-17cab5eea13b802abc3752d7e2781611.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvjal6potdow4"
+path="res://.godot/imported/Creature 4.mp3-2858625e280faef1768d4023b98b6141.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Creature 4.mp3"
+dest_files=["res://.godot/imported/Creature 4.mp3-2858625e280faef1768d4023b98b6141.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://t4w8lf7tn27t"
+path="res://.godot/imported/Owl.mp3-ea50f06e3964c60f9e9f26ae0576361a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Owl.mp3"
+dest_files=["res://.godot/imported/Owl.mp3-ea50f06e3964c60f9e9f26ae0576361a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

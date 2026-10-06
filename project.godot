@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 MusicPlayer="*uid://brpruj2k473so"
+SfxPlayer="*uid://vvnm53g2h1e5"
 
 [display]
 

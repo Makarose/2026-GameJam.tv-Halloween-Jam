@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cftpwyp12do0h"
+path="res://.godot/imported/Evil Laughter 3 .mp3-f5089014ee99773e3b2dbaa6c6b4075a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Evil Laughter 3 .mp3"
+dest_files=["res://.godot/imported/Evil Laughter 3 .mp3-f5089014ee99773e3b2dbaa6c6b4075a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

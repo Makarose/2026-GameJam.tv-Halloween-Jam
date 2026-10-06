@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dewgjkc6ksve7"
+path="res://.godot/imported/Grave Slab.mp3-f84d9c4583f3449bc89bbb9edc681fc8.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Grave Slab.mp3"
+dest_files=["res://.godot/imported/Grave Slab.mp3-f84d9c4583f3449bc89bbb9edc681fc8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

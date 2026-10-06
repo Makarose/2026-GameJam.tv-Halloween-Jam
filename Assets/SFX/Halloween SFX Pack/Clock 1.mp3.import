@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2f7hrvonb8jx"
+path="res://.godot/imported/Clock 1.mp3-c9c9ac3deddfe47240db4730e6968482.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Clock 1.mp3"
+dest_files=["res://.godot/imported/Clock 1.mp3-c9c9ac3deddfe47240db4730e6968482.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

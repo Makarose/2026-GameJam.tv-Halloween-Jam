@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwcikl3op7do4"
+path="res://.godot/imported/Creepy Door 3.mp3-f77d1dc64fc300f39e58c20c8dbe0e76.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Creepy Door 3.mp3"
+dest_files=["res://.godot/imported/Creepy Door 3.mp3-f77d1dc64fc300f39e58c20c8dbe0e76.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

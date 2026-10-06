@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crnklfvpxtb0q"
+path="res://.godot/imported/Slash.mp3-f87ada073293555cf163d6bd42b335ca.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Slash.mp3"
+dest_files=["res://.godot/imported/Slash.mp3-f87ada073293555cf163d6bd42b335ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

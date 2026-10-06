@@ -66,6 +66,9 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		add_child(new_effect)
 		new_effect.global_position = character.global_position
 		character.queue_free()
+		
+		SfxPlayer.play_sfx("witch_cackle", 5.0)
+		SfxPlayer.play_sfx("fire_spell")
 	else:
 		label.text = "WRONG!"
 		num_guesses += 1

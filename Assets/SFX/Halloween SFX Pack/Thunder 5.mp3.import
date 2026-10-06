@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0mtm4prr1oah"
+path="res://.godot/imported/Thunder 5.mp3-ccf84d4cd54e7465b79a4fafe3da2c3b.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Thunder 5.mp3"
+dest_files=["res://.godot/imported/Thunder 5.mp3-ccf84d4cd54e7465b79a4fafe3da2c3b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

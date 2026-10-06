@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://spc23qtb4tui"
+path="res://.godot/imported/Rain Loop.mp3-d7eca07a3a903cccd16b03d55e3a872f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Rain Loop.mp3"
+dest_files=["res://.godot/imported/Rain Loop.mp3-d7eca07a3a903cccd16b03d55e3a872f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

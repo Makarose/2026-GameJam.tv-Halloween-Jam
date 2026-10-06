@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch1pj8usvu7uw"
+path="res://.godot/imported/Mummy 3.mp3-f6445eb3d20027583a9d47b370e34690.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Mummy 3.mp3"
+dest_files=["res://.godot/imported/Mummy 3.mp3-f6445eb3d20027583a9d47b370e34690.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

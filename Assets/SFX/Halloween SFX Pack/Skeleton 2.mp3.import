@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm6ytydxmtt28"
+path="res://.godot/imported/Skeleton 2.mp3-e105a974237582c2c80e1c4bc987c132.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Skeleton 2.mp3"
+dest_files=["res://.godot/imported/Skeleton 2.mp3-e105a974237582c2c80e1c4bc987c132.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

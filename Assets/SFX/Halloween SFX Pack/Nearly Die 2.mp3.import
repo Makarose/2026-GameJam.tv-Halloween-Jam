@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cphjqgi784do6"
+path="res://.godot/imported/Nearly Die 2.mp3-07992789f8acb11ccb40093cc0aa052a.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Nearly Die 2.mp3"
+dest_files=["res://.godot/imported/Nearly Die 2.mp3-07992789f8acb11ccb40093cc0aa052a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

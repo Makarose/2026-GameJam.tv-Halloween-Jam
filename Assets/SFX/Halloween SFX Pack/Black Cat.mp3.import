@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsk0unwq11sx1"
+path="res://.godot/imported/Black Cat.mp3-e4f1e39e4a81c37346a41560190ddeca.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Black Cat.mp3"
+dest_files=["res://.godot/imported/Black Cat.mp3-e4f1e39e4a81c37346a41560190ddeca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

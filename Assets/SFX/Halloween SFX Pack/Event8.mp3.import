@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caah7osfcuw41"
+path="res://.godot/imported/Event8.mp3-44fdf64ea8b8e82e171da4ad83ced8a1.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Event8.mp3"
+dest_files=["res://.godot/imported/Event8.mp3-44fdf64ea8b8e82e171da4ad83ced8a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

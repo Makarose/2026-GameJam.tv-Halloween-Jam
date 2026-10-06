@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2hdxnywofr1m"
+path="res://.godot/imported/Ghost 1.mp3-4d159f2a04ed47a5ef23a0958414c2e5.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Ghost 1.mp3"
+dest_files=["res://.godot/imported/Ghost 1.mp3-4d159f2a04ed47a5ef23a0958414c2e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

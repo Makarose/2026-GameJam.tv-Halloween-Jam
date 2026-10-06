@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbxrub6qqpu57"
+path="res://.godot/imported/Storm Loop.mp3-de75086a967fcbfc8c17036d82bdd8f7.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Storm Loop.mp3"
+dest_files=["res://.godot/imported/Storm Loop.mp3-de75086a967fcbfc8c17036d82bdd8f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

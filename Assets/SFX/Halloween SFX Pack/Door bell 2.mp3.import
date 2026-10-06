@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btmt5u687im8r"
+path="res://.godot/imported/Door bell 2.mp3-dd30a312e8324c931e6e84e8e224f135.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Door bell 2.mp3"
+dest_files=["res://.godot/imported/Door bell 2.mp3-dd30a312e8324c931e6e84e8e224f135.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

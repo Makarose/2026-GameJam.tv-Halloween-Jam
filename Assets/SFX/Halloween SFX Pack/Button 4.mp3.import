@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crdvod1t0ma1"
+path="res://.godot/imported/Button 4.mp3-99e1cfb0eea3c87a0987536b0d8d3b24.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Halloween SFX Pack/Button 4.mp3"
+dest_files=["res://.godot/imported/Button 4.mp3-99e1cfb0eea3c87a0987536b0d8d3b24.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
