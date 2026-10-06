@@ -5,6 +5,8 @@ extends Node3D
 @export var fire_spell: AudioStream
 @export var ticking_clock: AudioStream
 @export var death_clock: AudioStream
+@export var wrong_answer: AudioStream
+@export var right_answer: AudioStream
 
 
 func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
@@ -21,6 +23,10 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 			stream = ticking_clock
 		"death_clock":
 			stream = death_clock
+		"wrong_answer":
+			stream = wrong_answer
+		"right_answer":
+			stream = right_answer
 		_:
 			print("Invalid SFX name!")
 	
@@ -29,5 +35,9 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 	
 	add_child(new_player)
 	new_player.play()
+	
+	# TODO: jsut edit this SFX later to cut out opening space, or find a new one
+	if stream == fire_spell:
+		new_player.seek(0.20)
 	
 	new_player.finished.connect(new_player.queue_free)

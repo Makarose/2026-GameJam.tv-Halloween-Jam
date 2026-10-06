@@ -90,7 +90,13 @@ func show_clue() -> void:
 
 func _on_guess_submitted(character: CharacterBuilder) -> void:
 	if character == uninvited_guest:
+		level_timer.stop()
+		MusicPlayer.stop()
+		
 		label.text = "CORRECT!"
+		SfxPlayer.play_sfx("right_answer", 2.0)
+		await get_tree().create_timer(1.5).timeout
+		
 		var new_effect = poof_effect.instantiate()
 		add_child(new_effect)
 		new_effect.global_position = character.global_position
@@ -100,6 +106,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		SfxPlayer.play_sfx("fire_spell", -1.0)
 	else:
 		label.text = "WRONG!"
+		SfxPlayer.play_sfx("wrong_answer")
 		num_guesses += 1
 		show_clue()
 	
