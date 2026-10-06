@@ -4,14 +4,20 @@
 [ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_biyew"]
+[sub_resource type="LabelSettings" id="LabelSettings_wrm1d"]
 font_size = 48
 font_color = Color(0.94, 0.78333336, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Game" type="Node3D" unique_id=1091627580]
+[sub_resource type="LabelSettings" id="LabelSettings_biyew"]
+font_color = Color(0.94, 0.78333336, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
+clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795353303]
 
@@ -36,9 +42,41 @@ grow_horizontal = 2
 [node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=1833145209]
 layout_mode = 2
 size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_biyew")
+label_settings = SubResource("LabelSettings_wrm1d")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1208939265]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 325.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2" unique_id=727368407]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=26907836]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_biyew")
+autowrap_mode = 2
+
+[node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_biyew")
+autowrap_mode = 2
+
+[node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_biyew")
+autowrap_mode = 2
 
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
