@@ -30,37 +30,58 @@ func set_uninvited_guest() -> void:
 	generate_clues()
 
 
+#func generate_clues() -> void:
+	#for key in uninvited_guest.look:
+		#var new_value: String = str(uninvited_guest.look[key])
+		#var new_clue: String = ""
+		#
+		#match key:
+			#"glasses_":
+				#new_clue = "This person is wearing {} {}.".format([new_value.replace("glasses_", "").replace("_", " "), "glasses"], "{}")
+			#"gloves_":
+				#new_clue = "This person is wearing {} {}.".format([new_value.replace("gloves_", "").replace("_", " "), "gloves"], "{}")
+			#"hat_":
+				#new_clue = "This person is wearing a {} {}.".format([new_value.replace("hat_", "").replace("_", " "), "hat"], "{}")
+			#"pants_":
+				#var color = texture_colors[uninvited_guest.look["pants_texture"]]
+				#new_clue = "This person is wearing {} {} {}.".format([color, new_value.replace("pants_", ""), "pants"], "{}")
+			#"shoes_":
+				#new_clue = "This person is wearing {} {}.".format([new_value.get_slice("_", 2), new_value.get_slice("_", 1)], "{}")
+			#"socks_":
+				#new_clue = "This person is wearing {} {}.".format([new_value.replace("socks_", ""), "socks"], "{}")
+			#"top_":
+				#var color = texture_colors[uninvited_guest.look["top_texture"]]
+				#new_clue = "This person is wearing a {} {}.".format([color, new_value.replace("top_", "")], "{}")
+		#
+		#if !new_clue.is_empty():
+			#clues.append(new_clue)
+	#
+	#print(clues)
+	#show_clue()
+	
 func generate_clues() -> void:
 	for key in uninvited_guest.look:
-		var new_value: String = str(uninvited_guest.look[key])
-		var new_clue: String = ""
-		
-		match key:
-			"glasses_":
-				new_clue = "This person is wearing {} {}.".format([new_value.replace("glasses_", "").replace("_", " "), "glasses"], "{}")
-			"gloves_":
-				new_clue = "This person is wearing {} {}.".format([new_value.replace("gloves_", "").replace("_", " "), "gloves"], "{}")
-			"hat_":
-				new_clue = "This person is wearing a {} {}.".format([new_value.replace("hat_", "").replace("_", " "), "hat"], "{}")
-			"pants_":
-				var color = texture_colors[uninvited_guest.look["pants_texture"]]
-				new_clue = "This person is wearing {} {} {}.".format([color, new_value.replace("pants_", ""), "pants"], "{}")
-			"shoes_":
-				new_clue = "This person is wearing {} {}.".format([new_value.get_slice("_", 2), new_value.get_slice("_", 1)], "{}")
-			"socks_":
-				new_clue = "This person is wearing {} {}.".format([new_value.replace("socks_", ""), "socks"], "{}")
-			"top_":
-				var color = texture_colors[uninvited_guest.look["top_texture"]]
-				new_clue = "This person is wearing a {} {}.".format([color, new_value.replace("top_", "")], "{}")
-		
-		if !new_clue.is_empty():
-			clues.append(new_clue)
-	
+		var key_name := str(key)
+		if key_name.ends_with("_texture"):
+			continue # these hold color numbers, not pieces
+
+		# pieces with a texture entry (pants, tops) get their color added
+		var color := ""
+		var texture_key := key_name + "texture"
+		if uninvited_guest.look.has(texture_key):
+			color = texture_colors[uninvited_guest.look[texture_key]]
+
+		var phrase := ClueText.describe(str(uninvited_guest.look[key]), color)
+		if not phrase.is_empty():
+			clues.append("This person is wearing %s." % phrase)
+
 	print(clues)
 	show_clue()
 
 
 func show_clue() -> void:
+	if clues.is_empty():	#addeed during new func generate_clues
+		return
 	if num_guesses < max_guesses:
 		var next_clue = clues.pick_random()
 		clue_labels[num_guesses].text = next_clue

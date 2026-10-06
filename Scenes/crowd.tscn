@@ -7,7 +7,7 @@
 [node name="Crowd" type="Node3D" unique_id=384395682]
 script = ExtResource("1_ufwdi")
 count = 150
-area = Vector2(20, 10)
+area = Vector2(40, 20)
 
 [node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
 
