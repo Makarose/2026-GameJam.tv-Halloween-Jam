@@ -20,6 +20,8 @@ func _ready() -> void:
 	set_uninvited_guest()
 	generate_clues()
 	show_clue()
+	MusicPlayer.shuffle_play()
+	MusicPlayer.set_volume(-10.0)
 
 
 func set_uninvited_guest() -> void:

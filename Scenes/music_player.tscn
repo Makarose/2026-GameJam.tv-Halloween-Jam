@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://brpruj2k473so"]
+
+[ext_resource type="Script" uid="uid://b758vareyx0kr" path="res://Scripts/music_player.gd" id="1_ous86"]
+[ext_resource type="AudioStream" uid="uid://blhxmtxgc2mns" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-01 - Ghostly Grooves.ogg" id="2_b03an"]
+[ext_resource type="AudioStream" uid="uid://bwvoohypqsl10" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-02 - Portal to the Unknown.ogg" id="3_hnt0s"]
+[ext_resource type="AudioStream" uid="uid://xeqn7wmvsdih" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-03 - Haunted Mansion.ogg" id="4_tx3aj"]
+[ext_resource type="AudioStream" uid="uid://m0ywg4mc30uy" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-04 - Confronting the Nightmare.ogg" id="5_nu6f5"]
+[ext_resource type="AudioStream" uid="uid://do5xjvjtv2vm5" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-05 - Dance of the Lost Souls.ogg" id="6_uvqsp"]
+[ext_resource type="AudioStream" uid="uid://53nduuqbu0gd" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-06 - Redemption.ogg" id="7_1awc0"]
+[ext_resource type="AudioStream" uid="uid://ccrnb1e74cj8p" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-07 - Abandoned Castle.ogg" id="8_srdbd"]
+[ext_resource type="AudioStream" uid="uid://cysd26otrw6vf" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-08 - Whispers of Darkness.ogg" id="9_3tbcx"]
+[ext_resource type="AudioStream" uid="uid://b3k85flepl25h" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-09 - Shadows Fury.ogg" id="10_1rg5y"]
+[ext_resource type="AudioStream" uid="uid://81m6j0weql6x" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-10 - Labyrinth.ogg" id="11_xormb"]
+
+[node name="MusicPlayer" type="Node3D" unique_id=1058884034]
+script = ExtResource("1_ous86")
+music_playlist = Array[AudioStream]([ExtResource("2_b03an"), ExtResource("3_hnt0s"), ExtResource("4_tx3aj"), ExtResource("5_nu6f5"), ExtResource("6_uvqsp"), ExtResource("7_1awc0"), ExtResource("8_srdbd"), ExtResource("9_3tbcx"), ExtResource("10_1rg5y"), ExtResource("11_xormb")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=173624444]
