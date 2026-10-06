@@ -11,7 +11,10 @@ const CATEGORIES := ["hat_", "shoes_", "glasses_", "gloves_", "pants_", "top_", 
 const SKIP := [&"Body", &"Custom", &"Faces", &"Glasses", &"Gloves", &"Hats", &"Pants", &"Shoes", &"Socks", &"Top"]
 
 # categories that are allowed when character is also wearing a full costume.
-const COSTUME_KEEPS := ["costume_", "face_"]
+const COSTUME_KEEPS := ["costume_", "face_", "shoes_"]
+
+# costumes that don't get shoes
+const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 
 # exported var for changing percentage of population that is wearing full costumes (the NPCs)
 @export_range(0, 100, 1, "suffix:%") var costume_percent := 40
@@ -27,7 +30,7 @@ const COSTUME_KEEPS := ["costume_", "face_"]
 
 # creates an empty dictionary of the character's generated outfit, fills when spawned, listing their accessories.
 # use to build clues
-# NOTE: costumed characters only have "costume_" and "face_" in here, so check look.has("hat_") before reading look["hat_"] or it will crash.
+# NOTE: costumed characters only have "costume_" , "face_" and "shoes_" in here, so check look.has("hat_") before reading look["hat_"] or it will crash.
 var look := {}
 
 # reference to debug label, can be deleted before publishing
@@ -58,14 +61,23 @@ func randomize_look() -> void:
 			push_warning("Unsorted piece: " + String(node.name))
 
 	var costume := randf() * 100.0 < costume_percent
-	
-	# keep one piece of clothing for each pile and deletes the rest. if wearing costume deletes all but "costume_" and "face_".
+
+	# pick the costume first, so the other categories know which one it is
+	var costume_piece: Node = null
+	if costume and groups.has("costume_"):
+		costume_piece = groups["costume_"].pick_random()
+
+	# keep one piece of clothing for each pile and deletes the rest.
+	# if wearing a costume, deletes everything except what COSTUME_KEEPS allows,
+	# shoes are deleted if the costume is on NO_SHOES_COSTUMES.
 	for prefix in groups:
 		var options: Array = groups[prefix]
 		var keep: Node = options.pick_random()
-		if prefix == "costume_" and not costume:
-			keep = null
+		if prefix == "costume_":
+			keep = costume_piece # null if no costume was rolled
 		elif costume and not COSTUME_KEEPS.has(prefix):
+			keep = null
+		elif costume and prefix == "shoes_" and costume_piece != null and NO_SHOES_COSTUMES.has(costume_piece.name):
 			keep = null
 		for piece in options:
 			if piece != keep:
