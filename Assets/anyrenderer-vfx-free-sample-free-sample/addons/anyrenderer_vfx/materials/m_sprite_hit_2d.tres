@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/anyrenderer_vfx/shaders/fx_sprite_hit_2d.gdshader" id="1_0grgp"]
+
+[resource]
+shader = ExtResource("1_0grgp")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/outline_px = 0.0
+shader_parameter/outline_color = Color(1, 0.85, 0.2, 1)
+shader_parameter/dissolve = 0.0
+shader_parameter/dissolve_scale = 14.0
+shader_parameter/dissolve_edge = 0.07
+shader_parameter/dissolve_edge_color = Color(0.4, 0.9, 1, 1)

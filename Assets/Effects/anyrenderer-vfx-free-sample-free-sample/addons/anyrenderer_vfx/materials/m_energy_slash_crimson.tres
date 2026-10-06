@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/anyrenderer_vfx/shaders/fx_energy_slash.gdshader" id="1_cac2p"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cac2p")
+shader_parameter/progress = 0.45
+shader_parameter/seed = 0.0
+shader_parameter/arc_degrees = 160.0
+shader_parameter/start_angle_degrees = -20.0
+shader_parameter/radius = 0.72
+shader_parameter/thickness = 0.2
+shader_parameter/trail_length = 0.8
+shader_parameter/sweep_portion = 0.55
+shader_parameter/core_color = Color(1, 0.85, 0.7, 1)
+shader_parameter/edge_color = Color(1, 0.15, 0.25, 1)
+shader_parameter/intensity = 1.6
+shader_parameter/halo_strength = 0.35
+shader_parameter/noise_scale = 7.0
+shader_parameter/breakup = 0.8

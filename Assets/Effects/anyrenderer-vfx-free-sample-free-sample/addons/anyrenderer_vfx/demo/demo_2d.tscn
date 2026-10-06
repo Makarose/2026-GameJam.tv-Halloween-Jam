@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/demo/demo_2d.gd" id="1_mqi8x"]
+[ext_resource type="Material" path="res://addons/anyrenderer_vfx/materials/m_sprite_hit_2d.tres" id="2_0cws7"]
+[ext_resource type="Texture2D" path="res://addons/anyrenderer_vfx/textures/demo_slime.png" id="3_vu58w"]
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/scripts/fx_sprite_hit.gd" id="4_c5e16"]
+
+[node name="Demo2D" type="Node2D"]
+script = ExtResource("1_mqi8x")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.12, 0.11, 0.17, 1)
+
+[node name="Slimes" type="Node2D" parent="."]
+
+[node name="FlashSlime" type="Sprite2D" parent="Slimes"]
+texture_filter = 1
+material = ExtResource("2_0cws7")
+position = Vector2(320, 380)
+scale = Vector2(6, 6)
+texture = ExtResource("3_vu58w")
+
+[node name="ArfxSpriteHit" type="Node" parent="Slimes/FlashSlime"]
+script = ExtResource("4_c5e16")
+
+[node name="OutlineSlime" type="Sprite2D" parent="Slimes"]
+texture_filter = 1
+material = ExtResource("2_0cws7")
+position = Vector2(640, 380)
+scale = Vector2(6, 6)
+texture = ExtResource("3_vu58w")
+
+[node name="ArfxSpriteHit" type="Node" parent="Slimes/OutlineSlime"]
+script = ExtResource("4_c5e16")
+
+[node name="DissolveSlime" type="Sprite2D" parent="Slimes"]
+texture_filter = 1
+material = ExtResource("2_0cws7")
+position = Vector2(960, 380)
+scale = Vector2(6, 6)
+texture = ExtResource("3_vu58w")
+
+[node name="ArfxSpriteHit" type="Node" parent="Slimes/DissolveSlime"]
+script = ExtResource("4_c5e16")
+
+[node name="Caption0" type="Label" parent="."]
+offset_left = 270.0
+offset_top = 560.0
+offset_right = 270.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 24
+text = "Hit flash"
+
+[node name="Caption1" type="Label" parent="."]
+offset_left = 590.0
+offset_top = 560.0
+offset_right = 590.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 24
+text = "Outline"
+
+[node name="Caption2" type="Label" parent="."]
+offset_left = 910.0
+offset_top = 560.0
+offset_right = 910.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 24
+text = "Dissolve"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Info" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18

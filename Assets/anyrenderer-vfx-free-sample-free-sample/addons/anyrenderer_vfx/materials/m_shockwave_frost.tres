@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/anyrenderer_vfx/shaders/fx_shockwave_ring.gdshader" id="1_rprt3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rprt3")
+shader_parameter/progress = 0.35
+shader_parameter/seed = 0.0
+shader_parameter/start_radius = 0.08
+shader_parameter/end_radius = 0.95
+shader_parameter/ring_width = 0.09
+shader_parameter/spoke_count = 28.0
+shader_parameter/spoke_strength = 0.45
+shader_parameter/inner_color = Color(0.85, 0.97, 1, 1)
+shader_parameter/outer_color = Color(0.3, 0.6, 1, 1)
+shader_parameter/intensity = 1.4
+shader_parameter/halo_strength = 0.4
+shader_parameter/flash_strength = 0.5

@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/demo/demo_3d.gd" id="1_odi7s"]
+[ext_resource type="PackedScene" path="res://addons/anyrenderer_vfx/effects/energy_slash.tscn" id="2_1bvgo"]
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/scripts/fx_player.gd" id="3_gx2uo"]
+[ext_resource type="PackedScene" path="res://addons/anyrenderer_vfx/effects/shockwave_ring.tscn" id="4_nay2t"]
+[ext_resource type="PackedScene" path="res://addons/anyrenderer_vfx/effects/dissolve_demo.tscn" id="5_88g81"]
+[ext_resource type="PackedScene" path="res://addons/anyrenderer_vfx/effects/glow_orb.tscn" id="6_8hu4k"]
+
+[sub_resource type="Environment" id="Environment_g2hlo"]
+background_mode = 1
+background_color = Color(0.05, 0.05, 0.09, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.35, 0.37, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ck0ew"]
+albedo_color = Color(0.16, 0.16, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5dnk5"]
+size = Vector2(24, 12)
+
+[node name="Demo3D" type="Node3D"]
+script = ExtResource("1_odi7s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g2hlo")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.383022, 0.321394, 0, 0.642788, 0.766044, -0.5, -0.663414, 0.55667, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.913545, 0.406737, 0, -0.406737, 0.913545, 0, 4.2, 8.5)
+fov = 60.0
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ck0ew")
+mesh = SubResource("PlaneMesh_5dnk5")
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="EnergySlash" type="Node3D" parent="Effects" instance=ExtResource("2_1bvgo")]
+transform = Transform3D(1.26138, -0.314498, 0, 0.147648, 0.592184, -1.14783, 0.277686, 1.11374, 0.610313, -4.5, 1.5, 0)
+script = ExtResource("3_gx2uo")
+duration = 0.45
+autoplay = true
+loop = true
+loop_delay = 0.5
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+progress_curve = null
+randomize_seed = true
+metadata/preview_rotation_degrees = Vector3(62, 0, 14)
+metadata/effect_id = "SL01"
+
+[node name="ShockwaveRing" type="Node3D" parent="Effects" instance=ExtResource("4_nay2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+script = ExtResource("3_gx2uo")
+duration = 0.8
+autoplay = true
+loop = true
+loop_delay = 0.4
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+progress_curve = null
+randomize_seed = true
+metadata/effect_id = "GD01"
+
+[node name="DissolveDemo" type="Node3D" parent="Effects" instance=ExtResource("5_88g81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.1, 0)
+script = ExtResource("3_gx2uo")
+duration = 1.6
+autoplay = true
+loop = true
+loop_delay = 0.6
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+progress_curve = null
+randomize_seed = true
+metadata/preview_label = "Dissolve Burn"
+metadata/effect_id = "MT01"
+
+[node name="GlowOrb" type="Node3D" parent="Effects" instance=ExtResource("6_8hu4k")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 4.5, 1.2, 0)
+script = ExtResource("3_gx2uo")
+duration = 1.2
+autoplay = true
+loop = false
+loop_delay = 0.5
+free_when_done = false
+persistent = true
+hold_progress = 0.5
+stop_fade = 0.3
+stop_from_progress = 0.7
+progress_curve = null
+randomize_seed = true
+metadata/effect_id = "PJ01"
+metadata/preview_hold_seconds = 1.3
+metadata/preview_path = PackedVector3Array(-1.8, -0.3, 0, -0.6, 0.15, 0, 0.6, 0.15, 0, 1.8, -0.3, 0)
+metadata/preview_gif_budget_mb = 1.0
+
+[node name="Labels" type="Node3D" parent="."]
+
+[node name="@Label3D@2" type="Label3D" parent="Labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.45, 2)
+pixel_size = 0.004
+billboard = 1
+text = "Energy Slash"
+font_size = 48
+
+[node name="@Label3D@3" type="Label3D" parent="Labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.45, 2)
+pixel_size = 0.004
+billboard = 1
+text = "Shockwave Ring"
+font_size = 48
+
+[node name="@Label3D@4" type="Label3D" parent="Labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.45, 2)
+pixel_size = 0.004
+billboard = 1
+text = "Dissolve Burn"
+font_size = 48
+
+[node name="@Label3D@5" type="Label3D" parent="Labels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.45, 2)
+pixel_size = 0.004
+billboard = 1
+text = "Glow Orb"
+font_size = 48
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Info" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 16.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/scripts/fx_player_2d.gd" id="1_sypm3"]
+[ext_resource type="Material" path="res://addons/anyrenderer_vfx/materials/m_sprite_hit_2d.tres" id="2_geg36"]
+[ext_resource type="Texture2D" path="res://addons/anyrenderer_vfx/textures/demo_slime.png" id="3_53k78"]
+
+[sub_resource type="Curve" id="Curve_1nvex"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12, 0), 0.0, 0.0, 0, 0, Vector2(0.22, 0), 0.0, 0.0, 0, 0, Vector2(0.27, 1), 0.0, 0.0, 0, 0, Vector2(0.4, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Curve" id="Curve_4u7l4"]
+max_value = 8.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.45, 2), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_8r3sc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="SpriteHit2D" type="Node2D"]
+script = ExtResource("1_sypm3")
+duration = 1.4
+autoplay = true
+loop = false
+loop_delay = 0.5
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+param_curves = {
+"dissolve": SubResource("Curve_8r3sc"),
+"flash_amount": SubResource("Curve_1nvex"),
+"outline_px": SubResource("Curve_4u7l4")
+}
+metadata/preview_label = "Sprite Hit FX (2D)"
+metadata/preview_hero_time = 0.9
+metadata/effect_id = "SP01"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+material = ExtResource("2_geg36")
+scale = Vector2(5, 5)
+texture = ExtResource("3_53k78")

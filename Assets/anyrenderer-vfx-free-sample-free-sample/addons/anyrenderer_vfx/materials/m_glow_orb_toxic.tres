@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://addons/anyrenderer_vfx/shaders/fx_glow_orb.gdshader" id="1_ortn5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ortn5")
+shader_parameter/progress = 0.5
+shader_parameter/seed = 0.0
+shader_parameter/fade_in = 0.2
+shader_parameter/fade_out = 0.3
+shader_parameter/core_color = Color(1, 1, 0.95, 1)
+shader_parameter/glow_color = Color(0.35, 1, 0.3, 1)
+shader_parameter/core_size = 0.18
+shader_parameter/halo_falloff = 2.6
+shader_parameter/swirl_speed = -2.0
+shader_parameter/swirl_amount = 0.55
+shader_parameter/flicker = 0.15
+shader_parameter/intensity = 1.5

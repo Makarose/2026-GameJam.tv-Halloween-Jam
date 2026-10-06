@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/scripts/fx_player.gd" id="1_j8j6h"]
+[ext_resource type="Material" path="res://addons/anyrenderer_vfx/materials/m_dissolve_ember.tres" id="2_j3rp8"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_ne0ev"]
+inner_radius = 0.45
+outer_radius = 0.9
+
+[node name="DissolveDemo" type="Node3D"]
+script = ExtResource("1_j8j6h")
+duration = 1.6
+autoplay = true
+loop = true
+loop_delay = 0.6
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+progress_curve = null
+randomize_seed = true
+metadata/preview_label = "Dissolve Burn"
+metadata/effect_id = "MT01"
+
+[node name="Torus" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0)
+material_override = ExtResource("2_j3rp8")
+mesh = SubResource("TorusMesh_ne0ev")

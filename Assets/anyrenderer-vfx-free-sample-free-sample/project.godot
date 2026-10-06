@@ -1,0 +1,21 @@
+; Engine configuration file.
+; AnyRenderer VFX - sample project. Opens in Godot 4.2+ (newer versions may offer to upgrade the file).
+
+config_version=5
+
+[application]
+
+config/name="AnyRenderer VFX Samples"
+run/main_scene="res://addons/anyrenderer_vfx/demo/demo_3d.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

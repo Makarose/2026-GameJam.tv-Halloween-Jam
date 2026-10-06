@@ -1,0 +1,29 @@
+AnyRenderer VFX — third-party notices
+=====================================
+
+This add-on contains no third-party code, shaders, textures or fonts.
+
+* All shader code and all GDScript code was written by Mothlight Studio for
+  this pack.
+* Credit (no code copied, no licence obligation):
+  shaders/fx_common.gdshaderinc, function arfx_scramble — structure inspired
+  by MurmurHash3 fmix32 (public domain), the 32-bit finalizer of MurmurHash3
+  by Austin Appleby. We use the same xor-shift / multiply / xor-shift pattern (shifts 16/13/16)
+  with our own constants (fmix32 uses 0x85ebca6b / 0xc2b2ae35; we use
+  0xac8d1a7f / 0x495db021). Source header: "MurmurHash3 was written by Austin
+  Appleby, and is placed in the public domain. The author hereby disclaims
+  copyright to this source code." (github.com/aappleby/smhasher)
+* Demo text uses Godot's built-in default font; nothing is bundled.
+* Godot Engine (MIT License) is required to run the files but is not included.
+
+History: a pre-release draft (never published) used a hash function adapted
+from "Hash without Sine" by David Hoskins (MIT). It was replaced by our own
+integer hash before v0.1.0, so no attribution is required for this release.
+
+中文：本插件不包含任何第三方代码、着色器、贴图或字体。所有着色器和 GDScript
+代码均由 Mothlight Studio 为本包编写。
+致谢（未复制代码，无授权义务）：shaders/fx_common.gdshaderinc 中 arfx_scramble
+的结构参考了 MurmurHash3 fmix32（公有领域，作者 Austin Appleby）——同样的
+"异或移位 / 乘法 / 异或移位"结构，常数为我们自选。
+未发布的早期草稿曾使用改写自 David Hoskins "Hash without Sine"（MIT）的哈希函数，
+v0.1.0 之前已替换为自写的整数哈希。

@@ -1,0 +1,33 @@
+AnyRenderer VFX — Free Samples
+Copyright (c) 2026 Mothlight Studio
+
+You MAY:
+  * use these shaders, scripts, scenes and textures in unlimited personal and
+    commercial games and apps, free or paid, on any platform;
+  * modify, recolour and combine them with other work;
+  * ship them inside your compiled/exported game.
+  Credit is appreciated but not required.
+
+You MAY NOT:
+  * resell, re-upload or redistribute the files themselves (modified or not)
+    as an asset pack, template, shader library or similar product;
+  * claim these files as your own work in an asset store listing.
+
+Provided "as is", without warranty of any kind.
+
+Authorship & AI disclosure: all shader and script code, the demo sprite and
+the icon were made by Mothlight Studio for this pack, with AI assistance for
+the code. We reviewed the code for copied third-party snippets and know of
+none; the shaders use common, widely known techniques (value noise, fBm,
+camera-facing quads, 8-direction outline sampling, dissolve thresholds).
+Third-party code: none. Credit: the noise hash structure is inspired by
+MurmurHash3 fmix32 (public domain); see addons/anyrenderer_vfx/THIRD_PARTY_NOTICES.txt.
+Tested with Godot 4.2.2–4.7.2 using software rendering only; see README.md.
+
+-------------------------------------------------------------------------------
+中文摘要（以英文为准）：版权所有 (c) 2026 Mothlight Studio。可在任意个人/商业
+游戏中免费使用、修改并随游戏发布，无需署名；禁止将文件本身（无论是否修改）作为
+素材包/模板/着色器库转售或再分发。代码由 Mothlight Studio 在 AI 辅助下为本包编写，
+经检查未发现复制的第三方代码片段；使用的是常见的通用技术（值噪声、fBm、面向镜头的
+四边形、8 方向描边采样、溶解阈值）。不含第三方代码；噪声哈希结构参考了
+MurmurHash3 fmix32（公有领域），见 THIRD_PARTY_NOTICES.txt。

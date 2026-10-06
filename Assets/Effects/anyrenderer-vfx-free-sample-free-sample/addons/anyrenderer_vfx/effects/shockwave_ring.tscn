@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://addons/anyrenderer_vfx/scripts/fx_player.gd" id="1_6lbdk"]
+[ext_resource type="Material" path="res://addons/anyrenderer_vfx/materials/m_shockwave_fire.tres" id="2_lfgpb"]
+[ext_resource type="Material" path="res://addons/anyrenderer_vfx/materials/m_spark_additive.tres" id="3_ahs4t"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dn16t"]
+size = Vector2(5, 5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ik4yj"]
+material = ExtResource("3_ahs4t")
+size = Vector2(0.15, 0.15)
+
+[sub_resource type="Gradient" id="Gradient_n8bnq"]
+colors = PackedColorArray(1, 0.8, 0.4, 1, 1, 0.3, 0.05, 0)
+
+[node name="ShockwaveRing" type="Node3D"]
+script = ExtResource("1_6lbdk")
+duration = 0.8
+autoplay = true
+loop = false
+loop_delay = 0.5
+free_when_done = false
+persistent = false
+hold_progress = 0.5
+stop_fade = 0.0
+stop_from_progress = -1.0
+progress_curve = null
+randomize_seed = true
+metadata/effect_id = "GD01"
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("2_lfgpb")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_dn16t")
+
+[node name="Debris" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 40
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.9
+local_coords = true
+mesh = SubResource("QuadMesh_ik4yj")
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 80.0
+gravity = Vector3(0, -6, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+damping_min = 2.0
+damping_max = 4.0
+scale_amount_min = 0.4
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_n8bnq")

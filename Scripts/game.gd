@@ -7,6 +7,7 @@ var clues: Array[String] = []
 var num_guesses: int = 0
 
 @export var max_guesses: int = 3
+@export var poof_effect: PackedScene
 
 @onready var crowd_scene: Node3D = $Crowd
 @onready var player: Player = $Player
@@ -61,6 +62,10 @@ func show_clue() -> void:
 func _on_guess_submitted(character: CharacterBuilder) -> void:
 	if character == uninvited_guest:
 		label.text = "CORRECT!"
+		var new_effect = poof_effect.instantiate()
+		add_child(new_effect)
+		new_effect.global_position = character.global_position
+		character.queue_free()
 	else:
 		label.text = "WRONG!"
 		num_guesses += 1
