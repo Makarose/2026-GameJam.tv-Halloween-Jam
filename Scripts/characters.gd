@@ -17,7 +17,7 @@ const COSTUME_KEEPS := ["costume_", "face_", "shoes_"]
 const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 
 # shoes that cover the ankles, so socks can't be seen and shouldn't be used as clues
-const HIGH_TOP_SHOES := [&"shoes_high_tops_red", &"shoes_high_tops_blue", &"shoes_high_tops_yellow"]
+const HIGH_TOP_SHOES := [&"shoes_high_tops_black", &"shoes_high_tops_red", &"shoes_high_tops_yellow"]
 
 # exported var for changing percentage of population that is wearing full costumes (the NPCs)
 @export_range(0, 100, 1, "suffix:%") var costume_percent := 40
