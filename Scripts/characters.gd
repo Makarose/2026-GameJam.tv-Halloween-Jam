@@ -16,6 +16,9 @@ const COSTUME_KEEPS := ["costume_", "face_", "shoes_"]
 # costumes that don't get shoes
 const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 
+# shoes that cover the ankles, so socks can't be seen and shouldn't be used as clues
+const HIGH_TOP_SHOES := [&"shoes_high_tops_red", &"shoes_high_tops_blue", &"shoes_high_tops_yellow"]
+
 # exported var for changing percentage of population that is wearing full costumes (the NPCs)
 @export_range(0, 100, 1, "suffix:%") var costume_percent := 40
 
@@ -71,6 +74,7 @@ func disable_outline() -> void:
 func randomize_look() -> void:
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D # find all the clothing pieces
 	var groups := {} # empty dictionary for piles of clothes
+	var kept := {} # remembers the actual node kept for each category
 	
 	# sort the pieces into their piles
 	for node in skeleton.get_children():
@@ -111,11 +115,18 @@ func randomize_look() -> void:
 				
 		# remembers what was kept to use in other scripts
 		if keep:
+			kept[prefix] = keep
 			look[prefix] = String(keep.name)
 			if prefix == "top_":
 				_apply_texture(keep, top_textures, "top_texture")
 			elif prefix == "pants_":
 				_apply_texture(keep, pants_textures, "pants_texture")
+
+	# removes socks from model anf loop if wearing high_tops
+	# done after the loop because the shoes and socks piles can be sorted in any order.
+	if look.has("shoes_") and HIGH_TOP_SHOES.has(StringName(look["shoes_"])) and kept.has("socks_"):
+		kept["socks_"].queue_free()
+		look.erase("socks_")
 
 # gives a piece a random texture from the list and records which one in look
 func _apply_texture(piece: Node, textures: Array[Texture2D], key: String) -> void:
