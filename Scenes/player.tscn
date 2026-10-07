@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dr5su0u401h7c" path="res://Scripts/ray_cast_3d.gd" id="3_vgqql"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
-font_size = 40
 font_color = Color(0.9666667, 1, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
@@ -42,14 +41,26 @@ script = ExtResource("1_v0iea")
 
 [node name="Control" type="Control" parent="." unique_id=1798550335]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 396.0
-offset_bottom = 187.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -396.0
+offset_top = -187.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=922947509]
-layout_mode = 0
-offset_right = 512.0
-offset_bottom = 141.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -343.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -59,3 +70,4 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_vgqql")
+autowrap_mode = 2

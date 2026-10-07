@@ -26,6 +26,8 @@ const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 @export var top_textures: Array[Texture2D] = []
 @export var pants_textures: Array[Texture2D] = []
 
+@export var outline_shader: ShaderMaterial
+
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
 # creates an empty dictionary of the character's generated outfit, fills when spawned, listing their accessories.
@@ -33,13 +35,37 @@ const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 # NOTE: costumed characters only have "costume_" , "face_" and "shoes_" in here, so check look.has("hat_") before reading look["hat_"] or it will crash.
 var look := {}
 
+# keep an array of the final selected meshes for each character to use when enabling/disabling outline shader
+var meshes: Array[Node]
+
 # reference to debug label, can be deleted before publishing
 @onready var ug_label: Label3D = $UGLabel
 
 
 func _ready() -> void:
 	randomize_look() # dress the character
+	add_outline_material() # add the outline shader material to all meshes, to be enabled by RayCast3D on Player
 	play_random()    # start a random animation
+
+
+func add_outline_material() -> void:
+	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
+	meshes = skeleton.get_children()
+	for mesh in meshes:
+		if not mesh.material_overlay:
+			mesh.material_overlay = outline_shader
+
+
+func enable_outline() -> void:
+	for mesh in meshes:
+		if is_instance_valid(mesh):
+			mesh.material_overlay.set_shader_parameter("thickness", 0.03)
+
+
+func disable_outline() -> void:
+	for mesh in meshes:
+		if is_instance_valid(mesh):
+			mesh.material_overlay.set_shader_parameter("thickness", 0.0)
 
 
 func randomize_look() -> void:

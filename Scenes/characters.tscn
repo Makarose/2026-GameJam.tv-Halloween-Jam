@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://m1mca5ti5l04" path="res://Assets/Textures/Red_texture.png" id="10_50663"]
 [ext_resource type="Texture2D" uid="uid://pfvqnhe7yteq" path="res://Assets/Textures/White_texture.png" id="11_t8wt8"]
 [ext_resource type="Texture2D" uid="uid://blire5edjwfdu" path="res://Assets/Textures/Yellow_texture.png" id="12_6fgi3"]
+[ext_resource type="Material" uid="uid://eo0sedjbgkig" path="res://Shaders & Materials/simple_outline_material.tres" id="14_wwnb7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_biyew"]
 
@@ -236,6 +237,7 @@ script = ExtResource("2_xtbha")
 costume_percent = 98
 top_textures = Array[Texture2D]([ExtResource("3_1ixyc"), ExtResource("4_wwnb7"), ExtResource("5_5l00s"), ExtResource("5_42xpr"), ExtResource("7_2hl6l"), ExtResource("8_oqigk"), ExtResource("9_r3dss"), ExtResource("10_50663"), ExtResource("11_t8wt8"), ExtResource("12_6fgi3")])
 pants_textures = Array[Texture2D]([ExtResource("3_1ixyc"), ExtResource("4_wwnb7"), ExtResource("5_5l00s"), ExtResource("5_42xpr"), ExtResource("7_2hl6l"), ExtResource("8_oqigk"), ExtResource("9_r3dss"), ExtResource("10_50663"), ExtResource("11_t8wt8"), ExtResource("12_6fgi3")])
+outline_shader = ExtResource("14_wwnb7")
 
 [node name="Area3D" type="Area3D" parent="." index="0" unique_id=1239403549]
 collision_mask = 0

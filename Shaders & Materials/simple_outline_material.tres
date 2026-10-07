@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="1_p3wyr"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_p3wyr")
 shader_parameter/color = Color(0.9529412, 0, 0.6862745, 1)
