@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://72uqtfa33wqu"
-path="res://.godot/imported/royalty free-witch.png-d285b396d1848fb432f37f3b08c17d82.ctex"
+uid="uid://c3englflkdlxv"
+path="res://.godot/imported/witchhead_transparent.png-ec8a6bf3ed32d6a76890b239be617a98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Witch Faces/royalty free-witch.png"
-dest_files=["res://.godot/imported/royalty free-witch.png-d285b396d1848fb432f37f3b08c17d82.ctex"]
+source_file="res://Assets/Witch Faces/witchhead_transparent.png"
+dest_files=["res://.godot/imported/witchhead_transparent.png-ec8a6bf3ed32d6a76890b239be617a98.ctex"]
 
 [params]
 
