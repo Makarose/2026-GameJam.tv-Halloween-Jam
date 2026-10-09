@@ -22,11 +22,16 @@ const HIGH_TOP_PREFIX := "shoes_hightop"
 # exported var for animations available to population
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
 
-#textures randomlky assigned to the kept tops and pants
+#textures randomly assigned to the kept tops and pants
 @export var top_textures: Array[Texture2D] = []
 @export var pants_textures: Array[Texture2D] = []
 
 @export var outline_shader: ShaderMaterial
+
+#animation clips with these keywords play once, then the character idles before replaying
+@export var pause_keywords: Array[String] = ["dance"]
+@export var pause_min: float = 2.0
+@export var pause_max: float = 3.5
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -139,11 +144,16 @@ func _apply_texture(piece: Node, textures: Array[Texture2D], key: String) -> voi
 	(piece as MeshInstance3D).material_override = mat
 	look[key] = index
 
+var _current: StringName
+var _idle_clip: StringName
+
 # finds a random animation to play from the list
 func play_random() -> void:
 	var options := []
 	for clip in anim.get_animation_list():
 		var clip_name := String(clip).to_lower()
+		if clip_name.contains("idle") and _idle_clip == &"":
+			_idle_clip = clip
 		for keyword in animation_keywords:
 			if clip_name.contains(keyword.to_lower()):
 				options.append(clip)
@@ -151,12 +161,39 @@ func play_random() -> void:
 	if options.is_empty():
 		push_warning("No animations match: " + str(animation_keywords))
 		return
-	var chosen: StringName = options.pick_random()
-	
-	# can't loop imported animations in editor so looped here
-	anim.get_animation(chosen).loop_mode = Animation.LOOP_LINEAR
-	anim.play(chosen)
-	
+	_current = options.pick_random()
+
+	# idle always loops so it can fill the gap
+	if _idle_clip != &"":
+		anim.get_animation(_idle_clip).loop_mode = Animation.LOOP_LINEAR
+
+	# pause clips play once and get handled in the finished signal, everything else loops
+	var chosen_name := String(_current).to_lower()
+	var needs_pause := false
+	for keyword in pause_keywords:
+		if chosen_name.contains(keyword.to_lower()):
+			needs_pause = true
+			break
+
+	if needs_pause:
+		anim.get_animation(_current).loop_mode = Animation.LOOP_NONE
+		anim.animation_finished.connect(_on_animation_finished)
+	else:
+		anim.get_animation(_current).loop_mode = Animation.LOOP_LINEAR
+
+	anim.play(_current)
+
 	# starts animations at different times so crowd doesn't move in sync.
 	anim.seek(randf() * anim.current_animation_length)
 	anim.speed_scale = randf_range(0.85, 1.15)
+
+
+func _on_animation_finished(clip_name: StringName) -> void:
+	if clip_name != _current:
+		return
+	if _idle_clip != &"":
+		anim.play(_idle_clip, 0.3)
+	await get_tree().create_timer(randf_range(pause_min, pause_max)).timeout
+	if not is_inside_tree():
+		return
+	anim.play(_current, 0.3)
