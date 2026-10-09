@@ -19,18 +19,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var target_fov := smooth_camera_fov
+	var rate := 40.0 # zooming out
 	if Input.is_action_pressed("zoom"):
-		smooth_camera.fov = lerp(
-			smooth_camera.fov, 
-			smooth_camera_fov * zoom_multiplier, 
-			delta * camera_zoom_speed
-			)
-	else:
-		smooth_camera.fov = lerp(
-			smooth_camera.fov, 
-			smooth_camera_fov, 
-			delta * camera_zoom_speed * 1.5
-			)
+		target_fov = smooth_camera_fov * zoom_multiplier
+		rate = 24.0 # zooming in
+
+	var weight := 1.0 - exp(-rate * delta)
+	smooth_camera.fov = clampf(lerpf(smooth_camera.fov, target_fov, weight), 1.0, 179.0)
 
 
 func _physics_process(delta: float) -> void:

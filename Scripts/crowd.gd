@@ -19,6 +19,15 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 # how far the crowd spreads from the center. 10 covers a circle 20 units across
 @export var radius := 10.0
 
+# rings variable to spawn trees outside crowd
+@export var ring_assets: Array[PackedScene] = []
+@export var ring_count := 24
+@export var ring_inner_gap := 2.0
+@export var ring_outer_gap := 5.0
+@export var ring_scale_min := 0.8
+@export var ring_scale_max := 1.2
+@export var ring_face_center := true
+
 # every spawned character
 var crowd: Array[CharacterBuilder] = []
 
@@ -57,6 +66,28 @@ func _ready() -> void:
 	for guest in crowd:
 		if not guest.look.has("costume_"):
 			guests.append(guest)
+	
+	_spawn_ring_assets()
+
+# creates background assets outside play area
+func _spawn_ring_assets() -> void:
+	if ring_assets.is_empty():
+		return
+
+	for i in ring_count:
+		var angle := (float(i) / ring_count) * TAU + randf_range(-0.1, 0.1)
+		var dist := radius + randf_range(ring_inner_gap, ring_outer_gap)
+
+		var asset: Node3D = ring_assets.pick_random().instantiate()
+		add_child(asset)
+		asset.position = Vector3(cos(angle) * dist, 0.0, sin(angle) * dist)
+
+		if ring_face_center:
+			asset.look_at(global_position + Vector3.UP * asset.global_position.y, Vector3.UP)
+		else:
+			asset.rotation.y = randf() * TAU
+
+		asset.scale = Vector3.ONE * randf_range(ring_scale_min, ring_scale_max)
 
 
 # makes one character. re-rolls up to 20 times to avoid characters sharing looks. 
@@ -101,13 +132,6 @@ func relocate(character: CharacterBuilder) -> void:
 			positions.erase(other.position)
 			other.position = _find_spot()
 
-	# anyone crowding the new spot gets re-placed somewhere else
-	for other in crowd:
-		if other == character:
-			continue
-		if other.position.distance_to(pos) < min_spacing:
-			positions.erase(other.position)
-			other.position = _find_spot()
 
 # finds a random spot at least min_spacing away from everyone else	
 func _find_spot() -> Vector3:
@@ -127,6 +151,6 @@ func _find_spot() -> Vector3:
 			best = pos
 			
 	# gives up after 300 tries and shows warning and uses least crowded space which is closer than min_spacing		
-	push_warning("No free spot found. Raise Area or lower Min Spacing.")
+	push_warning("No free spot found. Raise Radius or lower Min Spacing.")
 	positions.append(best)
 	return best

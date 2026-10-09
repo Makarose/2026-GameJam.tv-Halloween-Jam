@@ -2,10 +2,22 @@
 
 [ext_resource type="Script" uid="uid://brix720y3n0ig" path="res://Scripts/crowd.gd" id="1_ufwdi"]
 [ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="2_ds8sv"]
+[ext_resource type="PackedScene" uid="uid://dtvlnudvtl06x" path="res://Assets/Environments/KayKit Forest Nature Pack/Tree_4_B_Color1.gltf" id="2_m8klg"]
+[ext_resource type="PackedScene" uid="uid://1kfon3rnhnuk" path="res://Assets/Environments/KayKit Forest Nature Pack/Tree_4_C_Color1.gltf" id="3_2pmw5"]
 [ext_resource type="PackedScene" uid="uid://bsimdilj86c31" path="res://Scenes/environment.tscn" id="3_ds8sv"]
 [ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="3_urbdt"]
+[ext_resource type="PackedScene" uid="uid://bhvmagnv32do6" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_dead_large.gltf" id="4_ampx7"]
+[ext_resource type="PackedScene" uid="uid://cspqbu1fyyavd" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_dead_large_decorated.gltf" id="5_eyom0"]
+[ext_resource type="PackedScene" uid="uid://bdmgwakhmtlx4" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_dead_medium.gltf" id="6_hl0ly"]
+[ext_resource type="PackedScene" uid="uid://caxboixa7glyk" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_dead_small.gltf" id="7_id7k6"]
+[ext_resource type="PackedScene" uid="uid://diplfcvqqwajf" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_orange_large.gltf" id="8_ugovx"]
+[ext_resource type="PackedScene" uid="uid://thorep6bibna" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_orange_medium.gltf" id="9_py77v"]
+[ext_resource type="PackedScene" uid="uid://ceqdsrwrp4ewr" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_orange_small.gltf" id="10_arq3e"]
+[ext_resource type="PackedScene" uid="uid://cnavuue817jg" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_large.gltf" id="11_mx75b"]
+[ext_resource type="PackedScene" uid="uid://ds4ug2peyd4ms" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_medium.gltf" id="12_c4vil"]
+[ext_resource type="PackedScene" uid="uid://7nne7wyjn0ta" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_small.gltf" id="13_ct2gn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_urbdt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xussw"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_urbdt")
@@ -14,13 +26,17 @@ shader_parameter/thickness = 0.0
 
 [node name="Crowd" type="Node3D" unique_id=384395682]
 script = ExtResource("1_ufwdi")
-count = 150
+count = 200
 costume_percent = 70
-radius = 30.0
+radius = 40.0
+ring_assets = Array[PackedScene]([ExtResource("2_m8klg"), ExtResource("3_2pmw5"), ExtResource("4_ampx7"), ExtResource("5_eyom0"), ExtResource("6_hl0ly"), ExtResource("7_id7k6"), ExtResource("8_ugovx"), ExtResource("9_py77v"), ExtResource("10_arq3e"), ExtResource("11_mx75b"), ExtResource("12_c4vil"), ExtResource("13_ct2gn")])
+ring_count = 4000
+ring_inner_gap = 3.0
+ring_outer_gap = 100.0
 
 [node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
 
 [node name="Characters" parent="EditorPreview" unique_id=894406257 instance=ExtResource("2_ds8sv")]
-outline_shader = SubResource("ShaderMaterial_urbdt")
+outline_shader = SubResource("ShaderMaterial_xussw")
 
 [node name="Environment" parent="." unique_id=993080148 instance=ExtResource("3_ds8sv")]
