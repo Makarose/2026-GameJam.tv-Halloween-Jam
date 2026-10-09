@@ -10,6 +10,9 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 # how many characters to spawn.
 @export var count := 30
 
+# percent of the crowd wearing costumes. at least one character is always left without a costume
+@export_range(0, 100, 1, "suffix:%") var costume_percent := 40
+
 # how close the characters are allowed to stand to each other
 @export var min_spacing := 2.0
 
@@ -32,13 +35,24 @@ var positions: Array[Vector3] = []
 
 func _ready() -> void:
 	# removes stand in characters used in EditorPreview for camera positioning
-	$EditorPreview.queue_free() # this line will cause a crash if EditorPreview is deleted.
+	if has_node("EditorPreview"):
+		$EditorPreview.queue_free()
+
+	# decide who wears a costume before anyone spawns.
+	# clamped to count - 1 so there is always at least one possible uninvited guest
+	var costume_total := clampi(roundi(count * costume_percent / 100.0), 0, count - 1)
+	var costume_flags: Array[bool] = []
 	for i in count:
-		var character := _make_unique_character()
+		costume_flags.append(i < costume_total)
+	costume_flags.shuffle()
+
+	for i in count:
+		var character := _make_unique_character(costume_flags[i])
 		character.position = _find_spot()
 		character.rotation.y = randf_range(0.0, TAU)
 		crowd.append(character)
 		looks.append(character.look)
+
 	# once all characters have been generated, sort potential UGs into separate array by weeding out costume characters
 	for guest in crowd:
 		if not guest.look.has("costume_"):
@@ -47,13 +61,16 @@ func _ready() -> void:
 
 # makes one character. re-rolls up to 20 times to avoid characters sharing looks. 
 # costume characters (NPCs) are allowed to match
-func _make_unique_character() -> CharacterBuilder:
+func _make_unique_character(wears_costume: bool) -> CharacterBuilder:
 	var character: CharacterBuilder = null
 	for attempt in 20:
 		if character:
 			character.queue_free()
 		character = CHARACTER_SCENE.instantiate() as CharacterBuilder
-		
+
+		# same costume decision on every re-roll, so the totals stay exact
+		character.force_costume = 1 if wears_costume else 0
+
 		# add_child makes the character dress itself, so look is only filled in after this line
 		add_child(character)
 		if character.look.has("costume_") or not looks.has(character.look):

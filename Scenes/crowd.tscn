@@ -3,14 +3,24 @@
 [ext_resource type="Script" uid="uid://brix720y3n0ig" path="res://Scripts/crowd.gd" id="1_ufwdi"]
 [ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="2_ds8sv"]
 [ext_resource type="PackedScene" uid="uid://bsimdilj86c31" path="res://Scenes/environment.tscn" id="3_ds8sv"]
+[ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="3_urbdt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uogji"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_urbdt")
+shader_parameter/color = Color(0.9529412, 0, 0.6862745, 1)
+shader_parameter/thickness = 0.0
 
 [node name="Crowd" type="Node3D" unique_id=384395682]
 script = ExtResource("1_ufwdi")
 count = 150
+costume_percent = 100
 area = Vector2(40, 20)
 
 [node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
 
 [node name="Characters" parent="EditorPreview" unique_id=894406257 instance=ExtResource("2_ds8sv")]
+outline_shader = SubResource("ShaderMaterial_uogji")
 
 [node name="Environment" parent="." unique_id=993080148 instance=ExtResource("3_ds8sv")]

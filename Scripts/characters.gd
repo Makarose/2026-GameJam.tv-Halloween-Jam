@@ -16,11 +16,8 @@ const COSTUME_KEEPS := ["costume_", "face_", "shoes_"]
 # costumes that don't get shoes
 const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 
-# shoes that cover the ankles, so socks can't be seen and shouldn't be used as clues
-const HIGH_TOP_SHOES := [&"shoes_high_tops_black", &"shoes_high_tops_red", &"shoes_high_tops_yellow"]
-
-# exported var for changing percentage of population that is wearing full costumes (the NPCs)
-@export_range(0, 100, 1, "suffix:%") var costume_percent := 40
+# any shoes starting with this cover the ankles, so socks can't be seen
+const HIGH_TOP_PREFIX := "shoes_hightop"
 
 # exported var for animations available to population
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
@@ -37,6 +34,9 @@ const HIGH_TOP_SHOES := [&"shoes_high_tops_black", &"shoes_high_tops_red", &"sho
 # use to build clues
 # NOTE: costumed characters only have "costume_" , "face_" and "shoes_" in here, so check look.has("hat_") before reading look["hat_"] or it will crash.
 var look := {}
+
+# set by crowd.gd before add_child. -1 = roll randomly, 0 = never costume, 1 = always costume
+var force_costume := -1
 
 # keep an array of the final selected meshes for each character to use when enabling/disabling outline shader
 var meshes: Array[Node]
@@ -90,7 +90,8 @@ func randomize_look() -> void:
 		if not matched:
 			push_warning("Unsorted piece: " + String(node.name))
 
-	var costume := randf() * 100.0 < costume_percent
+	# the crowd decides who wears a costume by setting force_costume to 1 before spawning
+	var costume := force_costume == 1
 
 	# pick the costume first, so the other categories know which one it is
 	var costume_piece: Node = null
@@ -122,9 +123,9 @@ func randomize_look() -> void:
 			elif prefix == "pants_":
 				_apply_texture(keep, pants_textures, "pants_texture")
 
-	# removes socks from model anf loop if wearing high_tops
+	# removes socks from the model and from look if wearing high tops.
 	# done after the loop because the shoes and socks piles can be sorted in any order.
-	if look.has("shoes_") and HIGH_TOP_SHOES.has(StringName(look["shoes_"])) and kept.has("socks_"):
+	if look.has("shoes_") and String(look["shoes_"]).begins_with(HIGH_TOP_PREFIX) and kept.has("socks_"):
 		kept["socks_"].queue_free()
 		look.erase("socks_")
 
