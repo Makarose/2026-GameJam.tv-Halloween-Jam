@@ -106,7 +106,7 @@ autowrap_mode = 2
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 35)
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=999153068]
 one_shot = true

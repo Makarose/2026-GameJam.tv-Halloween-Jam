@@ -16,3 +16,7 @@ func _on_play_game_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_assets_label_meta_clicked(meta: Variant) -> void:
+	pass # Replace with function body.

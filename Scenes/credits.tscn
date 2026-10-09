@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f7jofs153uhc"]
 
 [ext_resource type="Script" uid="uid://5vn1t33vrbhk" path="res://Scripts/credits.gd" id="1_r18jl"]
+[ext_resource type="Script" uid="uid://ink3roymptep" path="res://Scripts/assets_label.gd" id="2_gryuy"]
 
 [node name="Credits" type="Control" unique_id=675975560]
 layout_mode = 3
@@ -12,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_r18jl")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1489029820]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -24,6 +26,7 @@ grow_horizontal = 2
 text = "Credits"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1996629339]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -39,19 +42,23 @@ grow_vertical = 0
 theme_override_constants/separation = 25
 
 [node name="MainMenu" type="Button" parent="HBoxContainer" unique_id=1662048263]
+visible = false
 layout_mode = 2
 text = "Main Menu
 "
 
 [node name="Play Game" type="Button" parent="HBoxContainer" unique_id=1282295734]
+visible = false
 layout_mode = 2
 text = "Play Game"
 
 [node name="Quit" type="Button" parent="HBoxContainer" unique_id=517105895]
+visible = false
 layout_mode = 2
 text = "Quit"
 
 [node name="CreatorLabel" type="Label" parent="." unique_id=1539119129]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,33 +74,33 @@ grow_vertical = 2
 text = "Created by Rosemarie Kaes & Eric Vennemeyer"
 horizontal_alignment = 1
 
-[node name="AssetsLabel" type="Label" parent="." unique_id=403204515]
+[node name="AssetsLabel" type="RichTextLabel" parent="." unique_id=248983414]
 layout_mode = 0
-offset_right = 522.0
-offset_bottom = 361.0
+offset_right = 619.0
+offset_bottom = 569.0
+bbcode_enabled = true
 text = "Additional Assets:
 
 Creator: Thcyrax
-Asset: Customizable Stickman Hypercasual
-Website: https://thcyrax.itch.io/customizable-stickman-hypercasual
+Asset: [url=https://thcyrax.itch.io/customizable-stickman-hypercasual]Customizable Stickman Hypercasual[/url]
 
 Creator: Kay Lousberg
-Asset: Kay Kit Halloween Bits
-Website: https://kaylousberg.itch.io/halloween-bits
+Asset: [url=https://kaylousberg.itch.io/halloween-bits]Kay Kit Halloween Bits[/url]
 
 Creator: Frostwinz
-Asset: Pixel Art VFX - Priest
-Website: https://frostwindz.itch.io/pixel-art-vfx-priest
+Asset: [url=https://frostwindz.itch.io/pixel-art-vfx-priest]Pixel Art VFX - Priest[/url]
 
 WITCH PICTURE
 
 Music
 
 Creator: David KBD
-Asset: Spooky Playtime, Spooky and crazy music pack
-Website: https://davidkbd.itch.io/spooky-playtime-spooky-and-crazy-music-pack
+Asset: [url=https://davidkbd.itch.io/spooky-playtime-spooky-and-crazy-music-pack]Spooky Playtime, Spooky and crazy music pack[/url]
+
 "
+script = ExtResource("2_gryuy")
 
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="HBoxContainer/Play Game" to="." method="_on_play_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="meta_clicked" from="AssetsLabel" to="." method="_on_assets_label_meta_clicked"]
