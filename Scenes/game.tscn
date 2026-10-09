@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b66oyj0aa2dew" path="res://Scenes/priest_spell_fx.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://dv2dnovmaayiu" path="res://Scenes/witch_dialogue.tscn" id="5_wowpa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3dryh"]
 font_size = 40
@@ -109,5 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15.4)
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=999153068]
 one_shot = true
+
+[node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

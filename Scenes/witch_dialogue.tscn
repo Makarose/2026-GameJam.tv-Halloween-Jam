@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://dv2dnovmaayiu"]
+
+[ext_resource type="Texture2D" uid="uid://3caa8p0kidp3" path="res://Assets/Witch Faces/FR_156_TimidMageGirl/FR16_156_TimidMage_Normal.png" id="1_i4y2p"]
+[ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
+[ext_resource type="FontFile" uid="uid://berfqo0oyvg04" path="res://Assets/UI/Fonts/Gothic_pixel_font(0S).ttf" id="3_1lfb2"]
+[ext_resource type="Texture2D" uid="uid://coty4clujui41" path="res://Assets/UI/20251126darkDwellers_v_1_0/20251029darkDwellers9SlicesA.png" id="3_sxhwy"]
+[ext_resource type="Texture2D" uid="uid://uemnc70kkmhr" path="res://Assets/Witch Faces/Cartoony witch rigged animated game character.png" id="3_t3c0m"]
+[ext_resource type="Texture2D" uid="uid://y563ttaqrf6h" path="res://Assets/Witch Faces/boredwitch.png" id="4_t3c0m"]
+[ext_resource type="Texture2D" uid="uid://72uqtfa33wqu" path="res://Assets/Witch Faces/royalty free-witch.png" id="5_6p4qx"]
+[ext_resource type="Texture2D" uid="uid://c1k3jab1psgto" path="res://Assets/UI/UI - Borders and HP/UI - 16x16 UI Tileset.png" id="8_ol27t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm00d"]
+load_path = "res://.godot/imported/20251029darkDwellers9SlicesE.png-123f8c3033d7b74f03f04d6f2776bec6.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4y2p"]
+content_margin_left = 30.0
+content_margin_top = 20.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+texture = SubResource("CompressedTexture2D_sm00d")
+texture_margin_left = 30.0
+texture_margin_top = 29.709827
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_22bwa"]
+line_spacing = 5.0
+font = ExtResource("3_1lfb2")
+font_size = 12
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sm00d"]
+content_margin_left = 30.0
+content_margin_top = 20.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+texture = ExtResource("3_sxhwy")
+texture_margin_left = 30.0
+texture_margin_top = 29.709827
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biyew"]
+texture = ExtResource("8_ol27t")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(113.60153, 65.67473, 44.79782, 44.79782)
+
+[node name="WitchDialogue" type="CanvasLayer" unique_id=1655646449]
+
+[node name="Control" type="Control" parent="." unique_id=865505668]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=215242327]
+modulate = Color(1, 1, 1, 0.5372549)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1565425247]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -587.0
+offset_top = -565.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_i4y2p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=192665100]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -587.0
+offset_top = -565.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_sm00d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1504241747]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -379.0
+offset_top = -392.0
+offset_right = -10.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_t3c0m")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="TextureRect4" type="TextureRect" parent="Control" unique_id=667179035]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -411.0
+offset_top = -424.0
+offset_right = -42.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_t3c0m")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="TextureRect5" type="TextureRect" parent="Control" unique_id=2136783331]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -404.0
+offset_top = -405.0
+offset_right = -35.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_6p4qx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=965346818]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -211.0
+offset_right = -691.0
+offset_bottom = -116.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_i4y2p")
+
+[node name="Label2" type="Label" parent="Control" unique_id=246474673]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 121.0
+offset_top = 458.0
+offset_right = 832.0
+offset_bottom = 603.0
+size_flags_vertical = 1
+text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. "
+label_settings = SubResource("LabelSettings_22bwa")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control" unique_id=1648504854]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = -199.0
+offset_right = -705.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_sm00d")
+
+[node name="Label" type="Label" parent="Control" unique_id=434747703]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 458.0
+offset_right = 807.0
+offset_bottom = 619.0
+size_flags_vertical = 1
+text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
+label_settings = SubResource("LabelSettings_22bwa")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control" unique_id=1646669355]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = -193.0
+offset_right = -826.0
+offset_bottom = -136.66669
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+theme_override_styles/panel = SubResource("StyleBoxTexture_biyew")
+
+[node name="Label3" type="Label" parent="Control" unique_id=529239131]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 458.0
+offset_right = 807.0
+offset_bottom = 619.0
+size_flags_vertical = 1
+text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
+label_settings = SubResource("LabelSettings_22bwa")
+vertical_alignment = 1
+autowrap_mode = 3
