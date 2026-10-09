@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dv2dnovmaayiu"]
 
+[ext_resource type="Script" uid="uid://cfwauxrj0rb88" path="res://Scripts/witch_dialogue.gd" id="1_6p4qx"]
 [ext_resource type="Texture2D" uid="uid://3caa8p0kidp3" path="res://Assets/Witch Faces/FR_156_TimidMageGirl/FR16_156_TimidMage_Normal.png" id="1_i4y2p"]
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
 [ext_resource type="FontFile" uid="uid://berfqo0oyvg04" path="res://Assets/UI/Fonts/Gothic_pixel_font(0S).ttf" id="3_1lfb2"]
@@ -46,6 +47,11 @@ texture_margin_bottom = 15.0
 region_rect = Rect2(113.60153, 65.67473, 44.79782, 44.79782)
 
 [node name="WitchDialogue" type="CanvasLayer" unique_id=1655646449]
+script = ExtResource("1_6p4qx")
+witch_start_pos = Vector2(1045, 54)
+witch_end_pos = Vector2(576, 54)
+text_box_start_pos = Vector2(-860, 408)
+text_box_end_pos = Vector2(0, 408)
 
 [node name="Control" type="Control" parent="." unique_id=865505668]
 layout_mode = 3
@@ -63,6 +69,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextBox" type="Control" parent="Control" unique_id=746954908]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TextBox" unique_id=965346818]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -513.0
+offset_top = -264.0
+offset_right = -114.0
+offset_bottom = -169.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxTexture_i4y2p")
+
+[node name="TextLabel" type="Label" parent="Control/TextBox" unique_id=434747703]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_left = 125.0
+offset_top = -11.0
+offset_right = 748.0
+offset_bottom = 150.0
+size_flags_vertical = 1
+text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
+label_settings = SubResource("LabelSettings_22bwa")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BlackWitchPortrait" type="TextureRect" parent="Control" unique_id=192665100]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -594.0
+offset_right = 67.0
+offset_bottom = 2.0030518
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_sm00d")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1565425247]
 visible = false
 layout_mode = 1
@@ -78,53 +142,6 @@ grow_vertical = 0
 texture = ExtResource("1_i4y2p")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=192665100]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -597.0
-offset_right = 67.0
-offset_bottom = -1.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("2_sm00d")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=965346818]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 97.0
-offset_top = -256.0
-offset_right = -682.0
-offset_bottom = -161.5
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-theme_override_styles/panel = SubResource("StyleBoxTexture_i4y2p")
-
-[node name="Label" type="Label" parent="Control" unique_id=434747703]
-texture_filter = 1
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 0
-offset_left = 159.0
-offset_top = 406.0
-offset_right = 830.0
-offset_bottom = 567.0
-size_flags_vertical = 1
-text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
-label_settings = SubResource("LabelSettings_22bwa")
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1504241747]
 visible = false
