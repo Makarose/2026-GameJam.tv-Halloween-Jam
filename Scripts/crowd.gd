@@ -77,10 +77,28 @@ func _make_unique_character(wears_costume: bool) -> CharacterBuilder:
 			break
 	return character
 	
-# moves a character to a new random spot at least min_spacing from everyone else
+# puts a character at a uniformly random spot anywhere in the area,
+# then moves any other character that is now too close
 func relocate(character: CharacterBuilder) -> void:
-	positions.erase(character.position) # free up its old spot first
-	character.position = _find_spot()
+	positions.erase(character.position)
+
+		# pick how far out (0 = center, 1 = edge), then a random point on that square ring
+	var e := randf()
+	var pos := Vector3.ZERO
+	if randf() < 0.5:
+		pos.x = e * area.x * (1.0 if randf() < 0.5 else -1.0)
+		pos.z = randf_range(-e, e) * area.y
+	else:
+		pos.z = e * area.y * (1.0 if randf() < 0.5 else -1.0)
+		pos.x = randf_range(-e, e) * area.x
+
+	# anyone crowding the new spot gets re-placed somewhere else
+	for other in crowd:
+		if other == character:
+			continue
+		if other.position.distance_to(pos) < min_spacing:
+			positions.erase(other.position)
+			other.position = _find_spot()
 
 # finds a random spot at least min_spacing away from everyone else	
 func _find_spot() -> Vector3:
