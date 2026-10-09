@@ -19,6 +19,10 @@ const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 # any shoes starting with this cover the ankles, so socks can't be seen
 const HIGH_TOP_PREFIX := "shoes_hightop"
 
+# chance (0.0 to 1.0) that a category is worn at all. anything not listed is always worn.
+# 0.5 means half the characters get no glasses / no gloves.
+const WEAR_CHANCE := {"glasses_": 0.5, "gloves_": 0.5}
+
 # exported var for animations available to population
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
 
@@ -115,6 +119,8 @@ func randomize_look() -> void:
 			keep = null
 		elif costume and prefix == "shoes_" and costume_piece != null and NO_SHOES_COSTUMES.has(costume_piece.name):
 			keep = null
+		elif WEAR_CHANCE.has(prefix) and randf() > WEAR_CHANCE[prefix]:
+			keep = null # rolled "not wearing this"
 		for piece in options:
 			if piece != keep:
 				piece.queue_free()

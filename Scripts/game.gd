@@ -23,8 +23,8 @@ func _ready() -> void:
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
 	
 	label.text = ""
-	for label in clue_labels:
-		label.text = ""
+	for clue_label in clue_labels:
+		clue_label.text = ""
 	
 	set_uninvited_guest()
 	generate_clues()
