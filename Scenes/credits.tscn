@@ -69,11 +69,30 @@ horizontal_alignment = 1
 
 [node name="AssetsLabel" type="Label" parent="." unique_id=403204515]
 layout_mode = 0
-offset_right = 227.0
-offset_bottom = 75.0
-text = "Additional Assets Created By:
+offset_right = 522.0
+offset_bottom = 361.0
+text = "Additional Assets:
 
-Creator: "
+Creator: Thcyrax
+Asset: Customizable Stickman Hypercasual
+Website: https://thcyrax.itch.io/customizable-stickman-hypercasual
+
+Creator: Kay Lousberg
+Asset: Kay Kit Halloween Bits
+Website: https://kaylousberg.itch.io/halloween-bits
+
+Creator: Frostwinz
+Asset: Pixel Art VFX - Priest
+Website: https://frostwindz.itch.io/pixel-art-vfx-priest
+
+WITCH PICTURE
+
+Music
+
+Creator: David KBD
+Asset: Spooky Playtime, Spooky and crazy music pack
+Website: https://davidkbd.itch.io/spooky-playtime-spooky-and-crazy-music-pack
+"
 
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="HBoxContainer/Play Game" to="." method="_on_play_game_pressed"]

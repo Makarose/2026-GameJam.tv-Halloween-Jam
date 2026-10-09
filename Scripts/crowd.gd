@@ -76,6 +76,11 @@ func _make_unique_character(wears_costume: bool) -> CharacterBuilder:
 		if character.look.has("costume_") or not looks.has(character.look):
 			break
 	return character
+	
+# moves a character to a new random spot at least min_spacing from everyone else
+func relocate(character: CharacterBuilder) -> void:
+	positions.erase(character.position) # free up its old spot first
+	character.position = _find_spot()
 
 # finds a random spot at least min_spacing away from everyone else	
 func _find_spot() -> Vector3:

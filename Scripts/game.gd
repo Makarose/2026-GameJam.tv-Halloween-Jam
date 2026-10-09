@@ -57,6 +57,7 @@ func format_time(seconds: float) -> String:
 
 func set_uninvited_guest() -> void:
 	uninvited_guest = crowd_scene.guests.pick_random()
+	crowd_scene.relocate(uninvited_guest)
 	uninvited_guest.ug_label.visible = true
 
 

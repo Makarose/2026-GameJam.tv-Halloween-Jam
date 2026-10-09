@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsimdilj86c31" path="res://Scenes/environment.tscn" id="3_ds8sv"]
 [ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="3_urbdt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uogji"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urbdt"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_urbdt")
@@ -21,6 +21,6 @@ area = Vector2(40, 20)
 [node name="EditorPreview" type="Node3D" parent="." unique_id=887563750]
 
 [node name="Characters" parent="EditorPreview" unique_id=894406257 instance=ExtResource("2_ds8sv")]
-outline_shader = SubResource("ShaderMaterial_uogji")
+outline_shader = SubResource("ShaderMaterial_urbdt")
 
 [node name="Environment" parent="." unique_id=993080148 instance=ExtResource("3_ds8sv")]
