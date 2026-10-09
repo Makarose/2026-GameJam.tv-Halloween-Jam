@@ -11,8 +11,5 @@ func _ready() -> void:
 func _on_link_clicked(meta: Variant) -> void:
 	var url_string = str(meta).strip_edges()
 	
-	print("--- SUCCESS! CLICK DETECTED ---")
-	print("Opening URL: ", url_string)
-	
 	# 3. Open the computer's web browser
 	OS.shell_open(url_string)

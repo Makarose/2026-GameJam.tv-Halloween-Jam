@@ -16,8 +16,8 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 # how close the characters are allowed to stand to each other
 @export var min_spacing := 2.0
 
-# how far the crowd spreads. these are half sizes, so (10, 6) covers 20 units wide by 12 units deep
-@export var area := Vector2(10.0, 6.0)
+# how far the crowd spreads from the center. 10 covers a circle 20 units across
+@export var radius := 10.0
 
 # every spawned character
 var crowd: Array[CharacterBuilder] = []
@@ -77,20 +77,29 @@ func _make_unique_character(wears_costume: bool) -> CharacterBuilder:
 			break
 	return character
 	
+# uniformly random point inside the circle.
+# sqrt keeps the points evenly spread instead of bunching up in the center
+func _random_point() -> Vector3:
+	var angle := randf() * TAU
+	var dist := radius * sqrt(randf())
+	return Vector3(cos(angle) * dist, 0.0, sin(angle) * dist)
+	
 # puts a character at a uniformly random spot anywhere in the area,
 # then moves any other character that is now too close
 func relocate(character: CharacterBuilder) -> void:
 	positions.erase(character.position)
 
-		# pick how far out (0 = center, 1 = edge), then a random point on that square ring
-	var e := randf()
-	var pos := Vector3.ZERO
-	if randf() < 0.5:
-		pos.x = e * area.x * (1.0 if randf() < 0.5 else -1.0)
-		pos.z = randf_range(-e, e) * area.y
-	else:
-		pos.z = e * area.y * (1.0 if randf() < 0.5 else -1.0)
-		pos.x = randf_range(-e, e) * area.x
+	var pos := _random_point()
+	character.position = pos
+	positions.append(pos)
+
+	# anyone crowding the new spot gets re-placed somewhere else
+	for other in crowd:
+		if other == character:
+			continue
+		if other.position.distance_to(pos) < min_spacing:
+			positions.erase(other.position)
+			other.position = _find_spot()
 
 	# anyone crowding the new spot gets re-placed somewhere else
 	for other in crowd:
@@ -105,8 +114,8 @@ func _find_spot() -> Vector3:
 	var best := Vector3.ZERO
 	var best_dist := -1.0
 	for attempt in 300:
-		var pos := Vector3(
-			randf_range(-area.x, area.x), 0.0, randf_range(-area.y, area.y))
+		var pos := _random_point()
+		
 		var nearest := INF
 		for other in positions:
 			nearest = minf(nearest, pos.distance_to(other))
