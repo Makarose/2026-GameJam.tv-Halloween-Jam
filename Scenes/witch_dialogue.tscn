@@ -67,7 +67,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=1565425247]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -99,6 +98,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1504241747]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

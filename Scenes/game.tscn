@@ -112,5 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15.4)
 one_shot = true
 
 [node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
+visible = false
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

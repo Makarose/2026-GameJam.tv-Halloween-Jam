@@ -8,7 +8,7 @@ var num_guesses: int = 0
 var clock_is_ticking: bool = false
 
 @export var max_guesses: int = 3
-@export var level_duration: float = 20.0
+@export var level_duration: float = 120.0
 @export var poof_effect: PackedScene
 
 @onready var crowd_scene: Node3D = $Crowd
@@ -90,7 +90,7 @@ func show_clue() -> void:
 
 func _on_guess_submitted(character: CharacterBuilder) -> void:
 	if character == uninvited_guest:
-		level_timer.stop()
+		level_timer.paused = true
 		MusicPlayer.stop()
 		
 		label.text = "CORRECT!"
