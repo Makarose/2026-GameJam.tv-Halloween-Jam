@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://f7jofs153uhc"]
+
+[ext_resource type="Script" uid="uid://5vn1t33vrbhk" path="res://Scripts/credits.gd" id="1_r18jl"]
+
+[node name="Credits" type="Control" unique_id=675975560]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r18jl")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1489029820]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_top = 92.0
+offset_right = 27.5
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "Credits"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1996629339]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -118.0
+offset_right = 134.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="MainMenu" type="Button" parent="HBoxContainer" unique_id=1662048263]
+layout_mode = 2
+text = "Main Menu
+"
+
+[node name="Play Game" type="Button" parent="HBoxContainer" unique_id=1282295734]
+layout_mode = 2
+text = "Play Game"
+
+[node name="Quit" type="Button" parent="HBoxContainer" unique_id=517105895]
+layout_mode = 2
+text = "Quit"
+
+[node name="CreatorLabel" type="Label" parent="." unique_id=1539119129]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -150.0
+offset_right = 257.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Created by Rosemarie Kaes & Eric Vennemeyer"
+horizontal_alignment = 1
+
+[node name="AssetsLabel" type="Label" parent="." unique_id=403204515]
+layout_mode = 0
+offset_right = 227.0
+offset_bottom = 75.0
+text = "Additional Assets Created By:
+
+Creator: "
+
+[connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/Play Game" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
