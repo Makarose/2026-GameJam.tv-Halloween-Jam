@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://i61kpp7tvfc8"]
+
+[ext_resource type="Script" uid="uid://x5wyk2ivq7cc" path="res://Scripts/play_area_guide.gd" id="1_ixf2i"]
+[ext_resource type="PackedScene" uid="uid://cj2ubj70yq8pr" path="res://Assets/Environments/House/scene.gltf" id="2_j1oy8"]
+[ext_resource type="PackedScene" uid="uid://b8cb66cbqil46" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_orange.gltf" id="3_1xrsu"]
+[ext_resource type="PackedScene" uid="uid://o4v3k5jsyunl" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_orange_jackolantern.gltf" id="4_t2j5f"]
+[ext_resource type="PackedScene" uid="uid://vesbbx826t1h" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_yellow.gltf" id="5_mriq8"]
+[ext_resource type="PackedScene" uid="uid://b75015gnphbva" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pillar.gltf" id="6_mriq8"]
+[ext_resource type="PackedScene" uid="uid://1l653aixbfaa" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_yellow_small.gltf" id="7_1ojs7"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_j1oy8"]
+
+[node name="Props" type="Node3D" unique_id=10682133 groups=["prop_area"]]
+
+[node name="PlayAreaGuide" type="MeshInstance3D" parent="." unique_id=1156211357]
+mesh = SubResource("ImmediateMesh_j1oy8")
+script = ExtResource("1_ixf2i")
+
+[node name="WitchHouse" parent="." unique_id=1935555344 groups=["prop_area"] instance=ExtResource("2_j1oy8")]
+transform = Transform3D(8.660254, -8.156655e-07, 4.999998, 8.156656e-07, 10, 2.1855678e-07, -4.999998, 2.1855689e-07, 8.660254, -33.99435, 10.1, -31.597168)
+
+[node name="pumpkin_orange2" parent="." unique_id=754944532 groups=["prop_area"] instance=ExtResource("3_1xrsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.215079, 0, 0.41447985)
+
+[node name="pumpkin_orange_jackolantern2" parent="." unique_id=183296057 groups=["prop_area"] instance=ExtResource("4_t2j5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.45, 0, 0.412)
+
+[node name="pumpkin_yellow2" parent="." unique_id=2066967213 groups=["prop_area"] instance=ExtResource("5_mriq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.966824, 0, -0.9671196)
+
+[node name="pillar2" parent="." unique_id=1319316328 groups=["prop_area"] instance=ExtResource("6_mriq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.17485, 0, 0)
+
+[node name="pumpkin_yellow_small2" parent="." unique_id=945144690 groups=["prop_area"] instance=ExtResource("7_1ojs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.34603, 0.071777344, -0.38049316)
+
+[node name="pumpkin_yellow_small3" parent="." unique_id=236767809 groups=["prop_area"] instance=ExtResource("7_1ojs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.978, 0, 0.833)

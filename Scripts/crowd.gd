@@ -28,6 +28,9 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 @export var ring_scale_max := 1.2
 @export var ring_face_center := true
 
+# how much empty space to keep around each prop
+@export var prop_clearance := 3.0
+
 # every spawned character
 var crowd: Array[CharacterBuilder] = []
 
@@ -70,17 +73,30 @@ func _ready() -> void:
 	_spawn_ring_assets()
 
 # creates background assets outside play area
+# creates background assets outside play area
 func _spawn_ring_assets() -> void:
 	if ring_assets.is_empty():
 		return
 
 	for i in ring_count:
-		var angle := (float(i) / ring_count) * TAU + randf_range(-0.1, 0.1)
-		var dist := radius + randf_range(ring_inner_gap, ring_outer_gap)
+		# try a few spots for this tree, skipping any that are too close to a prop
+		var pos := Vector3.ZERO
+		var found := false
+		for attempt in 10:
+			var angle := (float(i) / ring_count) * TAU + randf_range(-0.1, 0.1) * (attempt + 1)
+			var dist := radius + randf_range(ring_inner_gap, ring_outer_gap)
+			pos = Vector3(cos(angle) * dist, 0.0, sin(angle) * dist)
+			if not _is_blocked(pos):
+				found = true
+				break
+
+		# no clear spot after 10 tries, so skip this tree
+		if not found:
+			continue
 
 		var asset: Node3D = ring_assets.pick_random().instantiate()
 		add_child(asset)
-		asset.position = Vector3(cos(angle) * dist, 0.0, sin(angle) * dist)
+		asset.position = pos
 
 		if ring_face_center:
 			asset.look_at(global_position + Vector3.UP * asset.global_position.y, Vector3.UP)
@@ -88,6 +104,27 @@ func _spawn_ring_assets() -> void:
 			asset.rotation.y = randf() * TAU
 
 		asset.scale = Vector3.ONE * randf_range(ring_scale_min, ring_scale_max)
+
+# true if a spot is inside (or within prop_clearance of) any prop's footprint
+func _is_blocked(pos: Vector3) -> bool:
+	var world_pos := to_global(pos)
+	for root in get_tree().get_nodes_in_group("prop_area"):
+		for prop in root.get_children():
+			if not prop is Node3D or prop.name == &"PlayAreaGuide":
+				continue
+
+			# the prop itself plus every mesh inside it
+			var visuals: Array = prop.find_children("*", "VisualInstance3D", true, false)
+			if prop is VisualInstance3D:
+				visuals.append(prop)
+
+			for vis in visuals:
+				var box: AABB = vis.global_transform * vis.get_aabb()
+				box = box.grow(prop_clearance)
+				if world_pos.x >= box.position.x and world_pos.x <= box.end.x \
+				and world_pos.z >= box.position.z and world_pos.z <= box.end.z:
+					return true
+	return false
 
 
 # makes one character. re-rolls up to 20 times to avoid characters sharing looks. 
@@ -121,6 +158,10 @@ func relocate(character: CharacterBuilder) -> void:
 	positions.erase(character.position)
 
 	var pos := _random_point()
+	for attempt in 50:
+		if not _is_blocked(pos):
+			break
+		pos = _random_point()
 	character.position = pos
 	positions.append(pos)
 
@@ -139,6 +180,8 @@ func _find_spot() -> Vector3:
 	var best_dist := -1.0
 	for attempt in 300:
 		var pos := _random_point()
+		if _is_blocked(pos):
+			continue
 		
 		var nearest := INF
 		for other in positions:
