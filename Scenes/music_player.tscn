@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://m0ywg4mc30uy" path="res://Assets/Music/DavidKBD - Spooky Pack - Spooky Playtime-04 - Confronting the Nightmare.ogg" id="5_nu6f5"]
 
 [node name="MusicPlayer" type="Node3D" unique_id=1058884034]
+process_mode = 3
 script = ExtResource("1_ous86")
 music_playlist = Array[AudioStream]([ExtResource("2_b03an"), ExtResource("3_hnt0s"), ExtResource("4_tx3aj"), ExtResource("5_nu6f5")])
 

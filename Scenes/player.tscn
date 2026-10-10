@@ -12,6 +12,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1641026113]
 script = ExtResource("1_6t5aa")
+zoom_multiplier = 0.2
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=443411744]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
@@ -22,7 +23,7 @@ current = true
 script = ExtResource("1_cvnsp")
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraPivot" unique_id=1943552524]
-target_position = Vector3(0, 0, -7)
+target_position = Vector3(0, 0, -60)
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("3_vgqql")

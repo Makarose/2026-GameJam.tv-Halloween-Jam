@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b66oyj0aa2dew" path="res://Scenes/priest_spell_fx.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dv2dnovmaayiu" path="res://Scenes/witch_dialogue.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://cekhuxjwl00r1" path="res://Scenes/pause_menu.tscn" id="6_i6g32"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3dryh"]
 font_size = 40
@@ -106,12 +107,14 @@ autowrap_mode = 2
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 15)
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=999153068]
 one_shot = true
 
 [node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
 visible = false
+
+[node name="PauseMenu" parent="." unique_id=930213045 instance=ExtResource("6_i6g32")]
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
