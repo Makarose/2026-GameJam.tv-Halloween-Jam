@@ -2,7 +2,9 @@ class_name Player
 extends CharacterBody3D
 
 
-@export var speed: float = 8.0
+@export var speed: float = 15.0
+@export var max_roll_angle: float = deg_to_rad(20.0)
+@export var roll_speed: float = 8.0
 @export var zoom_multiplier: float = 0.3
 
 # how far from the center the player can walk
@@ -44,14 +46,15 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		#if Input.is_action_pressed("zoom"):
-			#velocity.x *= zoom_multiplier
-			#velocity.y *= zoom_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+	# apply camera roll
+	var target_roll: float = -direction.x * max_roll_angle
+	camera_pivot.rotation.z = lerp(camera_pivot.rotation.z, target_roll, roll_speed * delta)
 
 	# keep the player inside the circle
 	var offset := global_position - limit_center
