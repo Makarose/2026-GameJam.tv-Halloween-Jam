@@ -5,6 +5,12 @@ extends CharacterBody3D
 @export var speed: float = 8.0
 @export var zoom_multiplier: float = 0.3
 
+# how far from the center the player can walk
+@export var player_max_distance: float = 25.0
+
+# center of the play area (the Crowd node sits at the origin by default)
+@export var limit_center: Vector3 = Vector3.ZERO
+
 var mouse_motion: Vector2 = Vector2.ZERO
 var camera_zoom_speed: float = 20.0
 
@@ -46,6 +52,14 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+	# keep the player inside the circle
+	var offset := global_position - limit_center
+	offset.y = 0.0
+	if offset.length() > player_max_distance:
+		offset = offset.normalized() * player_max_distance
+		global_position.x = limit_center.x + offset.x
+		global_position.z = limit_center.z + offset.z
 
 
 func _input(event: InputEvent) -> void:
