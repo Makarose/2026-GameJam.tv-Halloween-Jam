@@ -31,7 +31,3 @@ func has_next_level() -> bool:
 
 func advance() -> void:
 	level_index += 1
-
-func _ready() -> void:
-	start_run("easy") # TEMPORARY TEST, delete after testing
-	level_index = 5 # TEMPORARY, jumps to the last easy level

@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://b75015gnphbva" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pillar.gltf" id="6_mriq8"]
 [ext_resource type="PackedScene" uid="uid://1l653aixbfaa" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_yellow_small.gltf" id="7_1ojs7"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_j1oy8"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_mriq8"]
 
 [node name="Props" type="Node3D" unique_id=10682133 groups=["prop_area"]]
 
 [node name="PlayAreaGuide" type="MeshInstance3D" parent="." unique_id=1156211357]
-mesh = SubResource("ImmediateMesh_j1oy8")
+mesh = SubResource("ImmediateMesh_mriq8")
 script = ExtResource("1_ixf2i")
 
 [node name="WitchHouse" parent="." unique_id=1935555344 groups=["prop_area"] instance=ExtResource("2_j1oy8")]

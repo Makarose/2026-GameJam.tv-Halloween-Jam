@@ -35,6 +35,10 @@ folder_colors={
 "res://Shaders & Materials/": "orange"
 }
 
+[gui]
+
+theme/custom="uid://cedbd6l8so7tp"
+
 [input]
 
 move_left={

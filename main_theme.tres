@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://cedbd6l8so7tp"]
+
+[ext_resource type="FontFile" uid="uid://bxl3247cadnkt" path="res://Assets/Fonts/Tombstone-FREE.otf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+default_font_size = 60
+Label/colors/font_shadow_color = Color(0.1882353, 0.11372549, 0.3254902, 1)
+Label/constants/outline_size = 1
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 120
