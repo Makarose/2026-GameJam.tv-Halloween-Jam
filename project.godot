@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 MusicPlayer="*uid://brpruj2k473so"
 SfxPlayer="*uid://vvnm53g2h1e5"
+GameState="*uid://c7p4e2lm6tvqw"
 
 [display]
 

@@ -46,6 +46,14 @@ var positions: Array[Vector3] = []
 
 
 func _ready() -> void:
+	# during a run, the level decides the crowd size and costume percent.
+	# if no run is active (running this scene from the editor), the Inspector values are used
+	if GameState.run_active:
+		var cfg = GameState.current_config()
+		count = cfg.crowd_count
+		costume_percent = cfg.costume_percent
+	print("crowd: ", count, " characters, ", costume_percent, "% costumed")
+	
 	# removes stand in characters used in EditorPreview for camera positioning
 	if has_node("EditorPreview"):
 		$EditorPreview.queue_free()

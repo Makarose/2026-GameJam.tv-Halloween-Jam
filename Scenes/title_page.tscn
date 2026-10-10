@@ -29,7 +29,7 @@ offset_right = 135.0
 offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Witch's Quest"
+text = "Witch's Guest"
 label_settings = SubResource("LabelSettings_gryuy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1118672846]

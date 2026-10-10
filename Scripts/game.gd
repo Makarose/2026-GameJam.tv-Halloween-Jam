@@ -20,6 +20,11 @@ var suspect_phrases: Array[Dictionary] = [] # what every character in the crowd 
 var wrong_guesses: Array[CharacterBuilder] = []
 var _check_texture: ImageTexture
 
+var level_over: bool = false # true once the level is won or lost, so nothing else counts
+
+# the scene shown after the last level of a difficulty
+@export_file("*.tscn") var win_scene_path: String
+
 @export var max_guesses: int = 3
 @export var level_duration: float = 120.0
 @export var poof_effect: PackedScene
@@ -46,6 +51,14 @@ var _check_texture: ImageTexture
 
 
 func _ready() -> void:
+	# during a run, the level decides the clue 1 range and the time limit.
+	# running the scene straight from the editor uses the Inspector values instead
+	if GameState.run_active:
+		var cfg = GameState.current_config()
+		clue1_min = cfg.clue1_min
+		clue1_max = cfg.clue1_max
+		level_duration = cfg.time_limit
+	
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
 	
 	label.text = ""
@@ -125,7 +138,7 @@ func generate_clues() -> void:
 
 
 func show_clue() -> void:
-	if clues.is_empty():	#addeed during new func generate_clues
+	if clues.is_empty():	#added during new func generate_clues
 		return
 	if num_guesses < max_guesses:
 				clue_labels[num_guesses].text = clues.pop_front()
@@ -134,38 +147,54 @@ func show_clue() -> void:
 
 
 func _on_guess_submitted(character: CharacterBuilder) -> void:
+	if level_over:
+		return
+
 	# already picked this person, so it doesn't cost a guess
 	if wrong_guesses.has(character):
 		label.text = "ALREADY GUESSED!"
 		await get_tree().create_timer(1.0).timeout
-		label.text = ""
+		if not level_over:
+			label.text = ""
 		return
-		
+
 	if character == uninvited_guest:
+		level_over = true
 		level_timer.paused = true
 		MusicPlayer.stop()
-		
+
 		label.text = "CORRECT!"
 		SfxPlayer.play_sfx("right_answer", 2.0)
 		await get_tree().create_timer(1.5).timeout
-		
+
 		var new_effect = poof_effect.instantiate()
 		add_child(new_effect)
 		new_effect.global_position = character.global_position
 		character.queue_free()
-		
+
 		SfxPlayer.play_sfx("witch_cackle", 5.0)
 		SfxPlayer.play_sfx("fire_spell", -1.0)
-	else:
-		wrong_guesses.append(character)
-		add_guess_marker(character)
-		label.text = "WRONG!"
-		SfxPlayer.play_sfx("wrong_answer")
-		num_guesses += 1
-		show_clue()
-	
+
+		# TEMPORARY until the result panel exists: move on after a short pause
+		await get_tree().create_timer(2.5).timeout
+		_finish_level_won()
+		return
+
+	wrong_guesses.append(character)
+	add_guess_marker(character)
+	label.text = "WRONG!"
+	SfxPlayer.play_sfx("wrong_answer")
+	num_guesses += 1
+
+	# that was the last guess
+	if num_guesses >= max_guesses:
+		_lose_level("OUT OF GUESSES!")
+		return
+
+	show_clue()
 	await get_tree().create_timer(1.0).timeout
-	label.text = ""
+	if not level_over:
+		label.text = ""
 
 # works out what everyone in the crowd is wearing, once
 func _build_phrase_table() -> void:
@@ -301,6 +330,37 @@ func _draw_thick_line(img: Image, a: Vector2, b: Vector2, radius: float) -> void
 
 
 func _on_level_timer_timeout() -> void:
-	label.text = "TIME'S UP!"
+	_lose_level("TIME'S UP!")
+
+func _lose_level(message: String) -> void:
+	if level_over:
+		return
+	level_over = true
+	level_timer.stop()
+	label.text = message
 	SfxPlayer.play_sfx("death_clock", 3.0)
 	MusicPlayer.stop()
+
+	# TEMPORARY until the result panel exists: retry the same level after a pause
+	await get_tree().create_timer(3.0).timeout
+	get_tree().reload_current_scene()
+
+
+func _finish_level_won() -> void:
+	# not in a run (scene started from the editor), so just start over
+	if not GameState.run_active:
+		get_tree().reload_current_scene()
+		return
+
+	if GameState.has_next_level():
+		GameState.advance()
+		get_tree().reload_current_scene()
+		return
+
+	# that was the last level
+	GameState.end_run()
+	if win_scene_path.is_empty():
+		push_warning("Set Win Scene Path on the Game node")
+		return
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # the win scene has buttons to click
+	get_tree().change_scene_to_file(win_scene_path)

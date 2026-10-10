@@ -27,6 +27,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
+win_scene_path = "uid://c2txt72cv4q4m"
+level_duration = 10.0
 poof_effect = ExtResource("2_3dryh")
 clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
 marker_height = 3.5
