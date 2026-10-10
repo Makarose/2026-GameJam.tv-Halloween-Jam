@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://dv2dnovmaayiu"]
 
 [ext_resource type="Script" uid="uid://cfwauxrj0rb88" path="res://Scripts/witch_dialogue.gd" id="1_6p4qx"]
-[ext_resource type="Texture2D" uid="uid://3caa8p0kidp3" path="res://Assets/Witch Faces/FR_156_TimidMageGirl/FR16_156_TimidMage_Normal.png" id="1_i4y2p"]
+[ext_resource type="FontFile" uid="uid://cdqq1djg6qqlf" path="res://Assets/UI/Fonts/Tombstone-FREE.otf" id="2_1lfb2"]
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
-[ext_resource type="FontFile" uid="uid://berfqo0oyvg04" path="res://Assets/UI/Fonts/Gothic_pixel_font(0S).ttf" id="3_1lfb2"]
-[ext_resource type="Texture2D" uid="uid://coty4clujui41" path="res://Assets/UI/20251126darkDwellers_v_1_0/20251029darkDwellers9SlicesA.png" id="3_sxhwy"]
-[ext_resource type="Texture2D" uid="uid://c3englflkdlxv" path="res://Assets/Witch Faces/witchhead_transparent.png" id="3_t3c0m"]
-[ext_resource type="Texture2D" uid="uid://c1k3jab1psgto" path="res://Assets/UI/UI - Borders and HP/UI - 16x16 UI Tileset.png" id="8_ol27t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm00d"]
 load_path = "res://.godot/imported/20251029darkDwellers9SlicesE.png-123f8c3033d7b74f03f04d6f2776bec6.ctex"
@@ -23,28 +19,9 @@ texture_margin_right = 30.0
 texture_margin_bottom = 30.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_22bwa"]
-line_spacing = 5.0
-font = ExtResource("3_1lfb2")
-font_size = 12
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sm00d"]
-content_margin_left = 30.0
-content_margin_top = 20.0
-content_margin_right = 30.0
-content_margin_bottom = 20.0
-texture = ExtResource("3_sxhwy")
-texture_margin_left = 30.0
-texture_margin_top = 29.709827
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_biyew"]
-texture = ExtResource("8_ol27t")
-texture_margin_left = 15.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 15.0
-region_rect = Rect2(113.60153, 65.67473, 44.79782, 44.79782)
+line_spacing = -10.0
+font = ExtResource("2_1lfb2")
+font_size = 32
 
 [node name="WitchDialogue" type="CanvasLayer" unique_id=1655646449]
 script = ExtResource("1_6p4qx")
@@ -127,98 +104,5 @@ texture = ExtResource("2_sm00d")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1565425247]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -587.0
-offset_top = -565.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("1_i4y2p")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1504241747]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -416.0
-offset_top = -451.0
-offset_right = 54.0
-offset_bottom = -7.0704346
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("3_t3c0m")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label2" type="Label" parent="Control" unique_id=246474673]
-visible = false
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 0
-offset_left = 103.0
-offset_top = 458.0
-offset_right = 814.0
-offset_bottom = 603.0
-size_flags_vertical = 1
-text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. "
-label_settings = SubResource("LabelSettings_22bwa")
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="PanelContainer2" type="PanelContainer" parent="Control" unique_id=1648504854]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 71.0
-offset_top = -199.0
-offset_right = -705.0
-offset_bottom = -109.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-theme_override_styles/panel = SubResource("StyleBoxTexture_sm00d")
-
-[node name="PanelContainer3" type="PanelContainer" parent="Control" unique_id=1646669355]
-visible = false
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 91.0
-offset_top = -193.0
-offset_right = -826.0
-offset_bottom = -136.66669
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(3, 3)
-theme_override_styles/panel = SubResource("StyleBoxTexture_biyew")
-
-[node name="Label3" type="Label" parent="Control" unique_id=529239131]
-visible = false
-texture_filter = 1
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 0
-offset_left = 136.0
-offset_top = 458.0
-offset_right = 807.0
-offset_bottom = 619.0
-size_flags_vertical = 1
-text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
-label_settings = SubResource("LabelSettings_22bwa")
-vertical_alignment = 1
-autowrap_mode = 3
+[node name="PauseTimer" type="Timer" parent="." unique_id=1738163915]
+one_shot = true

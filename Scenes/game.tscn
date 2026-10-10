@@ -25,11 +25,10 @@ font_color = Color(0.94, 0.78333336, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
+[node name="Game" type="Node3D" unique_id=1091627580]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
 poof_effect = ExtResource("2_3dryh")
-clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
 marker_height = 3.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795353303]
@@ -116,7 +115,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 44)
 one_shot = true
 
 [node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
-visible = false
 
 [node name="PauseMenu" parent="." unique_id=930213045 instance=ExtResource("6_i6g32")]
 

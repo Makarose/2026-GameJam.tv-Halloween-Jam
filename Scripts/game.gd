@@ -141,7 +141,7 @@ func show_clue() -> void:
 	if clues.is_empty():	#added during new func generate_clues
 		return
 	if num_guesses < max_guesses:
-				clue_labels[num_guesses].text = clues.pop_front()
+			clue_labels[num_guesses].text = clues.pop_front()
 	else:
 		label.text = "NO MORE CLUES!"
 
