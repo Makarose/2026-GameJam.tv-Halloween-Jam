@@ -13,20 +13,17 @@ grow_vertical = 2
 script = ExtResource("1_r18jl")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1489029820]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -27.5
-offset_top = 92.0
 offset_right = 27.5
-offset_bottom = 115.0
+offset_bottom = 23.0
 grow_horizontal = 2
 text = "Credits"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1996629339]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -34,26 +31,23 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -144.0
-offset_top = -118.0
+offset_top = -65.0
 offset_right = 134.0
-offset_bottom = -87.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
 [node name="MainMenu" type="Button" parent="HBoxContainer" unique_id=1662048263]
-visible = false
 layout_mode = 2
 text = "Main Menu
 "
 
 [node name="Play Game" type="Button" parent="HBoxContainer" unique_id=1282295734]
-visible = false
 layout_mode = 2
 text = "Play Game"
 
 [node name="Quit" type="Button" parent="HBoxContainer" unique_id=517105895]
-visible = false
 layout_mode = 2
 text = "Quit"
 
@@ -75,9 +69,18 @@ text = "Created by Rosemarie Kaes & Eric Vennemeyer"
 horizontal_alignment = 1
 
 [node name="AssetsLabel" type="RichTextLabel" parent="." unique_id=248983414]
-layout_mode = 0
-offset_right = 619.0
-offset_bottom = 569.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -606.0
+offset_right = 576.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
 bbcode_enabled = true
 text = "Additional Assets:
 
