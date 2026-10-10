@@ -52,6 +52,8 @@ const OVERRIDES := {
 	"top_tshirt": "t-shirt",
 }
 
+# one color word per texture, in the same order as the top and pants texture lists
+const TEXTURE_COLORS: Array[String] = ["black", "brown", "green", "blue", "orange", "pink", "purple", "red", "white", "yellow"]
 
 # usage: ClueText.describe("hat_turkey")  gives  "a turkey hat"
 #        ClueText.describe("top_hoodie", "orange")  gives  "an orange hoodie"
@@ -90,3 +92,23 @@ static func describe(piece_name: String, color: String = "") -> String:
 		return words
 	var article := "an" if words[0].to_lower() in "aeiou" else "a"
 	return article + " " + words
+	
+# everything a character is wearing that can be used as a clue,
+# e.g. {"hat_": "a turkey hat", "top_": "an orange hoodie"}
+# costumed characters return nothing, so they never match a clue
+static func phrases_for(look: Dictionary) -> Dictionary:
+	var out := {}
+	if look.has("costume_"):
+		return out
+	for key in look:
+		var key_name := str(key)
+		if key_name.ends_with("_texture") or key_name.ends_with("_color"):
+			continue
+		var color := ""
+		var tex: int = look.get(key_name + "texture", -1)
+		if tex >= 0 and tex < TEXTURE_COLORS.size():
+			color = TEXTURE_COLORS[tex]
+		var phrase := describe(str(look[key]), color)
+		if phrase != "":
+			out[key_name] = phrase
+	return out

@@ -25,7 +25,7 @@ shader_parameter/thickness = 0.0
 
 [node name="Crowd" type="Node3D" unique_id=384395682]
 script = ExtResource("1_ufwdi")
-count = 400
+count = 250
 costume_percent = 70
 radius = 40.0
 ring_assets = Array[PackedScene]([ExtResource("2_m8klg"), ExtResource("3_2pmw5"), ExtResource("4_ampx7"), ExtResource("6_hl0ly"), ExtResource("7_id7k6"), ExtResource("8_ugovx"), ExtResource("9_py77v"), ExtResource("10_arq3e"), ExtResource("11_mx75b"), ExtResource("12_c4vil"), ExtResource("13_ct2gn")])
