@@ -3,8 +3,9 @@ extends CharacterBody3D
 
 
 @export var speed: float = 15.0
-@export var max_roll_angle: float = deg_to_rad(20.0)
-@export var roll_speed: float = 8.0
+@export var camera_roll_enabled: bool = true
+@export var max_roll_angle: float = deg_to_rad(2.5)
+@export var roll_speed: float = 5.0
 @export var zoom_multiplier: float = 0.3
 
 # how far from the center the player can walk
@@ -15,6 +16,7 @@ extends CharacterBody3D
 
 var mouse_motion: Vector2 = Vector2.ZERO
 var camera_zoom_speed: float = 20.0
+var pitch: float = 0.0
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var smooth_camera: Camera3D = %SmoothCamera3D
@@ -52,9 +54,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# apply camera roll
-	var target_roll: float = -direction.x * max_roll_angle
-	camera_pivot.rotation.z = lerp(camera_pivot.rotation.z, target_roll, roll_speed * delta)
+# apply camera roll. uses the strafe key, so which way you face doesn't matter
+	var target_roll: float = -input_dir.x * max_roll_angle
+	if Input.is_action_pressed("zoom") or not camera_roll_enabled:
+		target_roll = 0.0 # zoom magnifies the tilt, so no roll while zoomed
+	var roll_weight := 1.0 - exp(-roll_speed * delta)
+	camera_pivot.rotation.z = lerpf(camera_pivot.rotation.z, target_roll, roll_weight)
 
 	# keep the player inside the circle
 	var offset := global_position - limit_center
@@ -74,8 +79,6 @@ func _input(event: InputEvent) -> void:
 
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
-	camera_pivot.rotate_x(mouse_motion.y)
-	camera_pivot.rotation_degrees.x = clampf(
-		camera_pivot.rotation_degrees.x, -90.0, 90.0
-	)
+	pitch = clampf(pitch + mouse_motion.y, deg_to_rad(-90.0), deg_to_rad(90.0))
+	camera_pivot.rotation.x = pitch
 	mouse_motion = Vector2.ZERO

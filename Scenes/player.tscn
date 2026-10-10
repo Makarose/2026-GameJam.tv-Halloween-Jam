@@ -12,6 +12,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=1641026113]
 script = ExtResource("1_6t5aa")
+camera_roll_enabled = false
 zoom_multiplier = 0.2
 player_max_distance = 40.0
 
