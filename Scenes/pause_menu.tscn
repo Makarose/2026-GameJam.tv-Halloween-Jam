@@ -4,13 +4,6 @@
 [ext_resource type="FontFile" uid="uid://bxl3247cadnkt" path="res://Assets/Fonts/Tombstone-FREE.otf" id="2_1och7"]
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="3_bpi0q"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_a2foq"]
-font = ExtResource("2_1och7")
-font_size = 120
-shadow_size = 10
-shadow_color = Color(0.1882353, 0.11372549, 0.3254902, 1)
-shadow_offset = Vector2(3, 3)
-
 [node name="PauseMenu" type="CanvasLayer" unique_id=930213045]
 process_mode = 3
 layer = 100
@@ -42,8 +35,8 @@ theme_override_constants/separation = 25
 
 [node name="PauseLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=2056517990]
 layout_mode = 2
+theme_override_font_sizes/font_size = 120
 text = "Paused"
-label_settings = SubResource("LabelSettings_a2foq")
 horizontal_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=2038526596]

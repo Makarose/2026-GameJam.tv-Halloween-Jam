@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="3_eul1e"]
 [ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="4_lfgkp"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0y7ru"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukj5p"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_lfgkp")
@@ -21,6 +21,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u7noh")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1916302128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TitleLabel" type="Label" parent="." unique_id=872432755]
 layout_mode = 1
 anchors_preset = 8
@@ -34,7 +43,7 @@ offset_right = 188.0
 offset_bottom = -117.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 160
+theme_override_font_sizes/font_size = 180
 text = "Grave Rave"
 horizontal_alignment = 1
 
@@ -43,6 +52,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 128.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -58,7 +69,6 @@ render_target_update_mode = 4
 script = ExtResource("2_ukj5p")
 per_side = 1
 spacing = 1.5
-side_offset = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=872552251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 8)
@@ -67,8 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 8)
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 
 [node name="Characters" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=894406257 instance=ExtResource("3_eul1e")]
-visible = false
-outline_shader = SubResource("ShaderMaterial_0y7ru")
+outline_shader = SubResource("ShaderMaterial_ukj5p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1118672846]
 layout_mode = 1
