@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b66oyj0aa2dew" path="res://Scenes/priest_spell_fx.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://dv2dnovmaayiu" path="res://Scenes/witch_dialogue.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://cekhuxjwl00r1" path="res://Scenes/pause_menu.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://i61kpp7tvfc8" path="res://Scenes/props.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://c0t5rci3ygeyh" path="res://Scenes/witch_clues.tscn" id="7_v158k"]
 
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
@@ -58,21 +58,20 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -396.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = 96.0
+offset_left = -392.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 88.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 25
 horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1208939265]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = -34.0
 offset_right = 325.0
-offset_bottom = 60.0
+offset_bottom = -496.0
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -80,26 +79,26 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2" unique_id=727368407]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=26907836]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 25
 text = "Clue #1"
 autowrap_mode = 2
 
 [node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 25
 text = "Clue #2"
 autowrap_mode = 2
 
 [node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 25
 text = "Clue #3"
 autowrap_mode = 2
 
@@ -111,12 +110,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 44)
 [node name="LevelTimer" type="Timer" parent="." unique_id=999153068]
 one_shot = true
 
-[node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
-visible = false
-
 [node name="PauseMenu" parent="." unique_id=930213045 instance=ExtResource("6_i6g32")]
 visible = false
 
 [node name="Props" parent="." unique_id=10682133 instance=ExtResource("7_1l0tm")]
+
+[node name="WitchClues" parent="." unique_id=1655646449 instance=ExtResource("7_v158k")]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

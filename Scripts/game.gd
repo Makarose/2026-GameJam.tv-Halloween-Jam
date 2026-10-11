@@ -36,6 +36,16 @@ var level_over: bool = false # true once the level is won or lost, so nothing el
 @onready var level_timer: Timer = $LevelTimer
 @onready var timer_label: Label = $CanvasLayer/Control/MarginContainer/VBoxContainer/TimerLabel
 @onready var label: Label = $CanvasLayer/Control/MarginContainer/VBoxContainer/Label
+
+#witch clue vars
+@onready var witch = %WitchClues # no type on purpose, her script has no class name
+
+# turn this on in the Inspector to test levels without the witch talking
+@export var skip_witch_clues: bool = false
+
+var witch_busy: bool = false # true while the witch is talking
+
+
 @export var clue_labels: Array[Label]
 
 # how many people should match clue 1 (the guest included). the level system will set these later
@@ -70,12 +80,13 @@ func _ready() -> void:
 
 	set_uninvited_guest()
 	generate_clues()
-	show_clue()
 
 	MusicPlayer.shuffle_play(-10.0)
 
 	level_timer.wait_time = level_duration
 	level_timer.start()
+	
+	show_clue()
 
 
 func _process(delta: float) -> void:
@@ -136,21 +147,23 @@ func generate_clues() -> void:
 	clues.clear()
 	var phrases := ClueText.phrases_for(uninvited_guest.look)
 	for i in mini(funnel_keys.size(), max_guesses):
-		clues.append("This person is wearing %s." % phrases[funnel_keys[i]])
+		clues.append(phrases[funnel_keys[i]])
 	_print_clue_debug(phrases)
 
 
-func show_clue() -> void:
-	if clues.is_empty():	#added during new func generate_clues
+func show_clue(delay: float = 0.0) -> void:
+	if clues.is_empty():
 		return
 	if num_guesses < max_guesses:
-			clue_labels[num_guesses].text = clues.pop_front()
+		var phrase: String = clues.pop_front()
+		clue_labels[num_guesses].text = "Clue #%d: %s" % [num_guesses + 1, phrase]
+		_say_clue("This person is wearing %s." % phrase, delay)
 	else:
 		label.text = "NO MORE CLUES!"
 
 
 func _on_guess_submitted(character: CharacterBuilder) -> void:
-	if level_over:
+	if level_over or witch_busy:
 		return
 
 	# already picked this person, so it doesn't cost a guess
@@ -196,7 +209,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		_lose_level("OUT OF GUESSES!", "guesses")
 		return
 
-	show_clue()
+	show_clue(1.0)
 	await get_tree().create_timer(1.0).timeout
 	if not level_over:
 		label.text = ""
@@ -375,7 +388,32 @@ func _go_to_end_screen(reason: String) -> void:
 		return
 	get_tree().change_scene_to_file(win_scene_path)
 
-# locks the camera and movement when a level ends
+# the witch says a clue while the clock is held and the player can't move or guess
+func _say_clue(text: String, delay: float = 0.0) -> void:
+	if skip_witch_clues:
+		return
+
+	witch_busy = true
+	level_timer.paused = true
+	_freeze_player()
+
+	if delay > 0.0:
+		await get_tree().create_timer(delay).timeout
+	await witch.give_clue(text)
+
+	witch_busy = false
+	if not level_over:
+		level_timer.paused = false
+		_unfreeze_player()
+
+
+# locks the camera and movement
 func _freeze_player() -> void:
 	player.set_physics_process(false) # stops walking and looking around
 	player.set_process(false) # stops zooming
+
+
+func _unfreeze_player() -> void:
+	player.mouse_motion = Vector2.ZERO # drops any mouse movement stored while frozen
+	player.set_physics_process(true)
+	player.set_process(true)
