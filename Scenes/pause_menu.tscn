@@ -27,26 +27,32 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1219246499]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=893647107]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1126964533]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer" unique_id=893647107]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 
-[node name="PauseLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=2056517990]
+[node name="PauseLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=2056517990]
 layout_mode = 2
 theme_override_font_sizes/font_size = 120
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=2038526596]
+[node name="ResumeButton" type="Button" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=2038526596]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
 theme_override_font_sizes/font_size = 100
 text = "Resume"
 
-[node name="QuitButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer" unique_id=137040598]
+[node name="QuitButton" type="Button" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=137040598]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1och7")
@@ -56,3 +62,6 @@ text = "Quit"
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=932024896]
 layout_mode = 2
 texture = ExtResource("3_bpi0q")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1753600270]
+offset_bottom = 648.0

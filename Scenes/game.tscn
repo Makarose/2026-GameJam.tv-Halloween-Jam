@@ -11,7 +11,6 @@
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
-levels_scene_path = "uid://2ng7bsa6jpjv"
 poof_effect = ExtResource("2_3dryh")
 clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
 marker_height = 3.5
@@ -40,7 +39,7 @@ theme_override_constants/margin_top = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=383924078]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 150
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1106774022]
 layout_mode = 2
@@ -64,6 +63,7 @@ offset_top = 24.0
 offset_right = -24.0
 offset_bottom = 96.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
 horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1208939265]
@@ -80,68 +80,28 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2" unique_id=727368407]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=26907836]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
 text = "Clue #1"
 autowrap_mode = 2
 
 [node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
 text = "Clue #2"
 autowrap_mode = 2
 
 [node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
 text = "Clue #3"
 autowrap_mode = 2
-
-[node name="ResultPanel" type="PanelContainer" parent="CanvasLayer" unique_id=84716567]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(420, 260)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -210.0
-offset_top = -130.0
-offset_right = 210.0
-offset_bottom = 130.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ResultPanel" unique_id=495210624]
-layout_mode = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ResultPanel/MarginContainer" unique_id=1748505142]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=819207931]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-
-[node name="PrimaryButton" type="Button" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=127524641]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-
-[node name="LevelsButton" type="Button" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=1707705171]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-text = "Levels"
 
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
