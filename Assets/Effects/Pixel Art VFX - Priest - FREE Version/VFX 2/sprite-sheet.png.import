@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bipvfbql4f52q"
 path.s3tc="res://.godot/imported/sprite-sheet.png-c2522c78b5c66c60a2e22245d2149f26.s3tc.ctex"
+path.etc2="res://.godot/imported/sprite-sheet.png-c2522c78b5c66c60a2e22245d2149f26.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Effects/Pixel Art VFX - Priest - FREE Version/VFX 2/sprite-sheet.png"
-dest_files=["res://.godot/imported/sprite-sheet.png-c2522c78b5c66c60a2e22245d2149f26.s3tc.ctex"]
+dest_files=["res://.godot/imported/sprite-sheet.png-c2522c78b5c66c60a2e22245d2149f26.s3tc.ctex", "res://.godot/imported/sprite-sheet.png-c2522c78b5c66c60a2e22245d2149f26.etc2.ctex"]
 
 [params]
 

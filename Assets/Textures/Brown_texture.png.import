@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxycc8f0l6dts"
 path.s3tc="res://.godot/imported/Brown_texture.png-dadd951e14487a19ff6a1df6629717ce.s3tc.ctex"
+path.etc2="res://.godot/imported/Brown_texture.png-dadd951e14487a19ff6a1df6629717ce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/Brown_texture.png"
-dest_files=["res://.godot/imported/Brown_texture.png-dadd951e14487a19ff6a1df6629717ce.s3tc.ctex"]
+dest_files=["res://.godot/imported/Brown_texture.png-dadd951e14487a19ff6a1df6629717ce.s3tc.ctex", "res://.godot/imported/Brown_texture.png-dadd951e14487a19ff6a1df6629717ce.etc2.ctex"]
 
 [params]
 

@@ -14,6 +14,10 @@ config/name="2026 GameDev.tv Halloween Jam"
 run/main_scene="uid://ur0rf4sh5dty"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+general/default_playback_type=1
+
 [autoload]
 
 MusicPlayer="*uid://brpruj2k473so"
@@ -24,7 +28,6 @@ GameState="*uid://c7p4e2lm6tvqw"
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [file_customization]
 
@@ -86,6 +89,7 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/volumetric_fog/volume_size=128
 environment/volumetric_fog/volume_depth=128
 environment/volumetric_fog/use_filter=0

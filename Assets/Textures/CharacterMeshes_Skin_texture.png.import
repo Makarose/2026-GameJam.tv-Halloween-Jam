@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdduoyl41yoad"
 path.s3tc="res://.godot/imported/CharacterMeshes_Skin_texture.png-322b9dcb354ad32ef3ef8bea589e0d5a.s3tc.ctex"
+path.etc2="res://.godot/imported/CharacterMeshes_Skin_texture.png-322b9dcb354ad32ef3ef8bea589e0d5a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Textures/CharacterMeshes_Skin_texture.png"
-dest_files=["res://.godot/imported/CharacterMeshes_Skin_texture.png-322b9dcb354ad32ef3ef8bea589e0d5a.s3tc.ctex"]
+dest_files=["res://.godot/imported/CharacterMeshes_Skin_texture.png-322b9dcb354ad32ef3ef8bea589e0d5a.s3tc.ctex", "res://.godot/imported/CharacterMeshes_Skin_texture.png-322b9dcb354ad32ef3ef8bea589e0d5a.etc2.ctex"]
 
 [params]
 
