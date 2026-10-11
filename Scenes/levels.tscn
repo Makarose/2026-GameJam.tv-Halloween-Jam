@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yh33m")
+game_scene_path = "uid://c58ewdy0kncax"
 
 [node name="Label" type="Label" parent="." unique_id=2091125458]
 layout_mode = 1
@@ -37,16 +38,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EasyButton" type="Button" parent="VBoxContainer" unique_id=393507282]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Easy"
 
 [node name="NormalButton" type="Button" parent="VBoxContainer" unique_id=1253211768]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Normal"
 
 [node name="HardButton" type="Button" parent="VBoxContainer" unique_id=1562274457]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Hard"

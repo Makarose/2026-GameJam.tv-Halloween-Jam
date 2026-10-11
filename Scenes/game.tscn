@@ -25,10 +25,12 @@ font_color = Color(0.94, 0.78333336, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Game" type="Node3D" unique_id=1091627580]
+[node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
+levels_scene_path = "uid://2ng7bsa6jpjv"
 poof_effect = ExtResource("2_3dryh")
+clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
 marker_height = 3.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795353303]
@@ -71,6 +73,10 @@ label_settings = SubResource("LabelSettings_wrm1d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=851705422]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1208939265]
 layout_mode = 1
 anchors_preset = 9
@@ -106,6 +112,50 @@ text = "Clue #3"
 label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
+[node name="ResultPanel" type="PanelContainer" parent="CanvasLayer" unique_id=84716567]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(420, 260)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -130.0
+offset_right = 210.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ResultPanel" unique_id=495210624]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ResultPanel/MarginContainer" unique_id=1748505142]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=819207931]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="PrimaryButton" type="Button" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=127524641]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="LevelsButton" type="Button" parent="CanvasLayer/ResultPanel/MarginContainer/VBoxContainer" unique_id=1707705171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Levels"
+
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]
@@ -115,8 +165,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 44)
 one_shot = true
 
 [node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("5_wowpa")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=930213045 instance=ExtResource("6_i6g32")]
+visible = false
 
 [node name="Props" parent="." unique_id=10682133 instance=ExtResource("7_1l0tm")]
 

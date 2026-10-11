@@ -21,15 +21,23 @@ var wrong_guesses: Array[CharacterBuilder] = []
 var _check_texture: ImageTexture
 
 var level_over: bool = false # true once the level is won or lost, so nothing else counts
+var _result_won: bool = false
 
 # the scene shown after the last level of a difficulty
 @export_file("*.tscn") var win_scene_path: String
+
+# the difficulty select scene, used by the Levels button
+@export_file("*.tscn") var levels_scene_path: String
 
 @export var max_guesses: int = 3
 @export var level_duration: float = 120.0
 @export var poof_effect: PackedScene
 
-
+@onready var level_label: Label = %LevelLabel
+@onready var result_panel: PanelContainer = %ResultPanel
+@onready var result_label: Label = %ResultLabel
+@onready var primary_button: Button = %PrimaryButton
+@onready var levels_button: Button = %LevelsButton
 
 @onready var crowd_scene: Node3D = $Crowd
 @onready var player: Player = $Player
@@ -51,6 +59,11 @@ var level_over: bool = false # true once the level is won or lost, so nothing el
 
 
 func _ready() -> void:
+	result_panel.visible = false
+	level_label.text = ""
+	primary_button.pressed.connect(_on_primary_pressed)
+	levels_button.pressed.connect(_on_levels_pressed)
+
 	# during a run, the level decides the clue 1 range and the time limit.
 	# running the scene straight from the editor uses the Inspector values instead
 	if GameState.run_active:
@@ -58,19 +71,20 @@ func _ready() -> void:
 		clue1_min = cfg.clue1_min
 		clue1_max = cfg.clue1_max
 		level_duration = cfg.time_limit
-	
+		level_label.text = "Level %d of %d" % [cfg.level_number, cfg.total_levels]
+
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
-	
+
 	label.text = ""
 	for clue_label in clue_labels:
 		clue_label.text = ""
-	
+
 	set_uninvited_guest()
 	generate_clues()
 	show_clue()
-	
+
 	MusicPlayer.shuffle_play(-10.0)
-	
+
 	level_timer.wait_time = level_duration
 	level_timer.start()
 
@@ -175,9 +189,8 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		SfxPlayer.play_sfx("witch_cackle", 5.0)
 		SfxPlayer.play_sfx("fire_spell", -1.0)
 
-		# TEMPORARY until the result panel exists: move on after a short pause
-		await get_tree().create_timer(2.5).timeout
-		_finish_level_won()
+		await get_tree().create_timer(2.0).timeout
+		_show_result(true, "CAUGHT THEM!")
 		return
 
 	wrong_guesses.append(character)
@@ -341,9 +354,8 @@ func _lose_level(message: String) -> void:
 	SfxPlayer.play_sfx("death_clock", 3.0)
 	MusicPlayer.stop()
 
-	# TEMPORARY until the result panel exists: retry the same level after a pause
-	await get_tree().create_timer(3.0).timeout
-	get_tree().reload_current_scene()
+	await get_tree().create_timer(1.5).timeout
+	_show_result(false, message)
 
 
 func _finish_level_won() -> void:
@@ -364,3 +376,38 @@ func _finish_level_won() -> void:
 		return
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # the win scene has buttons to click
 	get_tree().change_scene_to_file(win_scene_path)
+
+func _show_result(won: bool, message: String) -> void:
+	_result_won = won
+	result_label.text = message
+	label.text = ""
+
+	if won:
+		if not GameState.run_active:
+			primary_button.text = "Play Again"
+		elif GameState.has_next_level():
+			primary_button.text = "Next Level"
+		else:
+			primary_button.text = "Finish"
+	else:
+		primary_button.text = "Retry"
+
+	player.set_physics_process(false) # stops walking while the panel is up
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	result_panel.visible = true
+	primary_button.grab_focus()
+
+
+func _on_primary_pressed() -> void:
+	if _result_won:
+		_finish_level_won()
+	else:
+		get_tree().reload_current_scene() # same level, new crowd
+
+
+func _on_levels_pressed() -> void:
+	GameState.end_run()
+	if levels_scene_path.is_empty():
+		push_warning("Set Levels Scene Path on the Game node")
+		return
+	get_tree().change_scene_to_file(levels_scene_path)
