@@ -44,19 +44,40 @@ var looks: Array[Dictionary] = []
 # character positions, used to keep characters apart
 var positions: Array[Vector3] = []
 
+var _blocked_boxes: Array[AABB] = []
+
+func _build_blocked_boxes() -> void:
+	_blocked_boxes.clear()
+	for root in get_tree().get_nodes_in_group("prop_area"):
+		for prop in root.get_children():
+			if not prop is Node3D or prop.name == &"PlayAreaGuide":
+				continue
+			var visuals: Array = prop.find_children("*", "VisualInstance3D", true, false)
+			if prop is VisualInstance3D:
+				visuals.append(prop)
+			for vis in visuals:
+				if vis is Light3D:
+					continue
+				var box: AABB = vis.global_transform * vis.get_aabb()
+				_blocked_boxes.append(box.grow(prop_clearance))
+
 
 func _ready() -> void:
+	var t0: int = Time.get_ticks_msec()
 	# during a run, the level decides the crowd size and costume percent.
 	# if no run is active (running this scene from the editor), the Inspector values are used
 	if GameState.run_active:
 		var cfg = GameState.current_config()
 		count = cfg.crowd_count
 		costume_percent = cfg.costume_percent
-	print("crowd: ", count, " characters, ", costume_percent, "% costumed")
+	if OS.is_debug_build():
+		print("crowd: ", count, " characters, ", costume_percent, "% costumed")
 	
 	# removes stand in characters used in EditorPreview for camera positioning
 	if has_node("EditorPreview"):
 		$EditorPreview.queue_free()
+	
+	_build_blocked_boxes()
 
 	# decide who wears a costume before anyone spawns.
 	# clamped to count - 1 so there is always at least one possible uninvited guest
@@ -79,6 +100,7 @@ func _ready() -> void:
 			guests.append(guest)
 	
 	_spawn_ring_assets()
+	print("TIMING crowd _ready: ", Time.get_ticks_msec() - t0, "ms")
 
 # creates background assets outside play area
 # creates background assets outside play area
@@ -116,25 +138,10 @@ func _spawn_ring_assets() -> void:
 # true if a spot is inside (or within prop_clearance of) any prop's footprint
 func _is_blocked(pos: Vector3) -> bool:
 	var world_pos := to_global(pos)
-	for root in get_tree().get_nodes_in_group("prop_area"):
-		for prop in root.get_children():
-			if not prop is Node3D or prop.name == &"PlayAreaGuide":
-				continue
-
-			# the prop itself plus every mesh inside it
-			var visuals: Array = prop.find_children("*", "VisualInstance3D", true, false)
-			if prop is VisualInstance3D:
-				visuals.append(prop)
-
-			for vis in visuals:
-				# lights have a huge invisible box (their range), which would block the whole play area
-				if vis is Light3D:
-					continue
-				var box: AABB = vis.global_transform * vis.get_aabb()
-				box = box.grow(prop_clearance)
-				if world_pos.x >= box.position.x and world_pos.x <= box.end.x \
-				and world_pos.z >= box.position.z and world_pos.z <= box.end.z:
-					return true
+	for box in _blocked_boxes:
+		if world_pos.x >= box.position.x and world_pos.x <= box.end.x \
+		and world_pos.z >= box.position.z and world_pos.z <= box.end.z:
+			return true
 	return false
 
 
@@ -144,7 +151,7 @@ func _make_unique_character(wears_costume: bool) -> CharacterBuilder:
 	var character: CharacterBuilder = null
 	for attempt in 20:
 		if character:
-			character.queue_free()
+			character.free()
 		character = CHARACTER_SCENE.instantiate() as CharacterBuilder
 
 		# same costume decision on every re-roll, so the totals stay exact

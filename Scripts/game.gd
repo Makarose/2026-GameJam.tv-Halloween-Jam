@@ -61,6 +61,7 @@ var witch_busy: bool = false # true while the witch is talking
 
 
 func _ready() -> void:
+	print("TIMING game _ready at: ", Time.get_ticks_msec())
 	level_label.text = ""
 
 	# during a run, the level decides the clue 1 range and the time limit.
@@ -78,8 +79,12 @@ func _ready() -> void:
 	for clue_label in clue_labels:
 		clue_label.text = ""
 
+	var t1: int = Time.get_ticks_msec()
 	set_uninvited_guest()
+	print("TIMING set_uninvited_guest: ", Time.get_ticks_msec() - t1, "ms")
+	t1 = Time.get_ticks_msec()
 	generate_clues()
+	print("TIMING generate_clues: ", Time.get_ticks_msec() - t1, "ms")
 
 	MusicPlayer.shuffle_play(-10.0)
 
@@ -89,7 +94,12 @@ func _ready() -> void:
 	show_clue()
 
 
+var _first_frame_done: bool = false
+
 func _process(delta: float) -> void:
+	if not _first_frame_done:
+		_first_frame_done = true
+		print("TIMING first frame at: ", Time.get_ticks_msec())
 	update_timer_display()
 
 
@@ -117,21 +127,20 @@ func set_uninvited_guest() -> void:
 	var guest: CharacterBuilder = null
 	var funnel: Array[String] = []
 
-	# keep testing random guests until one has clues that narrow the crowd down fairly
 	for attempt in MAX_TRIES:
 		if attempt == RELAX_PAIR_AFTER:
 			min_pool2 = 1
 		if attempt == RELAX_RANGE_AFTER:
 			min1 = 1
 			max1 = 40
-		var candidate: CharacterBuilder = crowd_scene.guests.pick_random()
-		funnel = _find_funnel(candidate, min1, max1, min_pool2)
+		var idx: int = randi() % crowd_scene.guests.size()
+		funnel = _find_funnel(idx, min1, max1, min_pool2)
 		if not funnel.is_empty():
-			guest = candidate
-			print("fair clues found on try ", attempt + 1)
+			guest = crowd_scene.guests[idx]
+			if OS.is_debug_build():
+				print("fair clues found on try ", attempt + 1)
 			break
 
-	# nothing fair was found, so the level still starts with plain clues
 	if guest == null:
 		push_warning("No fair clue set found, using fallback clues")
 		guest = _pick_any_dressed_guest()
@@ -143,12 +152,21 @@ func set_uninvited_guest() -> void:
 	uninvited_guest.ug_label.visible = true
 
 
+func _matching(pool: Array, key, value) -> Array:
+	var out: Array = []
+	for i in pool:
+		if suspect_phrases[i].get(key, "") == value:
+			out.append(i)
+	return out
+
+
 func generate_clues() -> void:
 	clues.clear()
 	var phrases := ClueText.phrases_for(uninvited_guest.look)
 	for i in mini(funnel_keys.size(), max_guesses):
 		clues.append(phrases[funnel_keys[i]])
-	_print_clue_debug(phrases)
+	if OS.is_debug_build():
+		_print_clue_debug(phrases)
 
 
 func show_clue(delay: float = 0.0) -> void:
@@ -240,34 +258,32 @@ func _pool_size(wanted: Dictionary) -> int:
 #   clue 2 shrinks that group but (normally) doesn't finish it
 #   clue 3 leaves only the guest
 # returns the keys in order, or an empty list if this guest can't do it
-func _find_funnel(guest: CharacterBuilder, min1: int, max1: int, min_pool2: int) -> Array[String]:
+func _find_funnel(idx: int, min1: int, max1: int, min_pool2: int) -> Array[String]:
 	var result: Array[String] = []
-	var options := ClueText.phrases_for(guest.look)
+	var options: Dictionary = suspect_phrases[idx]
 	var keys := options.keys()
+	var everyone: Array = range(suspect_phrases.size())
 
 	for k1 in keys:
 		if not VISIBLE_KEYS.has(str(k1)):
 			continue
-		var first := {k1: options[k1]}
-		var pool1 := _pool_size(first)
-		if pool1 < min1 or pool1 > max1:
+		var pool1 := _matching(everyone, k1, options[k1])
+		var size1 := pool1.size()
+		if size1 < min1 or size1 > max1:
 			continue
 
 		for k2 in keys:
 			if k2 == k1:
 				continue
-			var second := first.duplicate()
-			second[k2] = options[k2]
-			var pool2 := _pool_size(second)
-			if pool2 < min_pool2 or pool2 >= pool1:
+			var pool2 := _matching(pool1, k2, options[k2])
+			var size2 := pool2.size()
+			if size2 < min_pool2 or size2 >= size1:
 				continue
 
 			for k3 in keys:
 				if k3 == k1 or k3 == k2:
 					continue
-				var third := second.duplicate()
-				third[k3] = options[k3]
-				if _pool_size(third) == 1:
+				if _matching(pool2, k3, options[k3]).size() == 1:
 					result.append(str(k1))
 					result.append(str(k2))
 					result.append(str(k3))
@@ -276,12 +292,12 @@ func _find_funnel(guest: CharacterBuilder, min1: int, max1: int, min_pool2: int)
 
 
 func _pick_any_dressed_guest() -> CharacterBuilder:
-	var pool: Array = crowd_scene.guests.duplicate()
-	pool.shuffle()
-	for g in pool:
-		if not ClueText.phrases_for(g.look).is_empty():
-			return g
-	return pool[0]
+	var order: Array = range(crowd_scene.guests.size())
+	order.shuffle()
+	for i in order:
+		if not suspect_phrases[i].is_empty():
+			return crowd_scene.guests[i]
+	return crowd_scene.guests[order[0]]
 
 
 # plain backup: visible pieces first, then the rest, no promise it narrows fairly

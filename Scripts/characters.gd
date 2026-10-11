@@ -123,7 +123,7 @@ func randomize_look() -> void:
 			keep = null # rolled "not wearing this"
 		for piece in options:
 			if piece != keep:
-				piece.queue_free()
+				piece.free()
 				
 		# remembers what was kept to use in other scripts
 		if keep:
@@ -137,16 +137,20 @@ func randomize_look() -> void:
 	# removes socks from the model and from look if wearing high tops.
 	# done after the loop because the shoes and socks piles can be sorted in any order.
 	if look.has("shoes_") and String(look["shoes_"]).begins_with(HIGH_TOP_PREFIX) and kept.has("socks_"):
-		kept["socks_"].queue_free()
+		kept["socks_"].free()
 		look.erase("socks_")
 
-# gives a piece a random texture from the list and records which one in look
+static var _tex_materials := {}
+
 func _apply_texture(piece: Node, textures: Array[Texture2D], key: String) -> void:
 	if textures.is_empty():
 		return
 	var index := randi() % textures.size()
-	var mat := StandardMaterial3D.new()
-	mat.albedo_texture = textures[index]
+	var mat: StandardMaterial3D = _tex_materials.get(textures[index])
+	if mat == null:
+		mat = StandardMaterial3D.new()
+		mat.albedo_texture = textures[index]
+		_tex_materials[textures[index]] = mat
 	(piece as MeshInstance3D).material_override = mat
 	look[key] = index
 

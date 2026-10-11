@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _start_run(difficulty: String) -> void:
+	print("TIMING click at: ", Time.get_ticks_msec())
 	if game_scene_path.is_empty():
 		push_warning("Set Game Scene Path on the Levels scene root")
 		return
