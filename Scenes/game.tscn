@@ -8,23 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cekhuxjwl00r1" path="res://Scenes/pause_menu.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://i61kpp7tvfc8" path="res://Scenes/props.tscn" id="7_1l0tm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3dryh"]
-font_size = 40
-font_color = Color(0.94, 0.78333336, 0, 1)
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wrm1d"]
-font_size = 48
-font_color = Color(0.94, 0.78333336, 0, 1)
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_biyew"]
-font_color = Color(0.94, 0.78333336, 0, 1)
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
@@ -61,27 +44,35 @@ theme_override_constants/separation = 20
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1106774022]
 layout_mode = 2
-text = "1:00"
-label_settings = SubResource("LabelSettings_3dryh")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1833145209]
 layout_mode = 2
 size_flags_vertical = 1
 text = "TIME'S UP!"
-label_settings = SubResource("LabelSettings_wrm1d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=851705422]
+[node name="LevelLabel" type="Label" parent="CanvasLayer/Control" unique_id=851705422]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -396.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 96.0
+grow_horizontal = 0
+horizontal_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1208939265]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_top = -34.0
 offset_right = 325.0
+offset_bottom = 60.0
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -95,26 +86,22 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_vertical = 1
 text = "Clue #1"
-label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
 [node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Clue #2"
-label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
 [node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Clue #3"
-label_settings = SubResource("LabelSettings_biyew")
 autowrap_mode = 2
 
 [node name="ResultPanel" type="PanelContainer" parent="CanvasLayer" unique_id=84716567]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(420, 260)
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://ur0rf4sh5dty"]
 
 [ext_resource type="Script" uid="uid://u1cxy3u8x1hp" path="res://Scripts/title_page.gd" id="1_u7noh"]
+[ext_resource type="Script" uid="uid://hyd6kqohwdp6" path="res://Scripts/dance_stage.gd" id="2_ukj5p"]
+[ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="3_eul1e"]
+[ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="4_lfgkp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0y7ru"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_lfgkp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
 
 [node name="TitlePage" type="Control" unique_id=727118345]
 layout_mode = 3
@@ -18,13 +28,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.0
-offset_top = -209.0
-offset_right = 135.0
-offset_bottom = -122.0
+offset_left = -187.0
+offset_top = -260.0
+offset_right = 188.0
+offset_bottom = -117.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "The WItch's Ball"
+theme_override_font_sizes/font_size = 120
+text = "Grave Rave"
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1064700290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=154885626]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="DanceStage" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=670733345]
+script = ExtResource("2_ukj5p")
+per_side = 1
+spacing = 1.5
+side_offset = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=872552251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 8)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=954759690]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Characters" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=894406257 instance=ExtResource("3_eul1e")]
+visible = false
+outline_shader = SubResource("ShaderMaterial_0y7ru")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1118672846]
 layout_mode = 1
@@ -33,21 +75,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -46.5
-offset_top = -188.0
-offset_right = 46.5
-offset_bottom = -122.0
+offset_left = -70.0
+offset_top = -368.0
+offset_right = 70.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 25
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=1825107376]
 layout_mode = 2
-text = "PLAY"
+text = "Play
+"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1074033535]
 layout_mode = 2
 text = "Quit"
 
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1512262283]
+layout_mode = 2
+text = "Credits"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

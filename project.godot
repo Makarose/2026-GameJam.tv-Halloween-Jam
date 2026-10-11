@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2026 GameDev.tv Halloween Jam"
-run/main_scene="uid://c58ewdy0kncax"
+run/main_scene="uid://ur0rf4sh5dty"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]

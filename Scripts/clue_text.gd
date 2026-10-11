@@ -27,6 +27,7 @@ const OVERRIDES := {
 	"hat_crown": "crown",
 	"hat_fries": "french fries hat",
 	"hat_grad": "graduation cap",
+	"hat_garden": "purple garden hat",
 	"hat_headphones": "pair of headphones",
 	"hat_pylon": "traffic cone hat",
 	"hat_top_hat": "top hat",

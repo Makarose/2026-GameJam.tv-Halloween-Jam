@@ -105,7 +105,7 @@ func update_timer_display() -> void:
 func format_time(seconds: float) -> String:
 	var minutes: int = floori(seconds / 60.0)
 	var secs: int = int(seconds) % 60
-	return "%02d:%02d" % [minutes, secs]
+	return "%d:%02d" % [minutes, secs]
 
 
 func set_uninvited_guest() -> void:
