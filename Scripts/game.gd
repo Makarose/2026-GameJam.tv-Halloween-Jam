@@ -21,7 +21,6 @@ var wrong_guesses: Array[CharacterBuilder] = []
 var _check_texture: ImageTexture
 
 var level_over: bool = false # true once the level is won or lost, so nothing else counts
-var _result_won: bool = false
 
 # the scene shown after the last level of a difficulty
 @export_file("*.tscn") var win_scene_path: String
@@ -71,7 +70,7 @@ func _ready() -> void:
 		clue1_min = cfg.clue1_min
 		clue1_max = cfg.clue1_max
 		level_duration = cfg.time_limit
-		level_label.text = "Level %d of %d" % [cfg.level_number, cfg.total_levels]
+		level_label.text = "%s: Level %d of %d" % [cfg.difficulty.capitalize(), cfg.level_number, cfg.total_levels]
 
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
 
@@ -174,6 +173,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 
 	if character == uninvited_guest:
 		level_over = true
+		GameState.ravers_bounced += 1
 		level_timer.paused = true
 		MusicPlayer.stop()
 
@@ -190,7 +190,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		SfxPlayer.play_sfx("fire_spell", -1.0)
 
 		await get_tree().create_timer(2.0).timeout
-		_show_result(true, "CAUGHT THEM!")
+		_show_result("CAUGHT THEM!")
 		return
 
 	wrong_guesses.append(character)
@@ -201,7 +201,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 
 	# that was the last guess
 	if num_guesses >= max_guesses:
-		_lose_level("OUT OF GUESSES!")
+		_lose_level("OUT OF GUESSES!", "guesses")
 		return
 
 	show_clue()
@@ -343,9 +343,9 @@ func _draw_thick_line(img: Image, a: Vector2, b: Vector2, radius: float) -> void
 
 
 func _on_level_timer_timeout() -> void:
-	_lose_level("TIME'S UP!")
+	_lose_level("TIME'S UP!", "time")
 
-func _lose_level(message: String) -> void:
+func _lose_level(message: String, reason: String) -> void:
 	if level_over:
 		return
 	level_over = true
@@ -354,8 +354,8 @@ func _lose_level(message: String) -> void:
 	SfxPlayer.play_sfx("death_clock", 3.0)
 	MusicPlayer.stop()
 
-	await get_tree().create_timer(1.5).timeout
-	_show_result(false, message)
+	await get_tree().create_timer(2.0).timeout
+	_go_to_end_screen(reason)
 
 
 func _finish_level_won() -> void:
@@ -369,28 +369,31 @@ func _finish_level_won() -> void:
 		get_tree().reload_current_scene()
 		return
 
-	# that was the last level
-	GameState.end_run()
+	# that was the last level of the last difficulty
+	_go_to_end_screen("cleared")
+
+
+# the one place a run ends: "cleared", "time", or "guesses"
+func _go_to_end_screen(reason: String) -> void:
+	GameState.end_run(reason)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # the end screen has buttons to click
 	if win_scene_path.is_empty():
 		push_warning("Set Win Scene Path on the Game node")
 		return
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # the win scene has buttons to click
 	get_tree().change_scene_to_file(win_scene_path)
 
-func _show_result(won: bool, message: String) -> void:
-	_result_won = won
+
+# only shown after a won level. there's no Retry anymore, since a loss ends the run
+func _show_result(message: String) -> void:
 	result_label.text = message
 	label.text = ""
 
-	if won:
-		if not GameState.run_active:
-			primary_button.text = "Play Again"
-		elif GameState.has_next_level():
-			primary_button.text = "Next Level"
-		else:
-			primary_button.text = "Finish"
+	if not GameState.run_active:
+		primary_button.text = "Play Again"
+	elif GameState.has_next_level():
+		primary_button.text = "Next Level"
 	else:
-		primary_button.text = "Retry"
+		primary_button.text = "Finish"
 
 	player.set_physics_process(false) # stops walking while the panel is up
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -399,10 +402,7 @@ func _show_result(won: bool, message: String) -> void:
 
 
 func _on_primary_pressed() -> void:
-	if _result_won:
-		_finish_level_won()
-	else:
-		get_tree().reload_current_scene() # same level, new crowd
+	_finish_level_won()
 
 
 func _on_levels_pressed() -> void:

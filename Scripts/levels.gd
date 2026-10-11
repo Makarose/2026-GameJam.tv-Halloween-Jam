@@ -11,10 +11,6 @@ extends Control
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # the game scene hides the mouse
 
-	easy_button.text = "Easy (%d levels)" % LevelBuilder.level_count("easy")
-	normal_button.text = "Normal (%d levels)" % LevelBuilder.level_count("normal")
-	hard_button.text = "Hard (%d levels)" % LevelBuilder.level_count("hard")
-
 	easy_button.pressed.connect(_start_run.bind("easy"))
 	normal_button.pressed.connect(_start_run.bind("normal"))
 	hard_button.pressed.connect(_start_run.bind("hard"))
