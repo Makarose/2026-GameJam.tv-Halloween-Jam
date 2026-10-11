@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dn6tu3fc1r6it"
-path="res://.godot/imported/PirataOne-Regular.ttf-44ce518e6d086ead55568104cbb52a9c.fontdata"
+uid="uid://b3ewvk365ivbe"
+path="res://.godot/imported/GhoulFriAOE.ttf-66c8abf2a3883093c186cb33403b5599.fontdata"
 
 [deps]
 
-source_file="res://Assets/UI/Fonts/PirataOne-Regular.ttf"
-dest_files=["res://.godot/imported/PirataOne-Regular.ttf-44ce518e6d086ead55568104cbb52a9c.fontdata"]
+source_file="res://Assets/Fonts/GhoulFriAOE.ttf"
+dest_files=["res://.godot/imported/GhoulFriAOE.ttf-66c8abf2a3883093c186cb33403b5599.fontdata"]
 
 [params]
 

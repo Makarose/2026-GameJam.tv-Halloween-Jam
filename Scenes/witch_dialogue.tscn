@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dv2dnovmaayiu"]
 
 [ext_resource type="Script" uid="uid://cfwauxrj0rb88" path="res://Scripts/witch_dialogue.gd" id="1_6p4qx"]
-[ext_resource type="FontFile" uid="uid://cdqq1djg6qqlf" path="res://Assets/UI/Fonts/Tombstone-FREE.otf" id="2_1lfb2"]
+[ext_resource type="FontFile" uid="uid://u5e16u8tj53c" path="res://Assets/Fonts/Halloween Spooky.otf" id="2_1lfb2"]
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm00d"]
@@ -18,10 +18,10 @@ texture_margin_top = 29.709827
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_22bwa"]
-line_spacing = -10.0
+[sub_resource type="LabelSettings" id="LabelSettings_smtrq"]
+line_spacing = 10.0
 font = ExtResource("2_1lfb2")
-font_size = 32
+font_size = 28
 
 [node name="WitchDialogue" type="CanvasLayer" unique_id=1655646449]
 script = ExtResource("1_6p4qx")
@@ -83,7 +83,7 @@ offset_right = 748.0
 offset_bottom = 150.0
 size_flags_vertical = 1
 text = "Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test. Hello this is a big test."
-label_settings = SubResource("LabelSettings_22bwa")
+label_settings = SubResource("LabelSettings_smtrq")
 vertical_alignment = 1
 autowrap_mode = 3
 

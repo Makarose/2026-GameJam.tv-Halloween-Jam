@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://djv41gg3347f"
-path="res://.godot/imported/SecretHalloween.ttf-9fae6b916094a8b3a17faf09c7a3468e.fontdata"
+uid="uid://bf6sbedp17q47"
+path="res://.godot/imported/YIKES!__.TTF-b2b7589f13aa1aed2d8c29d668382955.fontdata"
 
 [deps]
 
-source_file="res://Assets/UI/Fonts/SecretHalloween.ttf"
-dest_files=["res://.godot/imported/SecretHalloween.ttf-9fae6b916094a8b3a17faf09c7a3468e.fontdata"]
+source_file="res://Assets/Fonts/YIKES!__.TTF"
+dest_files=["res://.godot/imported/YIKES!__.TTF-b2b7589f13aa1aed2d8c29d668382955.fontdata"]
 
 [params]
 

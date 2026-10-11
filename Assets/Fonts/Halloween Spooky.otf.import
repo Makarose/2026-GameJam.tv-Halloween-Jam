@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dfdh6030syh52"
-path="res://.godot/imported/PirataOne-Regular.ttf-6c0c1e243807fae8205424dbeb8d0684.fontdata"
+uid="uid://u5e16u8tj53c"
+path="res://.godot/imported/Halloween Spooky.otf-47f8763b2f491a843fd698d261dded1c.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/PirataOne-Regular.ttf"
-dest_files=["res://.godot/imported/PirataOne-Regular.ttf-6c0c1e243807fae8205424dbeb8d0684.fontdata"]
+source_file="res://Assets/Fonts/Halloween Spooky.otf"
+dest_files=["res://.godot/imported/Halloween Spooky.otf-47f8763b2f491a843fd698d261dded1c.fontdata"]
 
 [params]
 
