@@ -127,6 +127,9 @@ func _is_blocked(pos: Vector3) -> bool:
 				visuals.append(prop)
 
 			for vis in visuals:
+				# lights have a huge invisible box (their range), which would block the whole play area
+				if vis is Light3D:
+					continue
 				var box: AABB = vis.global_transform * vis.get_aabb()
 				box = box.grow(prop_clearance)
 				if world_pos.x >= box.position.x and world_pos.x <= box.end.x \
