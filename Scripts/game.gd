@@ -149,7 +149,7 @@ func set_uninvited_guest() -> void:
 	uninvited_guest = guest
 	funnel_keys = funnel
 	crowd_scene.relocate(uninvited_guest)
-	uninvited_guest.ug_label.visible = true
+	#uninvited_guest.ug_label.visible = true
 
 
 func _matching(pool: Array, key, value) -> Array:
