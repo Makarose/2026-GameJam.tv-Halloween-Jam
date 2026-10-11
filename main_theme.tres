@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://u5e16u8tj53c" path="res://Assets/Fonts/Halloween Spooky.otf" id="1_a2l2q"]
 
-[sub_resource type="Image" id="Image_a2l2q"]
+[sub_resource type="Image" id="Image_470mv"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -12,7 +12,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_0omi4"]
-image = SubResource("Image_a2l2q")
+image = SubResource("Image_470mv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jnp"]
 content_margin_left = 4.0
