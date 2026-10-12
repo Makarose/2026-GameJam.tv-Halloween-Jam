@@ -2,7 +2,49 @@
 
 [ext_resource type="FontFile" uid="uid://u5e16u8tj53c" path="res://Assets/Fonts/Halloween Spooky.otf" id="1_a2l2q"]
 
-[sub_resource type="Image" id="Image_a2l2q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx5cq"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+bg_color = Color(0.2231029, 0.2231029, 0.22310284, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_470mv"]
+bg_color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2l2q"]
+bg_color = Color(0.1882353, 0.11372549, 0.3254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgkp"]
+content_margin_left = 25.0
+content_margin_top = 10.0
+content_margin_right = 25.0
+bg_color = Color(0.08855995, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0omi4"]
+bg_color = Color(0.1882353, 0.11372549, 0.3254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 25.0
+expand_margin_top = 10.0
+expand_margin_right = 25.0
+
+[sub_resource type="Image" id="Image_470mv"]
 data = {
 "data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255),
 "format": "RGBA8",
@@ -12,7 +54,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_0omi4"]
-image = SubResource("Image_a2l2q")
+image = SubResource("Image_470mv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jnp"]
 content_margin_left = 4.0
@@ -44,7 +86,13 @@ content_margin_bottom = 0.0
 [resource]
 default_font = ExtResource("1_a2l2q")
 default_font_size = 60
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 Button/fonts/font = ExtResource("1_a2l2q")
+Button/styles/focus = SubResource("StyleBoxFlat_sx5cq")
+Button/styles/hover = SubResource("StyleBoxFlat_470mv")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_a2l2q")
+Button/styles/normal = SubResource("StyleBoxFlat_lfgkp")
+Button/styles/pressed = SubResource("StyleBoxFlat_0omi4")
 Label/colors/font_shadow_color = Color(0.1882353, 0.11372549, 0.3254902, 1)
 Label/constants/outline_size = 1
 Label/constants/shadow_offset_x = 3

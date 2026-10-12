@@ -32,6 +32,8 @@ offset_right = 129.0
 offset_bottom = 175.0
 grow_horizontal = 2
 text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1996629339]
 layout_mode = 1
@@ -69,20 +71,22 @@ offset_top = -148.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 65
 text = "Created by Rosemarie Kaes & Eric Vennemeyer"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AssetsLabel" type="RichTextLabel" parent="." unique_id=248983414]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 376.0
-offset_bottom = 568.0
+offset_top = 344.0
+offset_bottom = 536.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "Creator: Thcyrax
+text = "
+Creator: Thcyrax
 Asset: [url=https://thcyrax.itch.io/customizable-stickman-hypercasual]Customizable Stickman Hypercasual[/url]
 
 Creator: Kay Lousberg
@@ -123,6 +127,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Additional Assets:"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="HBoxContainer/Play Game" to="." method="_on_play_game_pressed"]
