@@ -68,8 +68,7 @@ func _ready() -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioManager.music_enabled)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), not AudioManager.sfx_enabled)
 	
-	print("Game Scene Loaded! Forcing Music Mute to: ", not AudioManager.music_enabled)
-
+	
 	# during a run, the level decides the clue 1 range and the time limit.
 	# running the scene straight from the editor uses the Inspector values instead
 	if GameState.run_active:
@@ -87,6 +86,7 @@ func _ready() -> void:
 
 	var t1: int = Time.get_ticks_msec()
 	set_uninvited_guest()
+	
 	print("TIMING set_uninvited_guest: ", Time.get_ticks_msec() - t1, "ms")
 	t1 = Time.get_ticks_msec()
 	generate_clues()
