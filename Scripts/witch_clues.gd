@@ -14,27 +14,6 @@ var pop_in_duration: float = 0.4
 var pop_out_duration: float = 0.25
 var text_pause_duration: float = 5.0
 
-var start_dialogue: Array[String] = [
-	"Why hello there. I bet you're wondering why I've summoned you. I'm having a party tonight, and I have a job for you.",
-	
-	"I'm having several hundred of my closest friends over for my annual world-famous grave rave. I'm sure you've heard of, it even beyond the veil?",
-	
-	"No? Well, I guess you probably don't get out much. It doesn't matter. The important thing is, it's a highly exclusive party and there are always crashers.",
-	
-	"I can't have random wierdos spoiling the vibe. I need you to patrol throughout the night and pick out the uninvited guests. And I need you to do it as quickly as possible.",
-	
-	"It's a costume party, of course, so there's no way to tell by sight who doesn't belong. You'll have to guess. But don't worry, I will use my prodigious talents as a clairvoyant to give you clues.",
-	
-	"You'll have a limited amount of time to find the intruders, at which point I will . . . deal with them.",
-	
-	"But if you don't find them when the time runs out, it's back to the nether realms with you. I have no patience for incompetence, especially in the spirit world.",
-	
-	"Oh, right -- you probably don't have much practice moving around, having just arrived in the earthly dimension. Use your WASD or arrows keys to move forwards, backwards, and side-to-side.",
-	
-	"Use the mouse to look around. Your left mouse button will zoom in to aid in your search. And when you're ready to make a guess, right-click on the highlighted guest and test your luck.",
-	
-	"Well, that should just about do it. Do well tonight, and I may just grant you a permanent existence here. Now, to get you started . . . here's your first clue:"
-]
 
 @onready var text_box: Control = $Control/TextBox
 @onready var text_label: Label = $Control/TextBox/TextLabel
@@ -81,6 +60,7 @@ func give_clue(clue_text: String) -> void:
 	pause_timer.stop()
 
 	pop_out()
+	text_label.text = "" # clear out the text from the clue that was just given
 	await get_tree().create_timer(pop_out_duration).timeout
 	visible = false
 
