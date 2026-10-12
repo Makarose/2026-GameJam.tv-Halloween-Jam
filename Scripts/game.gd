@@ -37,6 +37,7 @@ var level_over: bool = false # true once the level is won or lost, so nothing el
 @onready var timer_label: Label = $CanvasLayer/Control/MarginContainer/VBoxContainer/TimerLabel
 @onready var label: Label = $CanvasLayer/Control/MarginContainer/VBoxContainer/Label
 
+
 #witch clue vars
 @onready var witch = %WitchClues # no type on purpose, her script has no class name
 

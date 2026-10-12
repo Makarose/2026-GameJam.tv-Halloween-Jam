@@ -119,3 +119,4 @@ visible = false
 unique_name_in_owner = true
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="going_to_main_menu" from="PauseMenu" to="." method="_on_pause_menu_going_to_main_menu"]
