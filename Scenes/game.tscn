@@ -103,6 +103,27 @@ theme_override_font_sizes/font_size = 25
 text = "Clue #3"
 autowrap_mode = 2
 
+[node name="LoadingOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1179095591]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/LoadingOverlay" unique_id=754107027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading ...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Crowd" parent="." unique_id=384395682 instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." unique_id=1641026113 instance=ExtResource("3_wrm1d")]

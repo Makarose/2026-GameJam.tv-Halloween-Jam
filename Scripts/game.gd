@@ -102,6 +102,9 @@ func _ready() -> void:
 	
 	show_clue()
 
+	await get_tree().process_frame
+	await get_tree().process_frame
+	%LoadingOverlay.hide()
 
 var _first_frame_done: bool = false
 
@@ -397,7 +400,11 @@ func _finish_level_won() -> void:
 
 	if GameState.has_next_level():
 		GameState.advance()
-		get_tree().reload_current_scene()
+		var tree := get_tree()
+		%LoadingOverlay.show()
+		await tree.process_frame
+		await tree.process_frame
+		tree.reload_current_scene()
 		return
 
 	# that was the last level of the last difficulty
