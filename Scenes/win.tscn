@@ -26,30 +26,36 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
-offset_bottom = -48.0
+offset_top = -41.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="ReasonLabel" type="Label" parent="VBoxContainer2" unique_id=2104376680]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "ReasonLabel"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer2" unique_id=1346544328]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 80
 text = "TitleLabel"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ProgressLabel" type="Label" parent="VBoxContainer2" unique_id=1429724159]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 60
 text = "ProgressLabel"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=918861860]
 layout_mode = 1
