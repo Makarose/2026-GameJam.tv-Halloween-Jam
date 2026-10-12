@@ -1,6 +1,9 @@
 extends Control
 
 func _ready() -> void:
+	# play that funky music
+	MusicPlayer.play_menu_music(-10.0)
+	
 	print("TIMING title page ready at: ", Time.get_ticks_msec())
 	# 1. Sync the buttons with the global manager settings on startup
 	%MusicButton.set_pressed_no_signal(not AudioManager.music_enabled)
