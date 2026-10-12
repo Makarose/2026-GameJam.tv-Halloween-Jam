@@ -115,6 +115,7 @@ one_shot = true
 visible = false
 
 [node name="Props" parent="." unique_id=10682133 instance=ExtResource("7_1l0tm")]
+visible = false
 
 [node name="WitchClues" parent="." unique_id=1655646449 instance=ExtResource("7_v158k")]
 unique_name_in_owner = true

@@ -93,7 +93,9 @@ func _ready() -> void:
 	generate_clues()
 	print("TIMING generate_clues: ", Time.get_ticks_msec() - t1, "ms")
 
+	var t2: int = Time.get_ticks_msec()
 	MusicPlayer.shuffle_play(-10.0)
+	print("TIMING music start: ", Time.get_ticks_msec() - t2, "ms")
 
 	level_timer.wait_time = level_duration
 	level_timer.start()

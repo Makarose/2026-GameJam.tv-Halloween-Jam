@@ -21,7 +21,6 @@ func _on_node_added(node: Node) -> void:
 
 
 func _on_any_button_pressed() -> void:
-	print("button click heard")
 	play_sfx("buttons", -6.0)
 
 
@@ -55,7 +54,6 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 		new_player.free()
 		return
 
-	print("playing ", sfx_name, " | SFX bus muted: ", AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")))
 	
 	new_player.stream = stream
 	new_player.volume_db = volume
