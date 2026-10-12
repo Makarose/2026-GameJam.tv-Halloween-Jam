@@ -91,7 +91,7 @@ func _on_text_printed() -> void:
 
 func pop_in() -> void:
 	SfxPlayer.play_sfx("whoosh", 9.0)
-	SfxPlayer.play_sfx("frustrated_goblin", -4.0)
+	SfxPlayer.play_sfx("frustrated_goblin", -5.0)
 	
 	var witch_tween = create_tween()
 	witch_tween.set_ease(Tween.EASE_OUT)
@@ -108,7 +108,8 @@ func pop_in() -> void:
 
 func pop_out() -> void:
 	SfxPlayer.play_sfx("whoosh", 9.0)
-	SfxPlayer.play_sfx("closing_bell", 3.0)
+	#SfxPlayer.play_sfx("closing_bell", 3.0)
+	SfxPlayer.play_sfx("whoop", -3.0)
 	
 	var witch_tween = create_tween()
 	witch_tween.set_ease(Tween.EASE_OUT)
