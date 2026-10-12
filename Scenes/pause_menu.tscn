@@ -48,6 +48,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
+[node name="MainMenuButton" type="Button" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1105949887]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main Menu"
+
 [node name="QuitButton" type="Button" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=137040598]
 unique_name_in_owner = true
 layout_mode = 2
@@ -59,3 +64,5 @@ texture = ExtResource("3_bpi0q")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1753600270]
 offset_bottom = 648.0
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
