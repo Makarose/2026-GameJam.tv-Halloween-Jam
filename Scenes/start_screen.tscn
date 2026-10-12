@@ -24,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("2_ainjc")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1584335121]
+texture_filter = 4
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -32,14 +33,15 @@ anchor_bottom = 1.0
 offset_top = -456.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=427344342]
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 2
-size = Vector2i(1152, 456)
+canvas_item_default_texture_filter = 2
+size = Vector2i(2304, 912)
 render_target_update_mode = 4
 
 [node name="DanceStage" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2054747682]
