@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cassnwd2sw4xq" path="res://Assets/SFX/Halloween SFX Pack/Clock 2.mp3" id="5_8id0n"]
 [ext_resource type="AudioStream" uid="uid://be2otioe427ti" path="res://Assets/SFX/Halloween SFX Pack/Event1.mp3" id="6_oqxw3"]
 [ext_resource type="AudioStream" uid="uid://di5dh7ml62ex8" path="res://Assets/SFX/Halloween SFX Pack/Event9.mp3" id="7_yn8v5"]
+[ext_resource type="AudioStream" uid="uid://gd2o3eg3qbvb" path="res://Assets/SFX/Halloween SFX Pack/Button 2.mp3" id="8_dtlto"]
 
 [node name="SFXPlayer" type="Node3D" unique_id=1101209887]
 script = ExtResource("1_g0cor")
@@ -16,3 +17,4 @@ ticking_clock = ExtResource("4_1kq3q")
 death_clock = ExtResource("5_8id0n")
 wrong_answer = ExtResource("6_oqxw3")
 right_answer = ExtResource("7_yn8v5")
+buttons = ExtResource("8_dtlto")

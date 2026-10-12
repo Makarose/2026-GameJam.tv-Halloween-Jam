@@ -7,6 +7,22 @@ extends Node3D
 @export var death_clock: AudioStream
 @export var wrong_answer: AudioStream
 @export var right_answer: AudioStream
+@export var buttons: AudioStream
+
+func _ready() -> void:
+	# connect any button the moment it enters any scene
+	get_tree().node_added.connect(_on_node_added)
+
+
+func _on_node_added(node: Node) -> void:
+	if node is BaseButton:
+		if not node.pressed.is_connected(_on_any_button_pressed):
+			node.pressed.connect(_on_any_button_pressed)
+
+
+func _on_any_button_pressed() -> void:
+	print("button click heard")
+	play_sfx("buttons", -6.0)
 
 
 func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
@@ -29,8 +45,17 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 			stream = wrong_answer
 		"right_answer":
 			stream = right_answer
+		"buttons":
+			stream = buttons
 		_:
 			print("Invalid SFX name!")
+			
+	if stream == null:
+		print("SFX '", sfx_name, "' has no stream assigned")
+		new_player.free()
+		return
+
+	print("playing ", sfx_name, " | SFX bus muted: ", AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX")))
 	
 	new_player.stream = stream
 	new_player.volume_db = volume
