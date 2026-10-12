@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" uid="uid://x5wyk2ivq7cc" path="res://Scripts/play_area_guide.gd" id="1_ixf2i"]
 [ext_resource type="PackedScene" uid="uid://cj2ubj70yq8pr" path="res://Assets/Environments/House/scene.gltf" id="2_j1oy8"]
-[ext_resource type="PackedScene" uid="uid://b8cb66cbqil46" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_orange.gltf" id="3_1xrsu"]
 [ext_resource type="PackedScene" uid="uid://o4v3k5jsyunl" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_orange_jackolantern.gltf" id="4_t2j5f"]
 [ext_resource type="PackedScene" uid="uid://vesbbx826t1h" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_yellow.gltf" id="5_mriq8"]
-[ext_resource type="PackedScene" uid="uid://b75015gnphbva" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pillar.gltf" id="6_mriq8"]
-[ext_resource type="PackedScene" uid="uid://1l653aixbfaa" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_yellow_small.gltf" id="7_1ojs7"]
-[ext_resource type="PackedScene" uid="uid://dtvlnudvtl06x" path="res://Assets/Environments/KayKit Forest Nature Pack/Tree_4_B_Color1.gltf" id="8_om6t5"]
+[ext_resource type="PackedScene" uid="uid://l7nmxb2mdjxl" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/crypt.gltf" id="7_g5ogv"]
+[ext_resource type="PackedScene" uid="uid://dgcofk4u1k4vp" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/post_lantern.gltf" id="8_a253q"]
 [ext_resource type="PackedScene" uid="uid://1kfon3rnhnuk" path="res://Assets/Environments/KayKit Forest Nature Pack/Tree_4_C_Color1.gltf" id="9_nlc21"]
 [ext_resource type="PackedScene" uid="uid://cnavuue817jg" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_large.gltf" id="10_li4m5"]
-[ext_resource type="PackedScene" uid="uid://ds4ug2peyd4ms" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_medium.gltf" id="11_esgt4"]
 [ext_resource type="PackedScene" uid="uid://dxlscg38rl1tc" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/grave_B.gltf" id="12_rummm"]
 [ext_resource type="PackedScene" uid="uid://f3yaa3kiuw0j" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/grave_A_destroyed.gltf" id="13_1nfvc"]
+[ext_resource type="PackedScene" uid="uid://cqbw7a38vbj20" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/path_A.gltf" id="13_et3k4"]
 [ext_resource type="PackedScene" uid="uid://cqor0hy0202ck" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/grave_A.gltf" id="14_mq4is"]
+[ext_resource type="PackedScene" uid="uid://wyw3117y11fn" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/pumpkin_orange_small.gltf" id="14_om6t5"]
 [ext_resource type="PackedScene" uid="uid://cnecfxv1pesjn" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/gravestone.gltf" id="15_kp42u"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_bqc80"]
@@ -27,44 +26,65 @@ script = ExtResource("1_ixf2i")
 [node name="WitchHouse" parent="." unique_id=1935555344 groups=["prop_area"] instance=ExtResource("2_j1oy8")]
 transform = Transform3D(8.660254, -8.156655e-07, 4.999998, 8.156656e-07, 10, 2.1855678e-07, -4.999998, 2.1855689e-07, 8.660254, -33.99435, 10.1, -31.597168)
 
-[node name="pumpkin_orange2" parent="." unique_id=754944532 groups=["prop_area"] instance=ExtResource("3_1xrsu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.215079, 0, 0.41447985)
+[node name="grave_B2" parent="." unique_id=1265361148 groups=["prop_area"] instance=ExtResource("12_rummm")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -24, 0, -36)
+
+[node name="grave_A_destroyed2" parent="." unique_id=742481446 groups=["prop_area"] instance=ExtResource("13_1nfvc")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -26, 0, -38)
+
+[node name="grave_A2" parent="." unique_id=298592283 groups=["prop_area"] instance=ExtResource("14_mq4is")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -26, 0, -34)
+
+[node name="grave_A3" parent="." unique_id=259272064 groups=["prop_area"] instance=ExtResource("14_mq4is")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -21, 0, -35)
+
+[node name="grave_A4" parent="." unique_id=477318050 groups=["prop_area"] instance=ExtResource("14_mq4is")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -22, 0, -36)
+
+[node name="gravestone2" parent="." unique_id=2101019523 groups=["prop_area"] instance=ExtResource("15_kp42u")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -23, 0, -40)
+
+[node name="gravestone3" parent="." unique_id=545306215 groups=["prop_area"] instance=ExtResource("15_kp42u")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -24, 0, -33)
+
+[node name="crypt2" parent="." unique_id=294248201 groups=["prop_area"] instance=ExtResource("7_g5ogv")]
+transform = Transform3D(-0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.258819, 42, 0, 11)
+
+[node name="post_lantern2" parent="." unique_id=1856267315 groups=["prop_area"] instance=ExtResource("8_a253q")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 38, 0, 5)
+
+[node name="post_lantern3" parent="." unique_id=372528987 groups=["prop_area"] instance=ExtResource("8_a253q")]
+transform = Transform3D(-0.96592593, 0, 0.25881916, 0, 1, 0, -0.25881916, 0, -0.96592593, 36, 0, 14)
+
+[node name="grave_A5" parent="." unique_id=1074719276 groups=["prop_area"] instance=ExtResource("14_mq4is")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 39, 0, 17)
+
+[node name="gravestone4" parent="." unique_id=1325459523 groups=["prop_area"] instance=ExtResource("15_kp42u")]
+transform = Transform3D(-0.2588191, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, -0.2588191, 36, 0, 20)
+
+[node name="grave_B3" parent="." unique_id=1111299086 groups=["prop_area"] instance=ExtResource("12_rummm")]
+transform = Transform3D(-0.2588191, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.2588191, 41, 0, 20)
+
+[node name="tree_pine_yellow_large2" parent="." unique_id=358139995 groups=["prop_area"] instance=ExtResource("10_li4m5")]
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -9.991123, 0, 37.544952)
 
 [node name="pumpkin_orange_jackolantern2" parent="." unique_id=183296057 groups=["prop_area"] instance=ExtResource("4_t2j5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.45, 0, 0.412)
-
-[node name="pumpkin_yellow2" parent="." unique_id=2066967213 groups=["prop_area"] instance=ExtResource("5_mriq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.966824, 0, -0.9671196)
-
-[node name="pillar2" parent="." unique_id=1319316328 groups=["prop_area"] instance=ExtResource("6_mriq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.17485, 0, 0)
-
-[node name="pumpkin_yellow_small2" parent="." unique_id=945144690 groups=["prop_area"] instance=ExtResource("7_1ojs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.34603, 0.071777344, -0.38049316)
-
-[node name="pumpkin_yellow_small3" parent="." unique_id=236767809 groups=["prop_area"] instance=ExtResource("7_1ojs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.978, 0, 0.833)
-
-[node name="Tree_4_B_Color12" parent="." unique_id=1877134271 groups=["prop_area"] instance=ExtResource("8_om6t5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -24)
+transform = Transform3D(-0.99939007, 0, -0.034920797, 0, 1, 0, 0.034920797, 0, -0.99939007, -9.248095, 0, 33.13497)
 
 [node name="Tree_4_C_Color12" parent="." unique_id=562719668 groups=["prop_area"] instance=ExtResource("9_nlc21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 7)
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -6.829836, 0, 37.624073)
 
-[node name="tree_pine_yellow_large2" parent="." unique_id=358139995 instance=ExtResource("10_li4m5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -24)
+[node name="pumpkin_yellow2" parent="." unique_id=2066967213 groups=["prop_area"] instance=ExtResource("5_mriq8")]
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -6.7507133, 0, 34.462788)
 
-[node name="tree_pine_yellow_medium2" parent="." unique_id=1557121252 instance=ExtResource("11_esgt4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 17)
+[node name="post_lantern4" parent="." unique_id=1481876111 groups=["prop_area"] instance=ExtResource("8_a253q")]
+transform = Transform3D(-0.9743748, 0, 0.22493035, 0, 1, 0, -0.22493035, 0, -0.9743748, -7.41462, 0, 35.711475)
 
-[node name="grave_B2" parent="." unique_id=1265361148 instance=ExtResource("12_rummm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -36)
+[node name="path_A2" parent="." unique_id=148125958 groups=["prop_area"] instance=ExtResource("13_et3k4")]
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -7.999404, 0, 33.79888)
 
-[node name="grave_A_destroyed2" parent="." unique_id=742481446 instance=ExtResource("13_1nfvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -39)
+[node name="path_A4" parent="." unique_id=267254928 groups=["prop_area"] instance=ExtResource("13_et3k4")]
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -5.209631, 0, 36.082993)
 
-[node name="grave_A2" parent="." unique_id=298592283 instance=ExtResource("14_mq4is")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -36)
-
-[node name="gravestone2" parent="." unique_id=2101019523 instance=ExtResource("15_kp42u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -33)
+[node name="pumpkin_orange_small2" parent="." unique_id=1429443180 groups=["prop_area"] instance=ExtResource("14_om6t5")]
+transform = Transform3D(0.95629853, 0, 0.29239205, 0, 1, 0, -0.29239205, 0, 0.95629853, -5.879562, 0, 35.09214)
