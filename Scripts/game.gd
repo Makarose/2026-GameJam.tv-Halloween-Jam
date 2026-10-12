@@ -209,6 +209,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		_freeze_player()
 		GameState.ravers_bounced += 1
 		level_timer.paused = true
+		SfxPlayer.stop_sfx("ticking_clock")
 		MusicPlayer.stop()
 
 		label.text = "CAUGHT THEM!"

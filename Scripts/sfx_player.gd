@@ -32,14 +32,43 @@ func _on_any_button_pressed() -> void:
 	play_sfx("buttons", -6.0)
 
 
+func stop_sfx(sfx_name: String) -> void:
+	var current_stream: AudioStream = convert_string_to_stream(sfx_name)
+	var players = get_children()
+	for player in players:
+		if player is AudioStreamPlayer and player.stream == current_stream:
+			player.stop()
+
+
 func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 	var new_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	
 	new_player.bus = "SFX"
 	
-	var stream: AudioStream = null
+	var stream: AudioStream = convert_string_to_stream(sfx_name)
 	
-	match sfx_name:
+	if stream == null:
+		print("SFX '", sfx_name, "' has no stream assigned")
+		new_player.free()
+		return 
+	
+	new_player.stream = stream
+	new_player.volume_db = volume
+	
+	add_child(new_player)
+	new_player.play()
+	
+	# TODO: jsut edit this SFX later to cut out opening space, or find a new one
+	if stream == fire_spell:
+		new_player.seek(0.20)
+	
+	new_player.finished.connect(new_player.queue_free)
+
+
+func convert_string_to_stream(_string: String) -> AudioStream:
+	var stream: AudioStream
+	
+	match _string:
 		"witch_cackle":
 			stream = witch_cackle
 		"fire_spell":
@@ -71,22 +100,7 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 		"whoosh":
 			stream = whoosh
 		_:
+			stream = null
 			print("Invalid SFX name!")
-			
-	if stream == null:
-		print("SFX '", sfx_name, "' has no stream assigned")
-		new_player.free()
-		return
-
 	
-	new_player.stream = stream
-	new_player.volume_db = volume
-	
-	add_child(new_player)
-	new_player.play()
-	
-	# TODO: jsut edit this SFX later to cut out opening space, or find a new one
-	if stream == fire_spell:
-		new_player.seek(0.20)
-	
-	new_player.finished.connect(new_player.queue_free)
+	return stream
