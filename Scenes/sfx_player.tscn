@@ -8,6 +8,14 @@
 [ext_resource type="AudioStream" uid="uid://be2otioe427ti" path="res://Assets/SFX/Halloween SFX Pack/Event1.mp3" id="6_oqxw3"]
 [ext_resource type="AudioStream" uid="uid://di5dh7ml62ex8" path="res://Assets/SFX/Halloween SFX Pack/Event9.mp3" id="7_yn8v5"]
 [ext_resource type="AudioStream" uid="uid://gd2o3eg3qbvb" path="res://Assets/SFX/Halloween SFX Pack/Button 2.mp3" id="8_dtlto"]
+[ext_resource type="AudioStream" uid="uid://crui57llkxhts" path="res://Assets/SFX/Halloween SFX Pack/Door bell 5.mp3" id="9_rp31h"]
+[ext_resource type="AudioStream" uid="uid://huro6hwl4kfn" path="res://Assets/SFX/Halloween SFX Pack/Church Bell 2.mp3" id="10_3o2y3"]
+[ext_resource type="AudioStream" uid="uid://bvsmyw0niug0u" path="res://Assets/SFX/Halloween SFX Pack/Event15.mp3" id="11_px7l3"]
+[ext_resource type="AudioStream" uid="uid://dek3yf6y7r5do" path="res://Assets/SFX/Halloween SFX Pack/Creature 1.mp3" id="11_t6u46"]
+[ext_resource type="AudioStream" uid="uid://pnxp6nifaied" path="res://Assets/SFX/Halloween SFX Pack/Creature 2.mp3" id="12_ll84q"]
+[ext_resource type="AudioStream" uid="uid://ci4oi1itcem2l" path="res://Assets/SFX/Halloween SFX Pack/Goblin 2.mp3" id="13_t6u46"]
+[ext_resource type="AudioStream" uid="uid://jsw361pnn445" path="res://Assets/SFX/Halloween SFX Pack/Event16.mp3" id="14_ll84q"]
+[ext_resource type="AudioStream" uid="uid://cb52mjoqn7lo6" path="res://Assets/SFX/735907__erikcruzdev__whip-woosh.wav" id="16_jb4hl"]
 
 [node name="SFXPlayer" type="Node3D" unique_id=1101209887]
 script = ExtResource("1_g0cor")
@@ -18,3 +26,11 @@ death_clock = ExtResource("5_8id0n")
 wrong_answer = ExtResource("6_oqxw3")
 right_answer = ExtResource("7_yn8v5")
 buttons = ExtResource("8_dtlto")
+door_bell = ExtResource("9_rp31h")
+church_bell = ExtResource("10_3o2y3")
+closing_bell = ExtResource("11_px7l3")
+whoop = ExtResource("11_t6u46")
+creature = ExtResource("12_ll84q")
+frustrated_goblin = ExtResource("13_t6u46")
+party_guitar = ExtResource("14_ll84q")
+whoosh = ExtResource("16_jb4hl")

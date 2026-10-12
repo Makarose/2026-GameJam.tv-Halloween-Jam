@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 			pause_timer.timeout.emit()
 		else: # this one skips the typewriter effect and displays all the text at once
 			if text_tween and text_tween.is_running():
+				SfxPlayer.play_sfx("church_bell", -8.0)
 				text_tween.kill()
 				text_label.visible_ratio = 1.0
 				_on_text_printed()
@@ -89,6 +90,9 @@ func _on_text_printed() -> void:
 
 
 func pop_in() -> void:
+	SfxPlayer.play_sfx("whoosh", 9.0)
+	SfxPlayer.play_sfx("frustrated_goblin", -4.0)
+	
 	var witch_tween = create_tween()
 	witch_tween.set_ease(Tween.EASE_OUT)
 	witch_tween.set_trans(Tween.TRANS_SPRING)
@@ -103,6 +107,9 @@ func pop_in() -> void:
 
 
 func pop_out() -> void:
+	SfxPlayer.play_sfx("whoosh", 9.0)
+	SfxPlayer.play_sfx("closing_bell", 3.0)
+	
 	var witch_tween = create_tween()
 	witch_tween.set_ease(Tween.EASE_OUT)
 	witch_tween.set_trans(Tween.TRANS_CUBIC)

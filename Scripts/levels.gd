@@ -39,7 +39,6 @@ func _start_run(difficulty: String) -> void:
 	await play_witch_intro()
 
 	%LoadingOverlay.show()
-	await MusicPlayer.fade_out(1.5) # fade out that funky menu music before game scene loads
 	await tree.process_frame
 	await tree.process_frame
 

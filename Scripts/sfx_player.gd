@@ -8,6 +8,14 @@ extends Node3D
 @export var wrong_answer: AudioStream
 @export var right_answer: AudioStream
 @export var buttons: AudioStream
+@export var door_bell: AudioStream
+@export var church_bell: AudioStream
+@export var closing_bell: AudioStream
+@export var whoop: AudioStream
+@export var creature: AudioStream
+@export var frustrated_goblin: AudioStream
+@export var party_guitar: AudioStream
+@export var whoosh: AudioStream
 
 func _ready() -> void:
 	# connect any button the moment it enters any scene
@@ -46,6 +54,22 @@ func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 			stream = right_answer
 		"buttons":
 			stream = buttons
+		"door_bell":
+			stream = door_bell
+		"church_bell":
+			stream = church_bell
+		"closing_bell":
+			stream = closing_bell
+		"whoop":
+			stream = whoop
+		"creature":
+			stream = creature
+		"frustrated_goblin":
+			stream = frustrated_goblin
+		"party_guitar":
+			stream = party_guitar
+		"whoosh":
+			stream = whoosh
 		_:
 			print("Invalid SFX name!")
 			
