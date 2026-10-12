@@ -371,7 +371,7 @@ func _lose_level(message: String, reason: String) -> void:
 		return
 	level_over = true
 	_freeze_player()
-	level_timer.stop()
+	level_timer.paused = true # using pause instead of stop() to avoid ticking clock sfx playing when not actual countdown
 	label.text = message
 	SfxPlayer.play_sfx("death_clock", 3.0)
 	MusicPlayer.stop()
