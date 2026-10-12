@@ -418,7 +418,12 @@ func _go_to_end_screen(reason: String) -> void:
 	if win_scene_path.is_empty():
 		push_warning("Set Win Scene Path on the Game node")
 		return
-	get_tree().change_scene_to_file(win_scene_path)
+
+	var tree := get_tree()
+	%LoadingOverlay.show()
+	await tree.process_frame
+	await tree.process_frame
+	tree.change_scene_to_file(win_scene_path)
 
 # the witch says a clue while the clock is held and the player can't move or guess
 func _say_clue(text: String, delay: float = 0.0) -> void:
