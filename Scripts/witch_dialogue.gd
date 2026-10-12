@@ -13,6 +13,8 @@ var pop_in_duration: float = 0.4
 var pop_out_duration: float = 0.25
 var text_pause_duration: float = 5.0
 
+var text_tween: Tween
+
 var start_dialogue: Array[String] = [
 	"Why hello there. I bet you're wondering why I've summoned you. I'm having a party tonight, and I have a job for you.",
 	
@@ -57,14 +59,19 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
-		if Input.is_action_just_pressed("skip"):
+		if Input.is_action_just_pressed("skip"): # this one skips the entire intro
 			pop_out()
 			skip_label.visible = false
 			await fade_out_bg()
 			intro_complete.emit()
-		elif not pause_timer.is_stopped():
+		elif not pause_timer.is_stopped(): # this one skips to the next line of text if the previous is already finished
 			pause_timer.stop()
 			pause_timer.timeout.emit()
+		else: # this one skips the typewriter effect and displays all the text at once
+			if text_tween and text_tween.is_running():
+				text_tween.kill()
+				text_label.visible_ratio = 1.0
+				_on_text_printed()
 
 
 func play_startup(_clue: String = "") -> void:
@@ -104,14 +111,19 @@ func fade_out_bg() -> void:
 
 
 func print_text(_text: String) -> void:
+	text_tween = null
 	text_label.text = _text
 	text_label.visible_ratio = 0.0
 	
 	var character_count: int = text_label.get_total_character_count()
 	var typewriter_speed: float = character_count / 30.0
 	
-	var tween = create_tween()
-	await tween.tween_property(text_label, "visible_ratio", 1.0, typewriter_speed).finished
+	text_tween = create_tween()
+	await text_tween.tween_property(text_label, "visible_ratio", 1.0, typewriter_speed).finished
+	_on_text_printed()
+
+
+func _on_text_printed() -> void:
 	pause_timer.start()
 	text_printed.emit()
 
@@ -123,11 +135,11 @@ func pop_in() -> void:
 	
 	witch_tween.tween_property(black_witch_portrait, "position", witch_end_pos, pop_in_duration).from(witch_start_pos)
 	
-	var text_tween = create_tween()
-	text_tween.set_ease(Tween.EASE_OUT)
-	text_tween.set_trans(Tween.TRANS_SPRING)
+	var dialogue_box_tween = create_tween()
+	dialogue_box_tween.set_ease(Tween.EASE_OUT)
+	dialogue_box_tween.set_trans(Tween.TRANS_SPRING)
 	
-	text_tween.tween_property(text_box, "position", text_box_end_pos, pop_in_duration).from(text_box_start_pos)
+	dialogue_box_tween.tween_property(text_box, "position", text_box_end_pos, pop_in_duration).from(text_box_start_pos)
 
 
 func pop_out() -> void:
@@ -137,8 +149,8 @@ func pop_out() -> void:
 	
 	witch_tween.tween_property(black_witch_portrait, "position", witch_start_pos, pop_out_duration)
 	
-	var text_tween = create_tween()
-	text_tween.set_ease(Tween.EASE_OUT)
-	text_tween.set_trans(Tween.TRANS_CUBIC)
+	var dialogue_box_tween = create_tween()
+	dialogue_box_tween.set_ease(Tween.EASE_OUT)
+	dialogue_box_tween.set_trans(Tween.TRANS_CUBIC)
 	
-	text_tween.tween_property(text_box, "position", text_box_start_pos, pop_out_duration)
+	dialogue_box_tween.tween_property(text_box, "position", text_box_start_pos, pop_out_duration)

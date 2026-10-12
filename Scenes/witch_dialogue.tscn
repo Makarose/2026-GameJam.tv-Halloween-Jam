@@ -118,13 +118,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -434.0
+offset_left = -487.0
 offset_top = -66.0
-offset_right = -31.0
+offset_right = 80.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
-text = "(Press SPACEBAR to Skip Intro)"
+text = "(Press SPACEBAR to Skip Intro. Press any other key to advance dialogue.)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

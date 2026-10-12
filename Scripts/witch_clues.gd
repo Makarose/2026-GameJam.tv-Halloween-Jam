@@ -14,6 +14,7 @@ var pop_in_duration: float = 0.4
 var pop_out_duration: float = 0.25
 var text_pause_duration: float = 5.0
 
+var text_tween: Tween
 
 @onready var text_box: Control = $Control/TextBox
 @onready var text_label: Label = $Control/TextBox/TextLabel
@@ -34,6 +35,11 @@ func _input(event: InputEvent) -> void:
 		if not pause_timer.is_stopped():
 			pause_timer.stop()
 			pause_timer.timeout.emit()
+		else: # this one skips the typewriter effect and displays all the text at once
+			if text_tween and text_tween.is_running():
+				text_tween.kill()
+				text_label.visible_ratio = 1.0
+				_on_text_printed()
 
 
 # how long a clue stays up after it finishes typing
@@ -72,8 +78,12 @@ func print_text(_text: String) -> void:
 	var character_count: int = text_label.get_total_character_count()
 	var typewriter_speed: float = character_count / 30.0
 	
-	var tween = create_tween()
-	await tween.tween_property(text_label, "visible_ratio", 1.0, typewriter_speed).finished
+	text_tween = create_tween()
+	await text_tween.tween_property(text_label, "visible_ratio", 1.0, typewriter_speed).finished
+	_on_text_printed()
+
+
+func _on_text_printed() -> void:
 	pause_timer.start()
 	text_printed.emit()
 
@@ -85,11 +95,11 @@ func pop_in() -> void:
 	
 	witch_tween.tween_property(black_witch_portrait, "position", witch_end_pos, pop_in_duration).from(witch_start_pos)
 	
-	var text_tween = create_tween()
-	text_tween.set_ease(Tween.EASE_OUT)
-	text_tween.set_trans(Tween.TRANS_SPRING)
+	var dialogue_box_tween = create_tween()
+	dialogue_box_tween.set_trans(Tween.TRANS_SPRING)
+	dialogue_box_tween.set_ease(Tween.EASE_OUT)
 	
-	text_tween.tween_property(text_box, "position", text_box_end_pos, pop_in_duration).from(text_box_start_pos)
+	dialogue_box_tween.tween_property(text_box, "position", text_box_end_pos, pop_in_duration).from(text_box_start_pos)
 
 
 func pop_out() -> void:
@@ -99,8 +109,8 @@ func pop_out() -> void:
 	
 	witch_tween.tween_property(black_witch_portrait, "position", witch_start_pos, pop_out_duration)
 	
-	var text_tween = create_tween()
-	text_tween.set_ease(Tween.EASE_OUT)
-	text_tween.set_trans(Tween.TRANS_CUBIC)
+	var dialogue_box_tween = create_tween()
+	dialogue_box_tween.set_ease(Tween.EASE_OUT)
+	dialogue_box_tween.set_trans(Tween.TRANS_CUBIC)
 	
-	text_tween.tween_property(text_box, "position", text_box_start_pos, pop_out_duration)
+	dialogue_box_tween.tween_property(text_box, "position", text_box_start_pos, pop_out_duration)
