@@ -12,3 +12,4 @@ script = ExtResource("1_ous86")
 music_playlist = Array[AudioStream]([ExtResource("2_b03an"), ExtResource("3_hnt0s"), ExtResource("4_tx3aj"), ExtResource("5_nu6f5")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=173624444]
+bus = &"Music"

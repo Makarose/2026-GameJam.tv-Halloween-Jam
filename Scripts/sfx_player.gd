@@ -12,6 +12,8 @@ extends Node3D
 func play_sfx(sfx_name: String, volume: float = 0.0) -> void:
 	var new_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	
+	new_player.bus = "SFX"
+	
 	var stream: AudioStream = null
 	
 	match sfx_name:

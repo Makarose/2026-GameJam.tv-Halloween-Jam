@@ -64,6 +64,12 @@ func _ready() -> void:
 	print("TIMING game _ready at: ", Time.get_ticks_msec())
 	level_label.text = ""
 
+	# Force the AudioServer to match the AudioManager values right now
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioManager.music_enabled)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), not AudioManager.sfx_enabled)
+	
+	print("Game Scene Loaded! Forcing Music Mute to: ", not AudioManager.music_enabled)
+
 	# during a run, the level decides the clue 1 range and the time limit.
 	# running the scene straight from the editor uses the Inspector values instead
 	if GameState.run_active:

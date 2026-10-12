@@ -14,11 +14,16 @@ config/name="2026 GameDev.tv Halloween Jam"
 run/main_scene="uid://ur0rf4sh5dty"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://dvcfnt3hyx5g3"
+
 [autoload]
 
 MusicPlayer="*uid://brpruj2k473so"
 SfxPlayer="*uid://vvnm53g2h1e5"
 GameState="*uid://c7p4e2lm6tvqw"
+AudioManager="*uid://bwjowcipav7db"
 
 [display]
 
