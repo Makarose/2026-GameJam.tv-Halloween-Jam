@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2ng7bsa6jpjv"]
 
 [ext_resource type="Script" uid="uid://bras173e0ntey" path="res://Scripts/levels.gd" id="1_yh33m"]
+[ext_resource type="PackedScene" uid="uid://dv2dnovmaayiu" path="res://Scenes/witch_dialogue.tscn" id="2_xgx5e"]
 
 [node name="Levels" type="Control" unique_id=1938309449]
 layout_mode = 3
@@ -66,5 +67,7 @@ text = "Hard"
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=207307478]
 layout_mode = 2
 text = "Back"
+
+[node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("2_xgx5e")]
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

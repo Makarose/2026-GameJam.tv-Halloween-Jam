@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-signal text_printed
 
+signal text_printed
+signal intro_complete
 
 @export var witch_start_pos: Vector2
 @export var witch_end_pos: Vector2
@@ -25,46 +26,63 @@ var start_dialogue: Array[String] = [
 	
 	"You'll have a limited amount of time to find the intruders, at which point I will . . . deal with them.",
 	
-	"But if you don't find them when the time runs out, it's back to the nether realms with you. I have no patience for incompetence, especially in the spirit world.",
+	"But if you don't find them when the time runs out, or use too many guesses, it's back to the nether realms with you. I have no patience for incompetence, especially in the spirit world.",
 	
-	"Oh, right -- you probably don't have much practice moving around, having just arrived in the earthly dimension. Use your WASD or arrows keys to move forwards, backwards, and side-to-side.",
+	"Oh, right -- you probably don't have much practice moving around, having just arrived in the earthly dimension. Use your WASD or arrow keys to move forwards, backwards, and side-to-side.",
 	
-	"Use the mouse to look around. Your left mouse button will zoom in to aid in your search. And when you're ready to make a guess, right-click on the highlighted guest and test your luck.",
+	"Use the mouse to look around. Your right mouse button will zoom in to aid in your search. And when you're ready to make a guess, left-click on the highlighted guest and test your luck.",
 	
-	"Well, that should just about do it. Do well tonight, and I may just grant you a permanent existence here. Now, to get you started . . . here's your first clue:"
+	"Well, that should just about do it. Do well tonight, and I may even grant you a permanent existence here. Now, let's party."
 ]
 
 @onready var text_box: Control = $Control/TextBox
 @onready var text_label: Label = $Control/TextBox/TextLabel
+@onready var skip_label: Label = $Control/SkipLabel
 @onready var black_witch_portrait: TextureRect = $Control/BlackWitchPortrait
 @onready var pause_timer: Timer = $PauseTimer
+@onready var panel: Panel = $Control/Panel
 
 
 func _ready() -> void:
 	black_witch_portrait.position = witch_start_pos
 	text_box.position = text_box_start_pos
 	text_label.text = ""
+	skip_label.modulate.a = 0.0
+	panel.modulate.a = 0.0
 	pause_timer.wait_time = text_pause_duration
 	
-	await get_tree().create_timer(1.0).timeout
-	play_startup("This person is wearing hot pink leather chaps.")
+	#await get_tree().create_timer(1.0).timeout
+	#play_startup()
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
-		if not pause_timer.is_stopped():
+		if Input.is_action_just_pressed("skip"):
+			pop_out()
+			skip_label.visible = false
+			await fade_out_bg()
+			intro_complete.emit()
+		elif not pause_timer.is_stopped():
 			pause_timer.stop()
 			pause_timer.timeout.emit()
 
 
-# this should be called via the game script at the start of the game. _clue argument should be the
-# first element in the clues array, so that it's the same as the first one to show on screen during game
-func play_startup(_clue: String) -> void:
-	var first_clue_text: String = "Hmm, yes. I'm seeing something . . ." + _clue
-	start_dialogue.append(first_clue_text)
+func play_startup(_clue: String = "") -> void:
+	#var first_clue_text: String = "Hmm, yes. I'm seeing something . . ." + _clue
+	#start_dialogue.append(first_clue_text)
+	
+	var panel_tween = create_tween()
+	panel_tween.set_ease(Tween.EASE_OUT)
+	panel_tween.set_trans(Tween.TRANS_CUBIC)
+	panel_tween.tween_property(panel, "modulate:a", 1.0, 0.5)
 	
 	pop_in()
 	await get_tree().create_timer(0.5).timeout
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(skip_label, "modulate:a", 1.0, 2.0)
 	
 	for line in start_dialogue:
 		print_text(line)
@@ -73,6 +91,16 @@ func play_startup(_clue: String) -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	pop_out()
+	await fade_out_bg()
+	
+	intro_complete.emit()
+
+
+func fade_out_bg() -> void:
+	var panel_tween = create_tween()
+	panel_tween.set_ease(Tween.EASE_OUT)
+	panel_tween.set_trans(Tween.TRANS_CUBIC)
+	await panel_tween.tween_property(panel, "modulate:a", 0.0, 2.0).finished
 
 
 func print_text(_text: String) -> void:

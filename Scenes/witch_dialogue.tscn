@@ -4,6 +4,9 @@
 [ext_resource type="FontFile" uid="uid://u5e16u8tj53c" path="res://Assets/Fonts/Halloween Spooky.otf" id="2_1lfb2"]
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgx5e"]
+bg_color = Color(0.5628506, 0.22147715, 0, 1)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm00d"]
 load_path = "res://.godot/imported/20251029darkDwellers9SlicesE.png-123f8c3033d7b74f03f04d6f2776bec6.ctex"
 
@@ -37,6 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="Control" unique_id=215242327]
 layout_mode = 1
@@ -45,6 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xgx5e")
 
 [node name="TextBox" type="Control" parent="Control" unique_id=746954908]
 layout_mode = 1
@@ -55,6 +61,7 @@ anchor_bottom = 1.0
 offset_top = -240.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/TextBox" unique_id=965346818]
 texture_filter = 1
@@ -103,6 +110,23 @@ grow_vertical = 0
 texture = ExtResource("2_sm00d")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="SkipLabel" type="Label" parent="Control" unique_id=1932381568]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -434.0
+offset_top = -66.0
+offset_right = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "(Press SPACEBAR to Skip Intro)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseTimer" type="Timer" parent="." unique_id=1738163915]
 one_shot = true
