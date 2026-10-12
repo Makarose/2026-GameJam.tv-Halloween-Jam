@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://tj38gu80vv32" path="res://Assets/Witch Faces/FR_155_BlackWitch/FR16_155_BlackWitch_Normal.png" id="2_sm00d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgx5e"]
-bg_color = Color(0.5628506, 0.22147715, 0, 1)
+bg_color = Color(0.5647059, 0.21960784, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sm00d"]
 load_path = "res://.godot/imported/20251029darkDwellers9SlicesE.png-123f8c3033d7b74f03f04d6f2776bec6.ctex"
