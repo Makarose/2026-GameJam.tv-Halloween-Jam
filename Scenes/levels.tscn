@@ -23,6 +23,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=2091125458]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,6 +36,7 @@ grow_horizontal = 2
 text = "Level Select"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=784991149]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,9 +67,33 @@ layout_mode = 2
 text = "Hard"
 
 [node name="BackButton" type="Button" parent="VBoxContainer" unique_id=207307478]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Back"
 
 [node name="WitchDialogue" parent="." unique_id=1655646449 instance=ExtResource("2_xgx5e")]
+
+[node name="LoadingOverlay" type="ColorRect" parent="." unique_id=2051378893]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="LoadingOverlay" unique_id=1889034135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading ...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
