@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void:
 	# play that funky music
-	MusicPlayer.play_menu_music(-10.0)
+	MusicPlayer.play_menu_music(-12.0)
 	
 	print("TIMING title page ready at: ", Time.get_ticks_msec())
 	# 1. Sync the buttons with the global manager settings on startup

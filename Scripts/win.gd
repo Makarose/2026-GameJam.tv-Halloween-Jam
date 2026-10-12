@@ -46,6 +46,7 @@ func _on_levels_button_pressed() -> void:
 	if levels_scene_path.is_empty():
 		push_warning("Set Levels Scene Path on the win scene root")
 		return
+	MusicPlayer.play_menu_music(-12.0)
 	get_tree().change_scene_to_file(levels_scene_path)
 
 func _on_main_menu_button_pressed() -> void:
