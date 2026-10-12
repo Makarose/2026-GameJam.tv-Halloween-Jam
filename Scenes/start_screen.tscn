@@ -54,4 +54,27 @@ theme_override_fonts/font = ExtResource("3_60ddj")
 theme_override_font_sizes/font_size = 60
 text = "Enter"
 
+[node name="LoadingOverlay" type="ColorRect" parent="." unique_id=926773456]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="LoadingOverlay" unique_id=824424672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading ...
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="EnterButton" to="." method="_on_enter_button_pressed"]

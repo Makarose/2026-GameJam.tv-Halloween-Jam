@@ -9,4 +9,8 @@ func _ready() -> void:
 
 
 func _on_enter_button_pressed() -> void:
+	print("TIMING enter click at: ", Time.get_ticks_msec())
+	%LoadingOverlay.show()
+	await get_tree().process_frame
+	await get_tree().process_frame
 	get_tree().change_scene_to_file(TITLE_SCENE)

@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	print("TIMING title page ready at: ", Time.get_ticks_msec())
 	# 1. Sync the buttons with the global manager settings on startup
 	%MusicButton.set_pressed_no_signal(not AudioManager.music_enabled)
 	%SFXButton.set_pressed_no_signal(not AudioManager.sfx_enabled)
