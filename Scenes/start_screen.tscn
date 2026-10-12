@@ -2,7 +2,17 @@
 
 [ext_resource type="Theme" uid="uid://cedbd6l8so7tp" path="res://main_theme.tres" id="1_i8r30"]
 [ext_resource type="Script" uid="uid://b1ih0lq42y0tx" path="res://Scripts/start_screen.gd" id="2_ainjc"]
+[ext_resource type="Script" uid="uid://hyd6kqohwdp6" path="res://Scripts/dance_stage.gd" id="2_mtlf8"]
 [ext_resource type="FontFile" uid="uid://u5e16u8tj53c" path="res://Assets/Fonts/Halloween Spooky.otf" id="3_60ddj"]
+[ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="3_nqnrp"]
+[ext_resource type="Shader" uid="uid://bosm7645l8i1m" path="res://Shaders & Materials/simple_outline.gdshader" id="4_5a7ho"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqnrp"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_5a7ho")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/thickness = 0.0
 
 [node name="StartScreen" type="Control" unique_id=727118345]
 layout_mode = 3
@@ -12,6 +22,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ainjc")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1584335121]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -456.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=427344342]
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 2
+size = Vector2i(1152, 456)
+render_target_update_mode = 4
+
+[node name="DanceStage" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2054747682]
+script = ExtResource("2_mtlf8")
+per_side = 1
+spacing = 0.0
+side_offset = 6.0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=1779389038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 6)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=580303975]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 1, 1)
+light_energy = 2.5
+
+[node name="Characters" parent="SubViewportContainer/SubViewport/DanceStage" unique_id=894406257 instance=ExtResource("3_nqnrp")]
+visible = false
+outline_shader = SubResource("ShaderMaterial_nqnrp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1916302128]
 layout_mode = 1
