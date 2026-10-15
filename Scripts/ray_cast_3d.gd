@@ -32,7 +32,7 @@ func set_target(object: Node) -> void:
 		character = object
 
 func clear_target() -> void:
-	if character != null:
+	if is_instance_valid(character):
 		if character.has_method("disable_outline"):
 			character.disable_outline()
-		character = null
+	character = null

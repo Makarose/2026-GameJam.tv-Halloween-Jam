@@ -66,21 +66,20 @@ func _ready() -> void:
 func add_outline_material() -> void:
 	var skeleton := find_child("Skeleton3D", true, false) as Skeleton3D
 	meshes = skeleton.get_children()
-	for mesh in meshes:
-		if not mesh.material_overlay:
-			mesh.material_overlay = outline_shader
+	# overlay is no longer applied here, only while highlighted
 
 
 func enable_outline() -> void:
+	outline_shader.set_shader_parameter("thickness", 0.03)
 	for mesh in meshes:
 		if is_instance_valid(mesh):
-			mesh.material_overlay.set_shader_parameter("thickness", 0.03)
+			mesh.material_overlay = outline_shader
 
 
 func disable_outline() -> void:
 	for mesh in meshes:
 		if is_instance_valid(mesh):
-			mesh.material_overlay.set_shader_parameter("thickness", 0.0)
+			mesh.material_overlay = null
 
 
 func randomize_look() -> void:
