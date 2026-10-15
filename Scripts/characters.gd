@@ -61,6 +61,7 @@ func _ready() -> void:
 	randomize_look() # dress the character
 	add_outline_material() # add the outline shader material to all meshes, to be enabled by RayCast3D on Player
 	play_random()    # start a random animation
+	_setup_offscreen_culling()
 
 
 func add_outline_material() -> void:
@@ -203,6 +204,32 @@ func play_random() -> void:
 	# starts animations at different times so crowd doesn't move in sync.
 	anim.seek(randf() * anim.current_animation_length)
 	anim.speed_scale = randf_range(0.85, 1.15)
+	
+	
+var _notifier: VisibleOnScreenNotifier3D
+
+func _setup_offscreen_culling() -> void:
+	_notifier = VisibleOnScreenNotifier3D.new()
+	# box around the character, adjust to fit your model size
+	_notifier.aabb = AABB(Vector3(-1.0, 0.0, -1.0), Vector3(2.0, 2.2, 2.0))
+	add_child(_notifier)
+	_notifier.screen_entered.connect(_on_screen_entered)
+	_notifier.screen_exited.connect(_on_screen_exited)
+
+	# let a couple of frames pass so the first pose gets applied,
+	# then freeze anyone who starts off screen
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if is_instance_valid(_notifier) and not _notifier.is_on_screen():
+		anim.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_screen_entered() -> void:
+	anim.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _on_screen_exited() -> void:
+	anim.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_animation_finished(clip_name: StringName) -> void:
