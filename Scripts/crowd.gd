@@ -101,6 +101,15 @@ func _ready() -> void:
 	
 	_spawn_ring_assets()
 	print("TIMING crowd _ready: ", Time.get_ticks_msec() - t0, "ms")
+	
+	# bigger crowds get a tighter animation budget
+	if count <= 100:
+		full_count = 25
+		mid_count = 30
+	else:
+		full_count = 15
+		mid_count = 20
+	
 
 # creates background assets outside play area
 # creates background assets outside play area
@@ -215,3 +224,55 @@ func _find_spot() -> Vector3:
 	push_warning("No free spot found. Raise Radius or lower Min Spacing.")
 	positions.append(best)
 	return best
+
+# --- animation budget ---
+var full_count := 15
+var mid_count := 20
+const STAGGER_FRAMES := 3
+const UPDATE_INTERVAL := 0.5
+
+var _timer := 0.0
+var _frame := 0
+var _stagger: Array[CharacterBuilder] = []
+
+
+func _process(delta: float) -> void:
+	_frame += 1
+
+	# give each staggered character a turn once every few frames
+	for i in _stagger.size():
+		var c := _stagger[i]
+		if is_instance_valid(c) and (_frame + i) % STAGGER_FRAMES == 0:
+			c.step_animation(delta * STAGGER_FRAMES)
+
+	_timer += delta
+	if _timer < UPDATE_INTERVAL:
+		return
+	_timer = 0.0
+
+	var cam := get_viewport().get_camera_3d()
+	if cam == null:
+		return
+	var cam_pos := cam.global_position
+
+	var on_screen: Array[CharacterBuilder] = []
+	for c in crowd:
+		if not is_instance_valid(c):
+			continue
+		if c.is_on_screen():
+			on_screen.append(c)
+		else:
+			c.set_anim_mode(CharacterBuilder.AnimMode.FROZEN)
+
+	on_screen.sort_custom(func(a, b):
+		return a.global_position.distance_squared_to(cam_pos) < b.global_position.distance_squared_to(cam_pos))
+
+	_stagger.clear()
+	for i in on_screen.size():
+		if i < full_count:
+			on_screen[i].set_anim_mode(CharacterBuilder.AnimMode.FULL)
+		elif i < full_count + mid_count:
+			on_screen[i].set_anim_mode(CharacterBuilder.AnimMode.STAGGER)
+			_stagger.append(on_screen[i])
+		else:
+			on_screen[i].set_anim_mode(CharacterBuilder.AnimMode.FROZEN)

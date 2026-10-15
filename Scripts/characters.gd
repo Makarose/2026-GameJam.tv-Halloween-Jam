@@ -208,28 +208,39 @@ func play_random() -> void:
 	
 var _notifier: VisibleOnScreenNotifier3D
 
+enum AnimMode { FULL, STAGGER, FROZEN }
+var _mode := -1
+
+
 func _setup_offscreen_culling() -> void:
 	_notifier = VisibleOnScreenNotifier3D.new()
 	# box around the character, adjust to fit your model size
 	_notifier.aabb = AABB(Vector3(-1.0, 0.0, -1.0), Vector3(2.0, 2.2, 2.0))
 	add_child(_notifier)
-	_notifier.screen_entered.connect(_on_screen_entered)
-	_notifier.screen_exited.connect(_on_screen_exited)
-
-	# let a couple of frames pass so the first pose gets applied,
-	# then freeze anyone who starts off screen
-	await get_tree().process_frame
-	await get_tree().process_frame
-	if is_instance_valid(_notifier) and not _notifier.is_on_screen():
-		anim.process_mode = Node.PROCESS_MODE_DISABLED
 
 
-func _on_screen_entered() -> void:
-	anim.process_mode = Node.PROCESS_MODE_INHERIT
+func is_on_screen() -> bool:
+	return is_instance_valid(_notifier) and _notifier.is_on_screen()
 
 
-func _on_screen_exited() -> void:
-	anim.process_mode = Node.PROCESS_MODE_DISABLED
+func set_anim_mode(mode: int) -> void:
+	if mode == _mode:
+		return
+	_mode = mode
+	match mode:
+		AnimMode.FULL:
+			anim.process_mode = Node.PROCESS_MODE_INHERIT
+			anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_IDLE
+		AnimMode.STAGGER:
+			anim.process_mode = Node.PROCESS_MODE_INHERIT
+			anim.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+		AnimMode.FROZEN:
+			anim.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func step_animation(delta: float) -> void:
+	if _mode == AnimMode.STAGGER:
+		anim.advance(delta)
 
 
 func _on_animation_finished(clip_name: StringName) -> void:

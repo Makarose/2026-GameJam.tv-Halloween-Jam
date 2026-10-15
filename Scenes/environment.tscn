@@ -38,6 +38,7 @@ mesh = SubResource("PlaneMesh_a2foq")
 transform = Transform3D(0.76604444, 0.3213938, -0.55667037, 0, 0.8660254, 0.5, 0.6427876, -0.38302222, 0.66341394, 0, 0, 0)
 light_color = Color(0.6156863, 0.72156864, 0.9098039, 1)
 light_energy = 0.7
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1412640402]
 environment = SubResource("Environment_clhuh")
