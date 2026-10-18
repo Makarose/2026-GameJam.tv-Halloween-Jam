@@ -1,19 +1,19 @@
 # 2026 GameDev.tv Halloween Jam
 
-## Game Submission: Grace Rave
+## Game Submission: Grave Rave
+
+A two-member collaborative game project completed over the course of 10 days.
 
 <img width="630" height="500" alt="cover shot witch" src="https://github.com/user-attachments/assets/0f6e756b-e506-4f05-8e99-8cc69875c942" />
 
 
-A two-member collaborative game project completed over the course of 10 days.
 
-## Play the game at [https://makarose.itch.io/2026-gamedev-game-jam-halloween]
+
+## Play the game at: https://makarose.itch.io/2026-gamedev-game-jam-halloween.
 
 ## About
 
 **Grave Rave** is a 3D seek and find game created for the 2026 GameDev.tv Halloween Jam.
-
-<img width="630" height="500" alt="cluewitch" src="https://github.com/user-attachments/assets/6c674234-eee4-4594-8c64-6f0da15ffa93" />
 
 <img width="630" height="501" alt="crowdscenehard" src="https://github.com/user-attachments/assets/8f8942ae-2035-4974-8539-4890f7dbd642" />
 
