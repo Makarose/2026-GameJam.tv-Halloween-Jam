@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c24flhkfq4msn" path="res://Scenes/crowd.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cxof4uktvdk3x" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://b66oyj0aa2dew" path="res://Scenes/priest_spell_fx.tscn" id="2_3dryh"]
+[ext_resource type="Texture2D" uid="uid://dfdet3tqdbgvj" path="res://Assets/Icons/invitegreencheck.png" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://bxvspr23pjxd" path="res://Scenes/player.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cekhuxjwl00r1" path="res://Scenes/pause_menu.tscn" id="6_i6g32"]
 [ext_resource type="PackedScene" uid="uid://i61kpp7tvfc8" path="res://Scenes/props.tscn" id="7_1l0tm"]
@@ -11,9 +12,11 @@
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
+wrong_guess_pause = 2.0
 poof_effect = ExtResource("2_3dryh")
 clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
-marker_height = 3.5
+guess_marker_texture = ExtResource("3_v158k")
+marker_height = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795353303]
 

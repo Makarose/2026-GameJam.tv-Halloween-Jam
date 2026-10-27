@@ -27,6 +27,7 @@ var level_over: bool = false # true once the level is won or lost, so nothing el
 
 @export var max_guesses: int = 3
 @export var level_duration: float = 120.0
+@export var wrong_guess_pause: float = 2.5
 @export var poof_effect: PackedScene
 
 @onready var level_label: Label = %LevelLabel
@@ -231,7 +232,7 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 
 	wrong_guesses.append(character)
 	add_guess_marker(character)
-	label.text = "WRONG!"
+	label.text = "Hey! I was invited!"
 	SfxPlayer.play_sfx("wrong_answer")
 	num_guesses += 1
 
@@ -240,8 +241,8 @@ func _on_guess_submitted(character: CharacterBuilder) -> void:
 		_lose_level("OUT OF GUESSES!", "guesses")
 		return
 
-	show_clue(1.0)
-	await get_tree().create_timer(1.0).timeout
+	show_clue(wrong_guess_pause)
+	await get_tree().create_timer(wrong_guess_pause).timeout
 	if not level_over:
 		label.text = ""
 
@@ -350,8 +351,8 @@ func add_guess_marker(character: CharacterBuilder) -> void:
 	marker.pixel_size = marker_pixel_size
 	marker.no_depth_test = true # still visible when other characters stand in front
 	marker.shaded = false
-	marker.position = Vector3(0.0, marker_height, 0.0)
 	character.add_child(marker)
+	marker.global_position = character.global_position + Vector3.UP * marker_height
 
 
 # draws a green check mark so no image file is needed
