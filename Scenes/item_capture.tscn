@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dg14sblgtyee3"]
+
+[ext_resource type="Script" uid="uid://c3kfp0ej10k1c" path="res://Scripts/item_capture.gd" id="1_1hlqn"]
+[ext_resource type="PackedScene" uid="uid://cnffieqpp247e" path="res://Scenes/characters.tscn" id="2_q7piu"]
+
+[node name="ItemCapture" type="Node3D" unique_id=1536846249]
+script = ExtResource("1_1hlqn")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=201314637]
+transparent_bg = true
+size = Vector2i(1024, 1024)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1013821833]
+transform = Transform3D(0.8660254, -1.2904784e-08, 0.50000006, -0.12940952, 0.9659259, 0.22414388, -0.4829629, -0.25881907, 0.8365163, 1, 3.0021608, 3.8247976)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=312032538]
+sky_mode = 1
+
+[node name="Characters" parent="SubViewport" unique_id=894406257 instance=ExtResource("2_q7piu")]
+script = null
+
+[node name="Custom" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="13" unique_id=1710860455]
+visible = false
+
+[node name="Face_01" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="14" unique_id=1046862022]
+visible = false
+
+[node name="Faces" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="15" unique_id=1321364898]
+visible = false
+
+[node name="glasses_black" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="17" unique_id=1014457226]
+visible = false
+
+[node name="gloves_fingerless_black" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="23" unique_id=360521843]
+visible = true
+
+[node name="socks_black" parent="SubViewport/Characters/character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(894406257, 1444889353) index="80" unique_id=1779369925]
+visible = false
+
+[editable path="SubViewport/Characters"]
