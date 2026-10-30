@@ -23,9 +23,6 @@ const HIGH_TOP_PREFIX := "shoes_hightop"
 # 0.5 means half the characters get no glasses / no gloves.
 const WEAR_CHANCE := {"glasses_": 0.5, "gloves_": 0.5}
 
-# pieces that are in the model but should never be worn (delete the name to bring it back)
-const EXCLUDED_PIECES := ["top_bodysuit"]
-
 # exported var for animations available to population
 @export var animation_keywords: Array[String] = ["claps", "idle", "wave", "cheers", "dance", "jump"]
 
@@ -91,11 +88,6 @@ func randomize_look() -> void:
 	# sort the pieces into their piles
 	for node in skeleton.get_children():
 		if not node is MeshInstance3D or SKIP.has(node.name):
-			continue
-		
-		# never worn, so remove it from the model entirely
-		if EXCLUDED_PIECES.has(String(node.name).to_lower()):
-			node.free()
 			continue
 			
 		var matched := false
