@@ -9,12 +9,31 @@
 [ext_resource type="PackedScene" uid="uid://i61kpp7tvfc8" path="res://Scenes/props.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c0t5rci3ygeyh" path="res://Scenes/witch_clues.tscn" id="7_v158k"]
 
-[node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v158k"]
+content_margin_left = 8.0
+content_margin_top = 10.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.58431375, 0.56078434, 0.6509804, 0.4745098)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.30588236, 0.16078432, 0.5568628, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels", "clue_icon_rects", "clue_panels")]
 script = ExtResource("1_qxrlw")
 win_scene_path = "uid://c2txt72cv4q4m"
 wrong_guess_pause = 2.0
 poof_effect = ExtResource("2_3dryh")
-clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/VBoxContainer/ClueLabel3")]
+clue_labels = [NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer/VBoxContainerClue1/ClueLabel"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2/VBoxContainerClue2/ClueLabel2"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3/VBoxContainerClue3/ClueLabel3")]
+clue_icon_rects = [NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer/VBoxContainerClue1/TextureRectClue1"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2/VBoxContainerClue2/TextureRectClue2"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3/VBoxContainerClue3/TextureRectClue3")]
+clue_panels = [NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2"), NodePath("CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3")]
 guess_marker_texture = ExtResource("3_v158k")
 marker_height = 1.0
 
@@ -34,8 +53,9 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -186.0
-offset_right = 186.0
+offset_left = -210.0
+offset_top = 23.0
+offset_right = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 20
@@ -74,37 +94,94 @@ horizontal_alignment = 2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 325.0
-offset_bottom = -496.0
+offset_top = -5.5
+offset_right = 368.0
+offset_bottom = -513.5
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2" unique_id=727368407]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer2" unique_id=1229609449]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer" unique_id=1993273302]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v158k")
+
+[node name="VBoxContainerClue1" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer" unique_id=1030201775]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=26907836]
+[node name="ClueLabel" type="Label" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer/VBoxContainerClue1" unique_id=26907836]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "Clue #1"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1501696625]
+[node name="TextureRectClue1" type="TextureRect" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer/VBoxContainerClue1" unique_id=489731553]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer" unique_id=1383134829]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v158k")
+
+[node name="VBoxContainerClue2" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2" unique_id=953474648]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClueLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2/VBoxContainerClue2" unique_id=1501696625]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "Clue #2"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer" unique_id=1113844617]
+[node name="TextureRectClue2" type="TextureRect" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer2/VBoxContainerClue2" unique_id=1845582571]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer" unique_id=473386215]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v158k")
+
+[node name="VBoxContainerClue3" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3" unique_id=549701348]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClueLabel3" type="Label" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3/VBoxContainerClue3" unique_id=1113844617]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "Clue #3"
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="TextureRectClue3" type="TextureRect" parent="CanvasLayer/Control/MarginContainer2/HBoxContainer/PanelContainer3/VBoxContainerClue3" unique_id=455279070]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="LoadingOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1179095591]
 unique_name_in_owner = true

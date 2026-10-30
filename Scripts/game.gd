@@ -50,6 +50,16 @@ var witch_busy: bool = false # true while the witch is talking
 
 @export var clue_labels: Array[Label]
 
+@export var clue_icon_rects: Array[TextureRect]
+
+# folder with the clue pictures, change this to wherever yours are saved
+const CLUE_ICON_DIR := "res://assets/item photos/"
+
+# mesh name and color for each clue, same order as clues
+var clue_icons: Array[Dictionary] = []
+
+@export var clue_panels: Array[Control]
+
 # how many people should match clue 1 (the guest included). the level system will set these later
 @export var clue1_min: int = 8
 @export var clue1_max: int = 15
@@ -85,6 +95,10 @@ func _ready() -> void:
 	label.text = ""
 	for clue_label in clue_labels:
 		clue_label.text = ""
+	for rect in clue_icon_rects:
+		rect.texture = null
+	for panel in clue_panels:
+		panel.visible = false
 
 	var t1: int = Time.get_ticks_msec()
 	set_uninvited_guest()
@@ -175,9 +189,12 @@ func _matching(pool: Array, key, value) -> Array:
 
 func generate_clues() -> void:
 	clues.clear()
+	clue_icons.clear()
 	var phrases := ClueText.phrases_for(uninvited_guest.look)
 	for i in mini(funnel_keys.size(), max_guesses):
-		clues.append(phrases[funnel_keys[i]])
+		var key: String = funnel_keys[i]
+		clues.append(phrases[key])
+		clue_icons.append(_icon_info_for(key))
 	if OS.is_debug_build():
 		_print_clue_debug(phrases)
 
@@ -187,10 +204,48 @@ func show_clue(delay: float = 0.0) -> void:
 		return
 	if num_guesses < max_guesses:
 		var phrase: String = clues.pop_front()
-		clue_labels[num_guesses].text = "Clue #%d: %s" % [num_guesses + 1, phrase]
-		_say_clue("This person is wearing %s." % phrase, delay)
+		var icon_info: Dictionary = clue_icons.pop_front()
+		var index: int = num_guesses
+
+		# this runs after the witch is done, not right away
+		var reveal := func() -> void:
+			clue_labels[index].text = "Clue #%d:" % (index + 1)
+			if index < clue_panels.size():
+				clue_panels[index].visible = true
+			if index < clue_icon_rects.size():
+				clue_icon_rects[index].texture = _get_clue_icon(icon_info["mesh"], icon_info["color"])
+
+		_say_clue("This person is wearing %s." % phrase, delay, reveal)
 	else:
 		label.text = "NO MORE CLUES!"
+		
+
+# gets the mesh name and texture color for one of the guest's pieces
+func _icon_info_for(key: String) -> Dictionary:
+	var look: Dictionary = uninvited_guest.look
+	var color := ""
+	var tex: int = look.get(key + "texture", -1)
+	if tex >= 0 and tex < ClueText.TEXTURE_COLORS.size():
+		color = ClueText.TEXTURE_COLORS[tex]
+	return {"mesh": str(look[key]).to_lower(), "color": color}
+
+
+# the game's color word on the left, how your files spell it on the right
+# (anything not listed here just gets capitalized, so "green" becomes "Green")
+const COLOR_FILE_NAMES := {"blue": "LightBlue"}
+
+
+func _get_clue_icon(mesh: String, color: String) -> Texture2D:
+	var paths: Array[String] = []
+	if color != "":
+		var color_name: String = COLOR_FILE_NAMES.get(color, color.capitalize())
+		paths.append("%s%s_%s_texture.png" % [CLUE_ICON_DIR, mesh, color_name])
+	paths.append("%s%s.png" % [CLUE_ICON_DIR, mesh])
+	for path in paths:
+		if ResourceLoader.exists(path):
+			return load(path)
+	push_warning("No clue icon found for: " + mesh)
+	return null
 
 
 func _on_guess_submitted(character: CharacterBuilder) -> void:
@@ -428,8 +483,10 @@ func _go_to_end_screen(reason: String) -> void:
 	tree.change_scene_to_file(win_scene_path)
 
 # the witch says a clue while the clock is held and the player can't move or guess
-func _say_clue(text: String, delay: float = 0.0) -> void:
+func _say_clue(text: String, delay: float = 0.0, on_reveal: Callable = Callable()) -> void:
 	if skip_witch_clues:
+		if on_reveal.is_valid():
+			on_reveal.call()
 		return
 
 	witch_busy = true
@@ -438,7 +495,11 @@ func _say_clue(text: String, delay: float = 0.0) -> void:
 
 	if delay > 0.0:
 		await get_tree().create_timer(delay).timeout
+
 	await witch.give_clue(text)
+
+	if on_reveal.is_valid():
+		on_reveal.call()
 
 	witch_busy = false
 	if not level_over:
