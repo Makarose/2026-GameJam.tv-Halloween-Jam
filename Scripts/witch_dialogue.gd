@@ -162,3 +162,4 @@ func pop_out() -> void:
 	dialogue_box_tween.set_trans(Tween.TRANS_CUBIC)
 	
 	dialogue_box_tween.tween_property(text_box, "position", text_box_start_pos, pop_out_duration)
+	dialogue_box_tween.tween_callback(text_box.hide)

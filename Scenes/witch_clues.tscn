@@ -30,7 +30,7 @@ font_size = 28
 script = ExtResource("1_hnbxk")
 witch_start_pos = Vector2(1045, 54)
 witch_end_pos = Vector2(576, 54)
-text_box_start_pos = Vector2(-860, 408)
+text_box_start_pos = Vector2(860, 408)
 text_box_end_pos = Vector2(0, 408)
 
 [node name="Control" type="Control" parent="." unique_id=865505668]
