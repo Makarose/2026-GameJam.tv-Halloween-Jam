@@ -29,9 +29,6 @@ shader_parameter/thickness = 0.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2foq"]
 albedo_texture = ExtResource("3_sxmeh")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nheoh"]
-albedo_texture = ExtResource("3_sxmeh")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffc8t"]
 albedo_texture = ExtResource("3_sxmeh")
 
@@ -246,211 +243,208 @@ collision_mask = 0
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 1.5636322, 0)
 shape = SubResource("CapsuleShape3D_biyew")
 
-[node name="costume_alien" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="1" unique_id=105083977]
+[node name="costume_alien" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="1" unique_id=408061637]
 material_override = SubResource("StandardMaterial3D_a2foq")
 
-[node name="costume_banana" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="2" unique_id=156741513]
-material_override = SubResource("StandardMaterial3D_nheoh")
-
-[node name="costume_cool_banana" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="3" unique_id=1856535560]
+[node name="costume_cool_banana" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="2" unique_id=613844670]
 material_override = SubResource("StandardMaterial3D_ffc8t")
 
-[node name="costume_farmer" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="4" unique_id=449057709]
+[node name="costume_farmer" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="3" unique_id=1276066088]
 material_override = SubResource("StandardMaterial3D_pf2oa")
 
-[node name="costume_garbage_can" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="5" unique_id=1835925207]
+[node name="costume_garbage_can" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="4" unique_id=239814020]
 material_override = SubResource("StandardMaterial3D_hbw4s")
 
-[node name="costume_hotdog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="6" unique_id=1105242319]
+[node name="costume_hotdog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="5" unique_id=250000691]
 material_override = SubResource("StandardMaterial3D_n87ga")
 
-[node name="costume_lego" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="7" unique_id=830724706]
+[node name="costume_lego" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="6" unique_id=141761769]
 material_override = SubResource("StandardMaterial3D_xnhol")
 
-[node name="costume_minecraft_duck" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="8" unique_id=1168565135]
+[node name="costume_minecraft_duck" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="7" unique_id=802349195]
 material_override = SubResource("StandardMaterial3D_t6h8c")
 
-[node name="costume_pencil" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="9" unique_id=458251292]
+[node name="costume_pencil" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="8" unique_id=1836564350]
 material_override = SubResource("StandardMaterial3D_kk5lr")
 
-[node name="costume_pink_shark" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="10" unique_id=1339670815]
+[node name="costume_pink_shark" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="9" unique_id=724383906]
 material_override = SubResource("StandardMaterial3D_fmadw")
 
-[node name="costume_robot" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="11" unique_id=717926495]
+[node name="costume_robot" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="10" unique_id=122444347]
 material_override = SubResource("StandardMaterial3D_1ixyc")
 
-[node name="costume_sea_monster" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="12" unique_id=1464521017]
+[node name="costume_sea_monster" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="11" unique_id=25534069]
 material_override = SubResource("StandardMaterial3D_wwnb7")
 
-[node name="Custom" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="13" unique_id=1090399770]
+[node name="Custom" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="12" unique_id=540702050]
 material_override = SubResource("StandardMaterial3D_5l00s")
 
-[node name="glasses_3d" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="16" unique_id=246287267]
+[node name="glasses_3d" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="15" unique_id=1375020940]
 material_override = SubResource("StandardMaterial3D_2hl6l")
 
-[node name="glasses_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="17" unique_id=1351302424]
+[node name="glasses_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="16" unique_id=1118583511]
 material_override = SubResource("StandardMaterial3D_oqigk")
 
-[node name="glasses_black_and_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="18" unique_id=1418122053]
+[node name="glasses_black_and_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="17" unique_id=1238446314]
 material_override = SubResource("StandardMaterial3D_r3dss")
 
-[node name="glasses_blue_star" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="19" unique_id=1653911790]
+[node name="glasses_blue_star" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="18" unique_id=1218330701]
 material_override = SubResource("StandardMaterial3D_50663")
 
-[node name="gloves_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="21" unique_id=839369303]
+[node name="gloves_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="20" unique_id=882744083]
 material_override = SubResource("StandardMaterial3D_t8wt8")
 
-[node name="gloves_black_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="22" unique_id=926179432]
+[node name="gloves_black_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="21" unique_id=678279147]
 material_override = SubResource("StandardMaterial3D_6fgi3")
 
-[node name="gloves_fingerless_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="23" unique_id=24236632]
+[node name="gloves_fingerless_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="22" unique_id=1895780552]
 material_override = SubResource("StandardMaterial3D_tyi0s")
 
-[node name="gloves_fingerless_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="24" unique_id=665430712]
+[node name="gloves_fingerless_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="23" unique_id=1408476731]
 material_override = SubResource("StandardMaterial3D_gy5yi")
 
-[node name="gloves_fingerless_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="25" unique_id=298453447]
+[node name="gloves_fingerless_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="24" unique_id=39681888]
 material_override = SubResource("StandardMaterial3D_m2yr1")
 
-[node name="gloves_fingerless_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="26" unique_id=435572065]
+[node name="gloves_fingerless_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="25" unique_id=716607444]
 material_override = SubResource("StandardMaterial3D_7iq6a")
 
-[node name="gloves_fingerless_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="27" unique_id=848382769]
+[node name="gloves_fingerless_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="26" unique_id=753107580]
 material_override = SubResource("StandardMaterial3D_cx7vy")
 
-[node name="hat_aviator" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="29" unique_id=531849412]
+[node name="hat_aviator" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="28" unique_id=1412453422]
 material_override = SubResource("StandardMaterial3D_l35eo")
 
-[node name="hat_bottle" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="30" unique_id=913270493]
+[node name="hat_bottle" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="29" unique_id=1361245305]
 material_override = SubResource("StandardMaterial3D_m3khh")
 
-[node name="hat_bunny" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="31" unique_id=1697495348]
+[node name="hat_bunny" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="30" unique_id=787060726]
 material_override = SubResource("StandardMaterial3D_ivwoi")
 
-[node name="hat_cap" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="32" unique_id=862253774]
+[node name="hat_cap" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="31" unique_id=1156696130]
 material_override = SubResource("StandardMaterial3D_cn1iq")
 
-[node name="hat_cap_colourful" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="33" unique_id=613008848]
+[node name="hat_cap_colourful" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="32" unique_id=1430097955]
 material_override = SubResource("StandardMaterial3D_3v7xy")
 
-[node name="hat_crown" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="34" unique_id=335218642]
+[node name="hat_crown" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="33" unique_id=616843585]
 material_override = SubResource("StandardMaterial3D_3mpvu")
 
-[node name="hat_duck" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="35" unique_id=1369894862]
+[node name="hat_duck" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="34" unique_id=1071885983]
 material_override = SubResource("StandardMaterial3D_wt7fs")
 
-[node name="hat_flower" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="36" unique_id=860220692]
+[node name="hat_flower" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="35" unique_id=1264818748]
 material_override = SubResource("StandardMaterial3D_56y5x")
 
-[node name="hat_fries" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="37" unique_id=155464766]
+[node name="hat_fries" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="36" unique_id=1735450090]
 material_override = SubResource("StandardMaterial3D_6gy3g")
 
-[node name="hat_frog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="38" unique_id=785058344]
+[node name="hat_frog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="37" unique_id=642515514]
 material_override = SubResource("StandardMaterial3D_m4c7q")
 
-[node name="hat_garden" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="39" unique_id=1374023064]
+[node name="hat_garden" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="38" unique_id=1310642977]
 material_override = SubResource("StandardMaterial3D_q8iau")
 
-[node name="hat_ghost" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="40" unique_id=632335274]
+[node name="hat_ghost" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="39" unique_id=175995583]
 material_override = SubResource("StandardMaterial3D_ul2am")
 
-[node name="hat_grad" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="41" unique_id=2071506363]
+[node name="hat_grad" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="40" unique_id=1238804744]
 material_override = SubResource("StandardMaterial3D_cxuc1")
 
-[node name="hat_headphones" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="42" unique_id=1520371065]
+[node name="hat_headphones" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="41" unique_id=252598316]
 material_override = SubResource("StandardMaterial3D_jusnc")
 
-[node name="hat_plunger" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="43" unique_id=146058979]
+[node name="hat_plunger" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="42" unique_id=588703789]
 material_override = SubResource("StandardMaterial3D_lvxoh")
 
-[node name="hat_pylon" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="44" unique_id=1180978767]
+[node name="hat_pylon" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="43" unique_id=219535552]
 material_override = SubResource("StandardMaterial3D_t1dmr")
 
-[node name="hat_top_hat" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="45" unique_id=131784635]
+[node name="hat_top_hat" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="44" unique_id=1190468749]
 material_override = SubResource("StandardMaterial3D_hsset")
 
-[node name="hat_toque" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="46" unique_id=731719026]
+[node name="hat_toque" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="45" unique_id=1325608667]
 material_override = SubResource("StandardMaterial3D_04uy7")
 
-[node name="hat_turkey" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="47" unique_id=514801517]
+[node name="hat_turkey" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="46" unique_id=809920986]
 material_override = SubResource("StandardMaterial3D_aor8k")
 
-[node name="hat_viking" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="48" unique_id=369875226]
+[node name="hat_viking" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="47" unique_id=1831599172]
 material_override = SubResource("StandardMaterial3D_cssk4")
 
-[node name="Pants" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="54" unique_id=920188833]
+[node name="Pants" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="53" unique_id=1950455524]
 material_override = SubResource("StandardMaterial3D_q5b6s")
 
-[node name="shoes_crocs_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="55" unique_id=1037160582]
+[node name="shoes_crocs_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="54" unique_id=1796260246]
 material_override = SubResource("StandardMaterial3D_7xyhm")
 
-[node name="shoes_crocs_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="56" unique_id=555167686]
+[node name="shoes_crocs_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="55" unique_id=1118140583]
 material_override = SubResource("StandardMaterial3D_22tqv")
 
-[node name="shoes_crocs_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="57" unique_id=1675770925]
+[node name="shoes_crocs_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="56" unique_id=1439244595]
 material_override = SubResource("StandardMaterial3D_uo1xm")
 
-[node name="shoes_hightop_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="58" unique_id=156735628]
+[node name="shoes_hightop_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="57" unique_id=1977498885]
 material_override = SubResource("StandardMaterial3D_jt0ae")
 
-[node name="shoes_hightop_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="59" unique_id=684555419]
+[node name="shoes_hightop_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="58" unique_id=846282425]
 material_override = SubResource("StandardMaterial3D_4gvgh")
 
-[node name="shoes_hightop_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="60" unique_id=91059487]
+[node name="shoes_hightop_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="59" unique_id=1918351313]
 material_override = SubResource("StandardMaterial3D_gemvc")
 
-[node name="shoes_runners_purple" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="61" unique_id=150006235]
+[node name="shoes_runners_purple" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="60" unique_id=741271257]
 material_override = SubResource("StandardMaterial3D_ah6ts")
 
-[node name="shoes_slides_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="62" unique_id=204705581]
+[node name="shoes_slides_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="61" unique_id=2064163422]
 material_override = SubResource("StandardMaterial3D_p1sk8")
 
-[node name="shoes_slides_green" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="63" unique_id=557262563]
+[node name="shoes_slides_green" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="62" unique_id=19851941]
 material_override = SubResource("StandardMaterial3D_c6q6q")
 
-[node name="shoes_slides_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="64" unique_id=608481498]
+[node name="shoes_slides_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="63" unique_id=1598443527]
 material_override = SubResource("StandardMaterial3D_acyci")
 
-[node name="shoes_slides_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="65" unique_id=885883678]
+[node name="shoes_slides_yellow" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="64" unique_id=241258070]
 material_override = SubResource("StandardMaterial3D_jobc6")
 
-[node name="shoes_slippers_frog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="66" unique_id=979673691]
+[node name="shoes_slippers_frog" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="65" unique_id=35163033]
 material_override = SubResource("StandardMaterial3D_sf1od")
 
-[node name="shoes_slippers_green" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="67" unique_id=63029994]
+[node name="shoes_slippers_green" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="66" unique_id=2035489706]
 material_override = SubResource("StandardMaterial3D_x2rxw")
 
-[node name="shoes_slippers_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="68" unique_id=1214088213]
+[node name="shoes_slippers_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="67" unique_id=659822936]
 material_override = SubResource("StandardMaterial3D_m838h")
 
-[node name="shoes_slippers_puppies" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="69" unique_id=1898940915]
+[node name="shoes_slippers_puppies" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="68" unique_id=946002562]
 material_override = SubResource("StandardMaterial3D_op7ag")
 
-[node name="shoes_slippers_purple" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="70" unique_id=1793838713]
+[node name="shoes_slippers_purple" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="69" unique_id=1459392207]
 material_override = SubResource("StandardMaterial3D_4gpy3")
 
-[node name="shoes_slippers_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="71" unique_id=1354276583]
+[node name="shoes_slippers_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="70" unique_id=1398584294]
 material_override = SubResource("StandardMaterial3D_d5ogj")
 
-[node name="shoes_sneakers_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="72" unique_id=147800691]
+[node name="shoes_sneakers_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="71" unique_id=1720196379]
 material_override = SubResource("StandardMaterial3D_dh2m3")
 
-[node name="shoes_sneakers_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="73" unique_id=1678874692]
+[node name="shoes_sneakers_blue" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="72" unique_id=887340386]
 material_override = SubResource("StandardMaterial3D_ud7jt")
 
-[node name="shoes_sneakers_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="74" unique_id=1456798949]
+[node name="shoes_sneakers_pink" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="73" unique_id=1245246059]
 material_override = SubResource("StandardMaterial3D_yk4bd")
 
-[node name="shoes_sneakers_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="75" unique_id=601846286]
+[node name="shoes_sneakers_red" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="74" unique_id=1901793059]
 material_override = SubResource("StandardMaterial3D_ji75c")
 
-[node name="shoes_sneakers_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="76" unique_id=434513303]
+[node name="shoes_sneakers_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="75" unique_id=794302901]
 material_override = SubResource("StandardMaterial3D_6p08b")
 
-[node name="socks_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="78" unique_id=1781250194]
+[node name="socks_black" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="77" unique_id=1799016226]
 material_override = SubResource("StandardMaterial3D_5ilyw")
 
-[node name="socks_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(958486608) index="79" unique_id=2119355939]
+[node name="socks_white" parent="character_grp/character_rig/Skeleton3D" parent_id_path=PackedInt32Array(169986859) index="78" unique_id=2070335939]
 material_override = SubResource("StandardMaterial3D_4sc2j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=729923748]

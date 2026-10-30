@@ -41,6 +41,9 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
+"PATH:character_grp/character_rig/Skeleton3D/costume_banana": {
+"import/skip_import": true
+},
 "PATH:character_grp/character_rig/Skeleton3D/shoes_runners_black": {
 "import/skip_import": true
 },

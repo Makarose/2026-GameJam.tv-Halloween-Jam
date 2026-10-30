@@ -78,6 +78,7 @@ func _input(event: InputEvent) -> void:
 func play_startup(_clue: String = "") -> void:
 	#var first_clue_text: String = "Hmm, yes. I'm seeing something . . ." + _clue
 	#start_dialogue.append(first_clue_text)
+	text_box.show()
 	
 	var panel_tween = create_tween()
 	panel_tween.set_ease(Tween.EASE_OUT)
