@@ -19,6 +19,9 @@ const NO_SHOES_COSTUMES := [&"costume_cool_banana",&"costume_pink_shark"]
 # any shoes starting with this cover the ankles, so socks can't be seen
 const HIGH_TOP_PREFIX := "shoes_hightop"
 
+# pants that cover the ankles, so socks can't be seen
+const SOCK_HIDING_PANTS := [&"pants_joggers", &"pants_flare", &"pants_cuffed"]
+
 # chance (0.0 to 1.0) that a category is worn at all. anything not listed is always worn.
 # 0.5 means half the characters get no glasses / no gloves.
 const WEAR_CHANCE := {"glasses_": 0.5, "gloves_": 0.5}
@@ -134,11 +137,14 @@ func randomize_look() -> void:
 			elif prefix == "pants_":
 				_apply_texture(keep, pants_textures, "pants_texture")
 
-	# removes socks from the model and from look if wearing high tops.
+	# removes socks from the model and from look if wearing high tops or long pants.
 	# done after the loop because the shoes and socks piles can be sorted in any order.
-	if look.has("shoes_") and String(look["shoes_"]).begins_with(HIGH_TOP_PREFIX) and kept.has("socks_"):
-		kept["socks_"].free()
-		look.erase("socks_")
+	if kept.has("socks_"):
+		var hidden_by_shoes: bool = look.has("shoes_") and String(look["shoes_"]).begins_with(HIGH_TOP_PREFIX)
+		var hidden_by_pants: bool = look.has("pants_") and SOCK_HIDING_PANTS.has(StringName(look["pants_"]))
+		if hidden_by_shoes or hidden_by_pants:
+			kept["socks_"].free()
+			look.erase("socks_")
 
 static var _tex_materials := {}
 
