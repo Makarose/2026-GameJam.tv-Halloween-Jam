@@ -31,7 +31,7 @@ const OVERRIDES := {
 	"hat_headphones": "pair of headphones",
 	"hat_pylon": "traffic cone hat",
 	"hat_top_hat": "top hat",
-	"hat_toque": "hat with a pompom",
+	"hat_toque": "blue hat with a pompom",
 	"hat_viking": "viking helmet",
 	# glasses
 	"glasses_3d": "3D glasses",
@@ -46,11 +46,17 @@ const OVERRIDES := {
 	"shoes_hightop_red": "red high-tops",
 	"shoes_hightop_yellow": "yellow high-tops",
 	"shoes_slippers_puppies": "puppy slippers",
+	"shoes_runners_purple": "purple sneakers",
+	"shoes_sneakers_red": "red and white sneakers",
+	"shoes_sneakers_pink": "black and pink sneakers",
+	"shoes_sneakers_blue": "blue and white sneakers",
+	"shoes_sneakers_black": "black and white sneakers",
 	# tops
 	"top_long": "long t-shirt",
 	"top_polo": "polo shirt",
 	"top_tank": "tank top",
 	"top_tshirt": "t-shirt",
+	"top_vest": "hooded vest",
 }
 
 # one color word per texture, in the same order as the top and pants texture lists
