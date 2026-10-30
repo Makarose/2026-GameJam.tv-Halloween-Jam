@@ -103,6 +103,9 @@ func _ready() -> void:
 	var t1: int = Time.get_ticks_msec()
 	set_uninvited_guest()
 	
+	if OS.is_debug_build():
+		_debug_check_icons()
+	
 	print("TIMING set_uninvited_guest: ", Time.get_ticks_msec() - t1, "ms")
 	t1 = Time.get_ticks_msec()
 	generate_clues()
@@ -517,3 +520,37 @@ func _unfreeze_player() -> void:
 	player.mouse_motion = Vector2.ZERO # drops any mouse movement stored while frozen
 	player.set_physics_process(true)
 	player.set_process(true)
+
+func _debug_check_icons() -> void:
+	var lines: Array[String] = []
+	var seen := {}
+	for g in crowd_scene.guests:
+		var look: Dictionary = g.look
+		var phrases := ClueText.phrases_for(look)
+		for key in phrases:
+			var mesh := str(look[key]).to_lower()
+			var color := ""
+			var tex: int = look.get(key + "texture", -1)
+			if tex >= 0 and tex < ClueText.TEXTURE_COLORS.size():
+				color = ClueText.TEXTURE_COLORS[tex]
+			var id := mesh + "|" + color
+			if seen.has(id):
+				continue
+			seen[id] = true
+
+			var colored := ""
+			if color != "":
+				var color_name: String = COLOR_FILE_NAMES.get(color, color.capitalize())
+				colored = "%s%s_%s_texture.png" % [CLUE_ICON_DIR, mesh, color_name]
+			var plain := "%s%s.png" % [CLUE_ICON_DIR, mesh]
+
+			var result := "MISSING"
+			if colored != "" and ResourceLoader.exists(colored):
+				result = "ok  " + colored.get_file()
+			elif ResourceLoader.exists(plain):
+				result = "FALLBACK  " + plain.get_file()
+			lines.append("%s  ->  %s" % [phrases[key], result])
+	lines.sort()
+	print("--- clue icon check ---")
+	for line in lines:
+		print(line)
