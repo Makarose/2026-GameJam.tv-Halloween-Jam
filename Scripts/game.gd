@@ -96,6 +96,11 @@ var decoys: int = -1
 # size in the world = image width in pixels times this number
 @export var marker_pixel_size: float = 0.01
 
+# how wide the cleared lane is. raise it if you see shoulders poking into the shot on Hard
+@export var clear_lane_radius: float = 0.8
+# how many seconds before the camera stops that the blockers vanish
+@export var clear_lead_time: float = 0.3
+
 
 func _ready() -> void:
 	print("TIMING game _ready at: ", Time.get_ticks_msec())
@@ -641,6 +646,46 @@ func _highlight_guest() -> void:
 const GUEST_FACES_NEG_Z := false
 
 
+# where the zoom camera ends up, and the point it looks at
+func _zoom_end(guest: Node3D) -> Dictionary:
+	var front: Vector3 = guest.global_basis.z
+	if GUEST_FACES_NEG_Z:
+		front = -front
+	front.y = 0.0
+	front = front.normalized()
+
+	var target: Vector3 = guest.global_position + Vector3.UP * 1.0
+	var end_pos: Vector3 = target + front * 4.0 + Vector3.UP * 0.3
+	return {"pos": end_pos, "target": target}
+
+
+# removes anyone standing between the final camera spot and the guest
+func _clear_view_to_guest() -> void:
+	if not is_instance_valid(uninvited_guest):
+		return
+
+	var end: Dictionary = _zoom_end(uninvited_guest)
+	var cam_pos: Vector3 = end["pos"]
+	var from := Vector2(cam_pos.x, cam_pos.z)
+	var to := Vector2(uninvited_guest.global_position.x, uninvited_guest.global_position.z)
+	var seg := to - from
+	var seg_len_sq := seg.length_squared()
+	if seg_len_sq == 0.0:
+		return
+
+	for c in crowd_scene.crowd:
+		if not is_instance_valid(c) or c == uninvited_guest:
+			continue
+		var p := Vector2(c.global_position.x, c.global_position.z)
+		# 0 = camera, 1 = guest. outside that range they're behind the camera or behind the guest
+		var t := (p - from).dot(seg) / seg_len_sq
+		if t <= 0.0 or t >= 1.0:
+			continue
+		var closest := from + seg * t
+		if p.distance_to(closest) < clear_lane_radius:
+			c.queue_free()
+
+
 func _zoom_to_guest(duration: float = 1.5) -> void:
 	var cam := get_viewport().get_camera_3d()
 	if cam == null or not is_instance_valid(uninvited_guest):
@@ -658,15 +703,8 @@ func _zoom_to_guest(duration: float = 1.5) -> void:
 	var step := func(t: float) -> void:
 		if not is_instance_valid(uninvited_guest):
 			return
-		var front: Vector3 = uninvited_guest.global_basis.z
-		if GUEST_FACES_NEG_Z:
-			front = -front
-		front.y = 0.0
-		front = front.normalized()
-
-		var target: Vector3 = uninvited_guest.global_position + Vector3.UP * 1.0
-		var end_pos: Vector3 = target + front * 4.0 + Vector3.UP * 0.3
-		var end_xform := Transform3D(Basis(), end_pos).looking_at(target, Vector3.UP)
+		var end: Dictionary = _zoom_end(uninvited_guest)
+		var end_xform := Transform3D(Basis(), end["pos"]).looking_at(end["target"], Vector3.UP)
 
 		zoom_cam.global_transform = start_xform.interpolate_with(end_xform, t)
 		zoom_cam.fov = lerpf(start_fov, 45.0, t)
@@ -675,4 +713,7 @@ func _zoom_to_guest(duration: float = 1.5) -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_method(step, 0.0, 1.0, duration)
+
+	get_tree().create_timer(maxf(duration - clear_lead_time, 0.0)).timeout.connect(_clear_view_to_guest)
+
 	await tween.finished
