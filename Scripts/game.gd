@@ -20,6 +20,12 @@ var suspect_phrases: Array[Dictionary] = [] # what every character in the crowd 
 var wrong_guesses: Array[CharacterBuilder] = []
 var _check_texture: ImageTexture
 
+const SHADOW_SIZE := 0.03 # world width = 64 px times this, so about 1.9. raise for bigger
+const SHADOW_LIFT := 0.08 # how far above the ground the shadow sits
+
+var _shadows: Dictionary = {} # guest -> its shadow sprite
+var _shadow_ground: Dictionary = {} # guest -> the height it was standing at
+
 var level_over: bool = false # true once the level is won or lost, so nothing else counts
 
 # the scene shown after the last level of a difficulty
@@ -102,6 +108,7 @@ func _ready() -> void:
 
 	var t1: int = Time.get_ticks_msec()
 	set_uninvited_guest()
+	add_blob_shadows()
 	
 	print("TIMING set_uninvited_guest: ", Time.get_ticks_msec() - t1, "ms")
 	t1 = Time.get_ticks_msec()
@@ -128,6 +135,7 @@ func _process(delta: float) -> void:
 		_first_frame_done = true
 		print("TIMING first frame at: ", Time.get_ticks_msec())
 	update_timer_display()
+	_update_shadows()
 
 
 func update_timer_display() -> void:
@@ -177,6 +185,49 @@ func set_uninvited_guest() -> void:
 	funnel_keys = funnel
 	crowd_scene.relocate(uninvited_guest)
 	#uninvited_guest.ug_label.visible = true
+
+
+func add_blob_shadows() -> void:
+	var grad := Gradient.new()
+	grad.set_color(0, Color(0, 0, 0, 0.75))
+	grad.set_color(1, Color(0, 0, 0, 0.0))
+
+	var tex := GradientTexture2D.new()
+	tex.gradient = grad
+	tex.fill = GradientTexture2D.FILL_RADIAL
+	tex.fill_from = Vector2(0.5, 0.5)
+	tex.fill_to = Vector2(1.0, 0.5)
+	tex.width = 64
+	tex.height = 64
+
+	for g in crowd_scene.crowd:
+		var s := Sprite3D.new()
+		s.texture = tex
+		s.axis = Vector3.AXIS_Y # lies flat on the ground
+		s.pixel_size = SHADOW_SIZE
+		s.shaded = false
+		add_child(s) # child of the game, not the guest, so it doesn't jump with them
+		_shadows[g] = s
+		_shadow_ground[g] = g.global_position.y
+	_update_shadows()
+
+
+# keeps each shadow on the ground under its guest, smaller and fainter when they jump
+func _update_shadows() -> void:
+	for g in _shadows.keys():
+		var s: Sprite3D = _shadows[g]
+		if not is_instance_valid(g):
+			s.queue_free()
+			_shadows.erase(g)
+			_shadow_ground.erase(g)
+			continue
+		var ground_y: float = _shadow_ground.get(g, 0.0)
+		var pos: Vector3 = g.global_position
+		s.global_position = Vector3(pos.x, ground_y + SHADOW_LIFT, pos.z)
+		var height := maxf(pos.y - ground_y, 0.0)
+		var k := clampf(1.0 - height * 0.3, 0.5, 1.0)
+		s.scale = Vector3.ONE * k
+		s.modulate.a = k
 
 
 func _matching(pool: Array, key, value) -> Array:
