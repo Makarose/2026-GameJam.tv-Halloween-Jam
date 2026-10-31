@@ -15,7 +15,7 @@ func _ready() -> void:
 
 	var n := GameState.ravers_bounced
 	if n == 0:
-		title_label.text = "You Didn't Catch Any Party Crashers"
+		title_label.text = "You Didn't Catch Any Party Crashers!"
 	elif n == 1:
 		title_label.text = "You Found 1 Party Crasher!"
 	else:

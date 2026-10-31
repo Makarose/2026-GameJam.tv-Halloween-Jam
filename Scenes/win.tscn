@@ -30,7 +30,7 @@ offset_top = -41.0
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="ReasonLabel" type="Label" parent="VBoxContainer2" unique_id=2104376680]

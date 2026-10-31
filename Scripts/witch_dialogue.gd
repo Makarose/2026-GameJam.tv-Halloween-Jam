@@ -100,6 +100,7 @@ func play_startup(_clue: String = "") -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	pop_out()
+	skip_label.visible = false
 	await fade_out_bg()
 	
 	intro_complete.emit()

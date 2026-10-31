@@ -18,6 +18,10 @@ var skip_locked: bool = false # true while a line must be read
 
 var text_tween: Tween
 
+var intro_active: bool = false # true while the new level message is up
+
+@onready var skip_label: Label = $Control/SkipLabel
+
 @onready var text_box: Control = $Control/TextBox
 @onready var text_label: Label = $Control/TextBox/TextLabel
 @onready var black_witch_portrait: TextureRect = $Control/BlackWitchPortrait
@@ -33,6 +37,13 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	# Enter ends the new level message at any point, even while keys are locked
+	if intro_active and event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
+			_end_intro()
+			get_viewport().set_input_as_handled()
+			return
+
 	if skip_locked:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -64,19 +75,10 @@ func give_clue(clue_text: String, intro_line: String = "") -> void:
 	pop_in()
 	await get_tree().create_timer(0.5).timeout
 
-	# optional tier announcement, same pop in, no clue opener
 	if intro_line != "":
-		var words := intro_line.split(" ").size()
-		skip_locked = true
-		pause_timer.wait_time = maxf(6.0, words * 0.4) # auto moves on if nobody presses a key
-		print_text(intro_line)
-		await text_printed
-		# keys stay locked for a short read time after the typing finishes
-		await get_tree().create_timer(maxf(2.5, words * 0.15)).timeout
-		skip_locked = false
-		await pause_timer.timeout # now any key press skips ahead
-		pause_timer.stop()
-		pause_timer.wait_time = clue_pause_duration
+		await _play_intro(intro_line)
+	pause_timer.stop()
+	pause_timer.wait_time = clue_pause_duration
 
 	print_text(clue_openers.pick_random() + " " + clue_text)
 	await text_printed
@@ -87,6 +89,51 @@ func give_clue(clue_text: String, intro_line: String = "") -> void:
 	text_label.text = "" # clear out the text from the clue that was just given
 	await get_tree().create_timer(pop_out_duration).timeout
 	visible = false
+	
+
+func _play_intro(intro_line: String) -> void:
+	var words := intro_line.split(" ").size()
+	intro_active = true
+	skip_locked = true
+	skip_label.visible = true
+	pause_timer.wait_time = maxf(6.0, words * 0.4) # auto moves on if nobody presses a key
+
+	print_text(intro_line)
+	await text_printed
+	if not intro_active:
+		return
+
+	# keys stay locked for a short read time after the typing finishes
+	await _wait_during_intro(maxf(2.5, words * 0.15))
+	if not intro_active:
+		return
+
+	skip_locked = false
+	await pause_timer.timeout # now any key press skips ahead
+	_end_intro()
+
+
+# the message is over, whether it timed out, got skipped, or Enter was hit
+func _end_intro() -> void:
+	if not intro_active:
+		return
+	intro_active = false
+	skip_locked = false
+	skip_label.visible = false
+	if text_tween and text_tween.is_running():
+		text_tween.kill()
+	# these wake up anything still waiting inside _play_intro
+	pause_timer.stop()
+	pause_timer.timeout.emit()
+	text_printed.emit()
+
+
+# like a timer wait, but it ends early if Enter is pressed
+func _wait_during_intro(seconds: float) -> void:
+	var elapsed := 0.0
+	while elapsed < seconds and intro_active:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
 
 
 func print_text(_text: String) -> void:
