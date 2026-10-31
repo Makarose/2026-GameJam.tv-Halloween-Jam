@@ -14,17 +14,20 @@ content_margin_left = 8.0
 content_margin_top = 10.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.58431375, 0.56078434, 0.6509804, 0.19607843)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+bg_color = Color(0.87058824, 0.84313726, 0.98039216, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.30588236, 0.16078432, 0.5568628, 1)
+border_blend = true
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+shadow_size = 3
+shadow_offset = Vector2(1, 1)
 
 [node name="Game" type="Node3D" unique_id=1091627580 node_paths=PackedStringArray("clue_labels", "clue_icon_rects", "clue_panels")]
 script = ExtResource("1_qxrlw")

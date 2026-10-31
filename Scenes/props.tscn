@@ -26,12 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://bhvmagnv32do6" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_dead_large.gltf" id="24_pantd"]
 [ext_resource type="PackedScene" uid="uid://ds4ug2peyd4ms" path="res://Assets/Environments/KayKit_HalloweenBits_1.0_FREE/tree_pine_yellow_medium.gltf" id="25_tscf2"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_gbyu0"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_k4vuk"]
 
 [node name="Props" type="Node3D" unique_id=10682133 groups=["prop_area"]]
 
 [node name="PlayAreaGuide" type="MeshInstance3D" parent="." unique_id=1156211357]
-mesh = SubResource("ImmediateMesh_gbyu0")
+mesh = SubResource("ImmediateMesh_k4vuk")
 script = ExtResource("1_ixf2i")
 
 [node name="WitchHouse" parent="." unique_id=1935555344 groups=["prop_area"] instance=ExtResource("2_j1oy8")]
@@ -171,3 +171,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.314148, 0, -22.400879)
 
 [node name="tree_pine_yellow_medium2" parent="." unique_id=1557121252 instance=ExtResource("25_tscf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.555176, 0, -23.785767)
+
+[editable path="WitchHouse"]

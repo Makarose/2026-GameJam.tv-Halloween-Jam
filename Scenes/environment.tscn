@@ -1,30 +1,13 @@
 [gd_scene format=3 uid="uid://bsimdilj86c31"]
 
+[ext_resource type="Environment" uid="uid://dhepxmg3c3usg" path="res://original_environment.tres" id="1_km3fo"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bma48"]
-albedo_color = Color(0.101960786, 0.13333334, 0.1882353, 1)
+albedo_color = Color(0.05882353, 0.27058825, 0.14117648, 1)
+metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a2foq"]
 size = Vector2(200, 200)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iofc2"]
-sky_top_color = Color(0.043137256, 0.101960786, 0.22745098, 1)
-sky_horizon_color = Color(0.23921569, 0.41568628, 0.61960787, 1)
-ground_bottom_color = Color(0.047058824, 0.078431375, 0.1254902, 1)
-ground_horizon_color = Color(0.23921569, 0.41568628, 0.61960787, 1)
-
-[sub_resource type="Sky" id="Sky_coil2"]
-sky_material = SubResource("ProceduralSkyMaterial_iofc2")
-
-[sub_resource type="Environment" id="Environment_clhuh"]
-background_mode = 2
-sky = SubResource("Sky_coil2")
-ambient_light_source = 2
-ambient_light_color = Color(0.3529412, 0.47843137, 0.6901961, 1)
-tonemap_mode = 2
-fog_enabled = true
-fog_light_color = Color(0.18039216, 0.2784314, 0.4, 1)
-volumetric_fog_density = 0.1
-volumetric_fog_anisotropy = 0.6
 
 [node name="Environment" type="Node3D" unique_id=993080148]
 
@@ -34,10 +17,15 @@ volumetric_fog_anisotropy = 0.6
 material_override = SubResource("StandardMaterial3D_bma48")
 mesh = SubResource("PlaneMesh_a2foq")
 
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1239498293]
-transform = Transform3D(0.76604444, 0.3213938, -0.55667037, 0, 0.8660254, 0.5, 0.6427876, -0.38302222, 0.66341394, 0, 0, 0)
-light_color = Color(0.6156863, 0.72156864, 0.9098039, 1)
-light_energy = 0.7
+[node name="Moon" type="DirectionalLight3D" parent="." unique_id=1239498293]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 2, 0)
+light_color = Color(0.72156864, 0.8, 1, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1412640402]
-environment = SubResource("Environment_clhuh")
+environment = ExtResource("1_km3fo")
+
+[node name="WarmLight" type="DirectionalLight3D" parent="." unique_id=1083293465]
+transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, 0, 0.8660254, 0.5, -8.742278e-08, 0.5, -0.8660254, 0, 0, 0)
+light_color = Color(1, 0.6901961, 0.4392157, 1)
+light_energy = 0.35
+sky_mode = 1
