@@ -1,8 +1,7 @@
 extends Node3D
 
-# the pieces a player can spot from across the crowd. shoes and socks are too low and get hidden,
-# so they can only be clue 2 or 3.
-const VISIBLE_KEYS: Array[String] = ["hat_", "top_", "pants_", "glasses_", "gloves_"]
+# clue 1 can only be about these. they're big and easy to spot from across the crowd
+const VISIBLE_KEYS: Array[String] = ["hat_", "top_", "pants_"]
 
 # how many random guests to test before giving up on a perfect clue set
 const MAX_TRIES := 60
@@ -70,6 +69,10 @@ var clue_icons: Array[Dictionary] = []
 @export var clue1_min: int = 8
 @export var clue1_max: int = 15
 
+# set by the level during a run. decoys of -1 means the old rules (editor testing)
+var allowed_keys: Array[String] = ["hat_", "top_", "pants_", "glasses_", "gloves_", "shoes_", "socks_"]
+var decoys: int = -1
+
 # icon that floats over wrong guesses. leave empty for the built in check mark,
 # or drop an invitation image in here later
 @export var guess_marker_texture: Texture2D
@@ -94,6 +97,8 @@ func _ready() -> void:
 		clue1_min = cfg.clue1_min
 		clue1_max = cfg.clue1_max
 		level_duration = cfg.time_limit
+		allowed_keys = cfg.allowed_keys
+		decoys = cfg.decoys
 		level_label.text = "%s: Level %d of %d" % [cfg.difficulty.capitalize(), cfg.level_number, cfg.total_levels]
 
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
@@ -159,18 +164,32 @@ func set_uninvited_guest() -> void:
 	var min1 := clue1_min
 	var max1 := clue1_max
 	var min_pool2 := 2
+	var max_pool2 := 99999
+	if decoys >= 0:
+		# exactly this many other people should still fit after clue 2
+		min_pool2 = decoys + 1
+		max_pool2 = decoys + 1
 	var guest: CharacterBuilder = null
 	var funnel: Array[String] = []
 
 	for attempt in MAX_TRIES:
 		if attempt == RELAX_PAIR_AFTER:
-			min_pool2 = 1
+			if decoys >= 0:
+				min_pool2 = maxi(1, decoys) # allow one fewer or one more decoy
+				max_pool2 = decoys + 2
+			else:
+				min_pool2 = 1
 		if attempt == RELAX_RANGE_AFTER:
 			min1 = 1
-			max1 = 40
+			max1 = maxi(40, max1 * 2)
 		var idx: int = randi() % crowd_scene.guests.size()
-		funnel = _find_funnel(idx, min1, max1, min_pool2)
+		funnel = _find_funnel(idx, min1, max1, min_pool2, max_pool2)
 		if not funnel.is_empty():
+			# skip a guest whose first clue matches the last level's (unless tries are running out)
+			var first_phrase: String = suspect_phrases[idx].get(funnel[0], "")
+			if first_phrase == GameState.last_clue1 and attempt < RELAX_RANGE_AFTER:
+				funnel.clear()
+				continue
 			guest = crowd_scene.guests[idx]
 			if OS.is_debug_build():
 				print("fair clues found on try ", attempt + 1)
@@ -183,8 +202,9 @@ func set_uninvited_guest() -> void:
 
 	uninvited_guest = guest
 	funnel_keys = funnel
+	var first_key: String = funnel[0] if not funnel.is_empty() else ""
+	GameState.last_clue1 = ClueText.phrases_for(uninvited_guest.look).get(first_key, "")
 	crowd_scene.relocate(uninvited_guest)
-	#uninvited_guest.ug_label.visible = true
 
 
 func add_blob_shadows() -> void:
@@ -373,15 +393,14 @@ func _pool_size(wanted: Dictionary) -> int:
 	return n
 
 
-# looks for three clues for this guest where
-#   clue 1 is easy to see and matches between min1 and max1 people
-#   clue 2 shrinks that group but (normally) doesn't finish it
-#   clue 3 leaves only the guest
-# returns the keys in order, or an empty list if this guest can't do it
-func _find_funnel(idx: int, min1: int, max1: int, min_pool2: int) -> Array[String]:
+# looks for three clues for uninvited guess based on level difficulty rules
+func _find_funnel(idx: int, min1: int, max1: int, min_pool2: int, max_pool2: int) -> Array[String]:
 	var result: Array[String] = []
 	var options: Dictionary = suspect_phrases[idx]
-	var keys := options.keys()
+	var keys: Array = []
+	for k in options.keys():
+		if allowed_keys.has(str(k)):
+			keys.append(k)
 	var everyone: Array = range(suspect_phrases.size())
 
 	for k1 in keys:
@@ -397,7 +416,7 @@ func _find_funnel(idx: int, min1: int, max1: int, min_pool2: int) -> Array[Strin
 				continue
 			var pool2 := _matching(pool1, k2, options[k2])
 			var size2 := pool2.size()
-			if size2 < min_pool2 or size2 >= size1:
+			if size2 < min_pool2 or size2 > max_pool2 or size2 >= size1:
 				continue
 
 			for k3 in keys:
@@ -426,6 +445,8 @@ func _fallback_funnel(guest: CharacterBuilder) -> Array[String]:
 	var visible: Array[String] = []
 	var rest: Array[String] = []
 	for key in options:
+		if not allowed_keys.has(str(key)):
+			continue
 		if VISIBLE_KEYS.has(str(key)):
 			visible.append(str(key))
 		else:

@@ -31,6 +31,9 @@ const CHARACTER_SCENE := preload("res://Scenes/characters.tscn")
 # how much empty space to keep around each prop
 @export var prop_clearance := 3.0
 
+# copies of the same costume stay at least this far apart
+@export var same_costume_spacing := 12.0
+
 # every spawned character
 var crowd: Array[CharacterBuilder] = []
 
@@ -89,7 +92,7 @@ func _ready() -> void:
 
 	for i in count:
 		var character := _make_unique_character(costume_flags[i])
-		character.position = _find_spot()
+		character.position = _find_spot(_costume_of(character))
 		character.rotation.y = randf_range(0.0, TAU)
 		crowd.append(character)
 		looks.append(character.look)
@@ -198,18 +201,21 @@ func relocate(character: CharacterBuilder) -> void:
 			continue
 		if other.position.distance_to(pos) < min_spacing:
 			positions.erase(other.position)
-			other.position = _find_spot()
+			other.position = _find_spot(_costume_of(other), other)
 
 
-# finds a random spot at least min_spacing away from everyone else	
-func _find_spot() -> Vector3:
+func _find_spot(costume: String = "", mover: CharacterBuilder = null) -> Vector3:
 	var best := Vector3.ZERO
 	var best_dist := -1.0
 	for attempt in 300:
 		var pos := _random_point()
 		if _is_blocked(pos):
 			continue
-		
+
+		# keep the same costume apart. gives up after 200 tries so it can never get stuck
+		if costume != "" and attempt < 200 and _costume_too_close(pos, costume, mover):
+			continue
+
 		var nearest := INF
 		for other in positions:
 			nearest = minf(nearest, pos.distance_to(other))
@@ -276,3 +282,16 @@ func _process(delta: float) -> void:
 			_stagger.append(on_screen[i])
 		else:
 			on_screen[i].set_anim_mode(CharacterBuilder.AnimMode.FROZEN)
+
+
+func _costume_of(c: CharacterBuilder) -> String:
+	return str(c.look.get("costume_", ""))
+
+
+func _costume_too_close(pos: Vector3, costume: String, mover: CharacterBuilder) -> bool:
+	for other in crowd:
+		if other == mover:
+			continue
+		if _costume_of(other) == costume and other.position.distance_to(pos) < same_costume_spacing:
+			return true
+	return false

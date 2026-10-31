@@ -12,6 +12,7 @@ var difficulty: String = "normal"
 var level_index: int = 0 # starts at 0, so level 1 is 0
 var run_active: bool = false # false when you run the game scene straight from the editor
 var ravers_bounced: int = 0 # how many ravers the player has caught this run
+var last_clue1: String = "" # the first clue of the previous level, so it isn't repeated
 
 # how the last run ended: "cleared", "time", or "guesses". empty if the player quit to the Levels scene
 var end_reason: String = ""
