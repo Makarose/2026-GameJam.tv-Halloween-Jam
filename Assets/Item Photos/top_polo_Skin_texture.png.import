@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://py7dywxixf83"
-path="res://.godot/imported/top_polo_Skin_texture.png-0fc51b35b8e806cd769d35d8fd6804ab.ctex"
+path="res://.godot/imported/top_polo_skin_texture.png-00cffbc3f2fa0e1feec0c646a92c4844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_polo_Skin_texture.png"
-dest_files=["res://.godot/imported/top_polo_Skin_texture.png-0fc51b35b8e806cd769d35d8fd6804ab.ctex"]
+source_file="res://Assets/Item Photos/top_polo_skin_texture.png"
+dest_files=["res://.godot/imported/top_polo_skin_texture.png-00cffbc3f2fa0e1feec0c646a92c4844.ctex"]
 
 [params]
 

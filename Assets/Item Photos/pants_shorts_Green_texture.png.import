@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpm4llss8sdbn"
-path="res://.godot/imported/pants_shorts_Green_texture.png-a765f7c640ac453e144c5e0c8aaa7a67.ctex"
+path="res://.godot/imported/pants_shorts_green_texture.png-28ad31323ec05a7c3a24e12d606e7b6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/pants_shorts_Green_texture.png"
-dest_files=["res://.godot/imported/pants_shorts_Green_texture.png-a765f7c640ac453e144c5e0c8aaa7a67.ctex"]
+source_file="res://Assets/Item Photos/pants_shorts_green_texture.png"
+dest_files=["res://.godot/imported/pants_shorts_green_texture.png-28ad31323ec05a7c3a24e12d606e7b6f.ctex"]
 
 [params]
 

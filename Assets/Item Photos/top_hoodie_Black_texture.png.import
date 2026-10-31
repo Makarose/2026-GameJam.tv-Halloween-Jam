@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhe8vvomohot8"
-path="res://.godot/imported/top_hoodie_Black_texture.png-808b79faed5080f45d4bf50ed0315638.ctex"
+path="res://.godot/imported/top_hoodie_black_texture.png-c613e409df515a846d773cd41bae5cfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_hoodie_Black_texture.png"
-dest_files=["res://.godot/imported/top_hoodie_Black_texture.png-808b79faed5080f45d4bf50ed0315638.ctex"]
+source_file="res://Assets/Item Photos/top_hoodie_black_texture.png"
+dest_files=["res://.godot/imported/top_hoodie_black_texture.png-c613e409df515a846d773cd41bae5cfb.ctex"]
 
 [params]
 

@@ -74,7 +74,7 @@ var witch_busy: bool = false # true while the witch is talking
 @export var clue_icon_rects: Array[TextureRect]
 
 # folder with the clue pictures, change this to wherever yours are saved
-const CLUE_ICON_DIR := "res://assets/item photos/"
+const CLUE_ICON_DIR := "res://Assets/Item Photos/"
 
 # mesh name and color for each clue, same order as clues
 var clue_icons: Array[Dictionary] = []
@@ -326,13 +326,13 @@ func _icon_info_for(key: String) -> Dictionary:
 
 # the game's color word on the left, how your files spell it on the right
 # (anything not listed here just gets capitalized, so "green" becomes "Green")
-const COLOR_FILE_NAMES := {"blue": "LightBlue"}
+const COLOR_FILE_NAMES := {"blue": "lightblue"}
 
 
 func _get_clue_icon(mesh: String, color: String) -> Texture2D:
 	var paths: Array[String] = []
 	if color != "":
-		var color_name: String = COLOR_FILE_NAMES.get(color, color.capitalize())
+		var color_name: String = COLOR_FILE_NAMES.get(color, color).to_lower()
 		paths.append("%s%s_%s_texture.png" % [CLUE_ICON_DIR, mesh, color_name])
 	paths.append("%s%s.png" % [CLUE_ICON_DIR, mesh])
 	for path in paths:

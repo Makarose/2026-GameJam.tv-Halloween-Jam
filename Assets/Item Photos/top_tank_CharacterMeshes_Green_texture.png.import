@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be1fx46nls7ke"
-path="res://.godot/imported/top_tank_CharacterMeshes_Green_texture.png-ad0dc02c1026471ac24436f908db2a6d.ctex"
+path="res://.godot/imported/top_tank_charactermeshes_green_texture.png-b503fa37846fc3da8745b237ef24a6aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_tank_CharacterMeshes_Green_texture.png"
-dest_files=["res://.godot/imported/top_tank_CharacterMeshes_Green_texture.png-ad0dc02c1026471ac24436f908db2a6d.ctex"]
+source_file="res://Assets/Item Photos/top_tank_charactermeshes_green_texture.png"
+dest_files=["res://.godot/imported/top_tank_charactermeshes_green_texture.png-b503fa37846fc3da8745b237ef24a6aa.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0rojuromrevo"
-path="res://.godot/imported/top_vest_Brown_texture.png-c7e87899c300e12a8e36a8685666b388.ctex"
+path="res://.godot/imported/top_vest_brown_texture.png-cf7afb10da89672db7d7fc63a0be7746.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_vest_Brown_texture.png"
-dest_files=["res://.godot/imported/top_vest_Brown_texture.png-c7e87899c300e12a8e36a8685666b388.ctex"]
+source_file="res://Assets/Item Photos/top_vest_brown_texture.png"
+dest_files=["res://.godot/imported/top_vest_brown_texture.png-cf7afb10da89672db7d7fc63a0be7746.ctex"]
 
 [params]
 

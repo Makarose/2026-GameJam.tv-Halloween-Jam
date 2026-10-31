@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbrhf75tgnqbn"
-path="res://.godot/imported/top_vest_Orange_texture.png-e6bffa6c60962227154d39828d43c819.ctex"
+path="res://.godot/imported/top_vest_orange_texture.png-d9e158dadf3921dfe0ec99704c18b1a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_vest_Orange_texture.png"
-dest_files=["res://.godot/imported/top_vest_Orange_texture.png-e6bffa6c60962227154d39828d43c819.ctex"]
+source_file="res://Assets/Item Photos/top_vest_orange_texture.png"
+dest_files=["res://.godot/imported/top_vest_orange_texture.png-d9e158dadf3921dfe0ec99704c18b1a7.ctex"]
 
 [params]
 

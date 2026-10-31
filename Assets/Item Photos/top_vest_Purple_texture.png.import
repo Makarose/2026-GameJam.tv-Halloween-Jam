@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c753it581fvjv"
-path="res://.godot/imported/top_vest_Purple_texture.png-b04bc22f208cae7f3de5aca136e51d0f.ctex"
+path="res://.godot/imported/top_vest_purple_texture.png-1a1e0fac1c1151730ff833c6ac24874f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_vest_Purple_texture.png"
-dest_files=["res://.godot/imported/top_vest_Purple_texture.png-b04bc22f208cae7f3de5aca136e51d0f.ctex"]
+source_file="res://Assets/Item Photos/top_vest_purple_texture.png"
+dest_files=["res://.godot/imported/top_vest_purple_texture.png-1a1e0fac1c1151730ff833c6ac24874f.ctex"]
 
 [params]
 

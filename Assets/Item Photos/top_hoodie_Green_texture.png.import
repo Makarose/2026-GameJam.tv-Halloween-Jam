@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7i7g7syahxt5"
-path="res://.godot/imported/top_hoodie_Green_texture.png-33ca8ec3a5abaa1168d8e7d5e9e1b55f.ctex"
+path="res://.godot/imported/top_hoodie_green_texture.png-a1d5ca60340e8b61a838e08a0196bd12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_hoodie_Green_texture.png"
-dest_files=["res://.godot/imported/top_hoodie_Green_texture.png-33ca8ec3a5abaa1168d8e7d5e9e1b55f.ctex"]
+source_file="res://Assets/Item Photos/top_hoodie_green_texture.png"
+dest_files=["res://.godot/imported/top_hoodie_green_texture.png-a1d5ca60340e8b61a838e08a0196bd12.ctex"]
 
 [params]
 

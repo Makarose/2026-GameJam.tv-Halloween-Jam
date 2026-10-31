@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd3cmsv42qnh5"
-path="res://.godot/imported/top_vest_Skin_texture.png-ba763e9623d71e912e0af8033c4e5298.ctex"
+path="res://.godot/imported/top_vest_skin_texture.png-2d14c819185c1a16272c5d4e449625bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_vest_Skin_texture.png"
-dest_files=["res://.godot/imported/top_vest_Skin_texture.png-ba763e9623d71e912e0af8033c4e5298.ctex"]
+source_file="res://Assets/Item Photos/top_vest_skin_texture.png"
+dest_files=["res://.godot/imported/top_vest_skin_texture.png-2d14c819185c1a16272c5d4e449625bd.ctex"]
 
 [params]
 

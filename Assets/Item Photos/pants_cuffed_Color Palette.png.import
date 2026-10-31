@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mhy4c0u7xdvh"
-path="res://.godot/imported/pants_cuffed_Color Palette.png-5fc28751cbca2163c6507665b0b5b8ff.ctex"
+path="res://.godot/imported/pants_cuffed_color palette.png-10e394a185e156a09e207b99a171b629.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/pants_cuffed_Color Palette.png"
-dest_files=["res://.godot/imported/pants_cuffed_Color Palette.png-5fc28751cbca2163c6507665b0b5b8ff.ctex"]
+source_file="res://Assets/Item Photos/pants_cuffed_color palette.png"
+dest_files=["res://.godot/imported/pants_cuffed_color palette.png-10e394a185e156a09e207b99a171b629.ctex"]
 
 [params]
 

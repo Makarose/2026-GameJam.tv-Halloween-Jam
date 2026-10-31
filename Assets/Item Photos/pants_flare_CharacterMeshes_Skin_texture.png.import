@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2m2j1tq41va7"
-path="res://.godot/imported/pants_flare_CharacterMeshes_Skin_texture.png-b16ea4e87712a591c3eb25760d2a27db.ctex"
+path="res://.godot/imported/pants_flare_charactermeshes_skin_texture.png-80a4d31f7b2102f3d0f8679fb72a1d33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/pants_flare_CharacterMeshes_Skin_texture.png"
-dest_files=["res://.godot/imported/pants_flare_CharacterMeshes_Skin_texture.png-b16ea4e87712a591c3eb25760d2a27db.ctex"]
+source_file="res://Assets/Item Photos/pants_flare_charactermeshes_skin_texture.png"
+dest_files=["res://.godot/imported/pants_flare_charactermeshes_skin_texture.png-80a4d31f7b2102f3d0f8679fb72a1d33.ctex"]
 
 [params]
 

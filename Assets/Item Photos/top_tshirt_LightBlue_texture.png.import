@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cau5vgraqeh2d"
-path="res://.godot/imported/top_tshirt_LightBlue_texture.png-4454931d685a5213ef0a98b640d5e29e.ctex"
+path="res://.godot/imported/top_tshirt_lightblue_texture.png-f91ceb3a15b8a8e9eff875a56a252011.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_tshirt_LightBlue_texture.png"
-dest_files=["res://.godot/imported/top_tshirt_LightBlue_texture.png-4454931d685a5213ef0a98b640d5e29e.ctex"]
+source_file="res://Assets/Item Photos/top_tshirt_lightblue_texture.png"
+dest_files=["res://.godot/imported/top_tshirt_lightblue_texture.png-f91ceb3a15b8a8e9eff875a56a252011.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3n0mqvrwxegh"
-path="res://.godot/imported/pants_joggers_CharacterMeshes_Red_texture.png-56a54e440528b3048010e51c2b8d2b6b.ctex"
+path="res://.godot/imported/pants_joggers_charactermeshes_red_texture.png-a03d24571dd93e70cdf08b1f07d3e814.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/pants_joggers_CharacterMeshes_Red_texture.png"
-dest_files=["res://.godot/imported/pants_joggers_CharacterMeshes_Red_texture.png-56a54e440528b3048010e51c2b8d2b6b.ctex"]
+source_file="res://Assets/Item Photos/pants_joggers_charactermeshes_red_texture.png"
+dest_files=["res://.godot/imported/pants_joggers_charactermeshes_red_texture.png-a03d24571dd93e70cdf08b1f07d3e814.ctex"]
 
 [params]
 

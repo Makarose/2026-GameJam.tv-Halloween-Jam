@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2ltux5lp1ijy"
-path="res://.godot/imported/top_vest_Animations_LightBlue_texture.png-92b9f7057986d6774cdba68b73b1e75a.ctex"
+path="res://.godot/imported/top_vest_animations_lightblue_texture.png-58e6185112c6b6c868e7b151d80fdcf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_vest_Animations_LightBlue_texture.png"
-dest_files=["res://.godot/imported/top_vest_Animations_LightBlue_texture.png-92b9f7057986d6774cdba68b73b1e75a.ctex"]
+source_file="res://Assets/Item Photos/top_vest_animations_lightblue_texture.png"
+dest_files=["res://.godot/imported/top_vest_animations_lightblue_texture.png-58e6185112c6b6c868e7b151d80fdcf7.ctex"]
 
 [params]
 

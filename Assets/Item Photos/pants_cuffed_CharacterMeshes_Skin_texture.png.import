@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bstiltnbbcho2"
-path="res://.godot/imported/pants_cuffed_CharacterMeshes_Skin_texture.png-5d35a577b3f68369173b47f6d77b090f.ctex"
+path="res://.godot/imported/pants_cuffed_charactermeshes_skin_texture.png-650bd18a0d3cd9fffc552146b4de0e19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/pants_cuffed_CharacterMeshes_Skin_texture.png"
-dest_files=["res://.godot/imported/pants_cuffed_CharacterMeshes_Skin_texture.png-5d35a577b3f68369173b47f6d77b090f.ctex"]
+source_file="res://Assets/Item Photos/pants_cuffed_charactermeshes_skin_texture.png"
+dest_files=["res://.godot/imported/pants_cuffed_charactermeshes_skin_texture.png-650bd18a0d3cd9fffc552146b4de0e19.ctex"]
 
 [params]
 

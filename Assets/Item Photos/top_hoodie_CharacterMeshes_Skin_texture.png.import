@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c10x5d2x5elmx"
-path="res://.godot/imported/top_hoodie_CharacterMeshes_Skin_texture.png-1afbdb7aa1dee0371d512c99c92d6c7c.ctex"
+path="res://.godot/imported/top_hoodie_charactermeshes_skin_texture.png-abcdf0735df79cb8bd516009c85c5ed2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_hoodie_CharacterMeshes_Skin_texture.png"
-dest_files=["res://.godot/imported/top_hoodie_CharacterMeshes_Skin_texture.png-1afbdb7aa1dee0371d512c99c92d6c7c.ctex"]
+source_file="res://Assets/Item Photos/top_hoodie_charactermeshes_skin_texture.png"
+dest_files=["res://.godot/imported/top_hoodie_charactermeshes_skin_texture.png-abcdf0735df79cb8bd516009c85c5ed2.ctex"]
 
 [params]
 

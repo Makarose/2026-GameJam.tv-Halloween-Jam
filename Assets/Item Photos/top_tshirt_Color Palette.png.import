@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0ppgoo5vur3n"
-path="res://.godot/imported/top_tshirt_Color Palette.png-1c85bff882e7704e999aebcaf8b9bb80.ctex"
+path="res://.godot/imported/top_tshirt_color palette.png-f89e7ce2ba1f0491300250477c9bc663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_tshirt_Color Palette.png"
-dest_files=["res://.godot/imported/top_tshirt_Color Palette.png-1c85bff882e7704e999aebcaf8b9bb80.ctex"]
+source_file="res://Assets/Item Photos/top_tshirt_color palette.png"
+dest_files=["res://.godot/imported/top_tshirt_color palette.png-f89e7ce2ba1f0491300250477c9bc663.ctex"]
 
 [params]
 

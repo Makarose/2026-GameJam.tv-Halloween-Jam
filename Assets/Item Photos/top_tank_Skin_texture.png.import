@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccvh3jsd56hs3"
-path="res://.godot/imported/top_tank_Skin_texture.png-2b03cfffd0b18c65d18eb8cc90fe0d02.ctex"
+path="res://.godot/imported/top_tank_skin_texture.png-a161e5cc6c80721804455ae5789bcbc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_tank_Skin_texture.png"
-dest_files=["res://.godot/imported/top_tank_Skin_texture.png-2b03cfffd0b18c65d18eb8cc90fe0d02.ctex"]
+source_file="res://Assets/Item Photos/top_tank_skin_texture.png"
+dest_files=["res://.godot/imported/top_tank_skin_texture.png-a161e5cc6c80721804455ae5789bcbc0.ctex"]
 
 [params]
 

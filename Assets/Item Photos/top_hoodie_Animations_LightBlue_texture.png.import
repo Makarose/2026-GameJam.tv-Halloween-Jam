@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqie6ygw2d7fs"
-path="res://.godot/imported/top_hoodie_Animations_LightBlue_texture.png-e50b15110d2ebdc53e0518642e5e992c.ctex"
+path="res://.godot/imported/top_hoodie_animations_lightblue_texture.png-0b51bd0b6f03b29f65757336b8f79e2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item Photos/top_hoodie_Animations_LightBlue_texture.png"
-dest_files=["res://.godot/imported/top_hoodie_Animations_LightBlue_texture.png-e50b15110d2ebdc53e0518642e5e992c.ctex"]
+source_file="res://Assets/Item Photos/top_hoodie_animations_lightblue_texture.png"
+dest_files=["res://.godot/imported/top_hoodie_animations_lightblue_texture.png-0b51bd0b6f03b29f65757336b8f79e2c.ctex"]
 
 [params]
 
