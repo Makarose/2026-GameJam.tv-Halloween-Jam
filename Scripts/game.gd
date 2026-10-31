@@ -8,6 +8,13 @@ const MAX_TRIES := 60
 const RELAX_PAIR_AFTER := 20 # after this many tries, clue 2 is allowed to leave only the guest
 const RELAX_RANGE_AFTER := 40 # after this many tries, clue 1 can match anywhere from 1 to 40 people
 
+# the top right message for each difficulty
+const PARTY_LINES := {
+	"easy": "The party's begun!",
+	"normal": "The party's in full swing!",
+	"hard": "The party's jumping!",
+}
+
 var uninvited_guest: CharacterBuilder
 var clues: Array[String] = []
 var num_guesses: int = 0
@@ -99,7 +106,7 @@ func _ready() -> void:
 		level_duration = cfg.time_limit
 		allowed_keys = cfg.allowed_keys
 		decoys = cfg.decoys
-		level_label.text = "%s: Level %d of %d" % [cfg.difficulty.capitalize(), cfg.level_number, cfg.total_levels]
+		level_label.text = PARTY_LINES.get(cfg.difficulty, "")
 
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
 
