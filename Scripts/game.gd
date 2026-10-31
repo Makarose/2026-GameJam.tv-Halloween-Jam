@@ -15,6 +15,15 @@ const PARTY_LINES := {
 	"hard": "The party's jumping!",
 }
 
+# what the witch says before the first clue on level 1 of normal and hard.
+# easy has none because her intro covers it
+const TIER_INTROS := {
+	"normal": "The party's in full swing! More guests have arrived and the clues are getting trickier to spot.",
+	"hard": "The party's jumping! The place is packed and some guests are dressed a lot alike.",
+}
+
+var pending_intro: String = ""
+
 var uninvited_guest: CharacterBuilder
 var clues: Array[String] = []
 var num_guesses: int = 0
@@ -107,6 +116,8 @@ func _ready() -> void:
 		allowed_keys = cfg.allowed_keys
 		decoys = cfg.decoys
 		level_label.text = PARTY_LINES.get(cfg.difficulty, "")
+		if cfg.level_number == 1 and TIER_INTROS.has(cfg.difficulty):
+			pending_intro = TIER_INTROS[cfg.difficulty]
 
 	player.ray_cast_3d.guess_submitted.connect(_on_guess_submitted)
 
@@ -596,7 +607,9 @@ func _say_clue(text: String, delay: float = 0.0, on_reveal: Callable = Callable(
 	if delay > 0.0:
 		await get_tree().create_timer(delay).timeout
 
-	await witch.give_clue(text)
+	var intro := pending_intro
+	pending_intro = ""
+	await witch.give_clue(text, intro)
 
 	if on_reveal.is_valid():
 		on_reveal.call()

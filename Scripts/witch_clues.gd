@@ -14,6 +14,8 @@ var pop_in_duration: float = 0.4
 var pop_out_duration: float = 0.25
 var text_pause_duration: float = 5.0
 
+var skip_locked: bool = false # true while a line must be read
+
 var text_tween: Tween
 
 @onready var text_box: Control = $Control/TextBox
@@ -31,6 +33,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if skip_locked:
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if not pause_timer.is_stopped():
 			pause_timer.stop()
@@ -54,12 +58,25 @@ var clue_openers: Array[String] = [
 ]
 
 
-# pops up, says one clue, and pops back out. game.gd waits for this to finish
-func give_clue(clue_text: String) -> void:
+func give_clue(clue_text: String, intro_line: String = "") -> void:
 	visible = true
 	pause_timer.wait_time = clue_pause_duration
 	pop_in()
 	await get_tree().create_timer(0.5).timeout
+
+	# optional tier announcement, same pop in, no clue opener
+	if intro_line != "":
+		var words := intro_line.split(" ").size()
+		skip_locked = true
+		pause_timer.wait_time = maxf(6.0, words * 0.4) # auto moves on if nobody presses a key
+		print_text(intro_line)
+		await text_printed
+		# keys stay locked for a short read time after the typing finishes
+		await get_tree().create_timer(maxf(2.5, words * 0.15)).timeout
+		skip_locked = false
+		await pause_timer.timeout # now any key press skips ahead
+		pause_timer.stop()
+		pause_timer.wait_time = clue_pause_duration
 
 	print_text(clue_openers.pick_random() + " " + clue_text)
 	await text_printed
